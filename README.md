@@ -12,7 +12,7 @@ Table of Contents
   * [Link to Documentation](#Link-to-Documentation)
   * [Link to Webserver](#Link-to-Webserver)
   * [Other Readme resources](#Other-Readme-resources)
-  * [Decision Log](#Link-to-Documentation)
+  * [Decision Log](https://github.com/users/XZSCOAX57/projects/1)
   * [Milestones](#Milestones)
   * [Reflection Log](#Link-to-Documentation)
   * [Risk Log](https://docs.google.com/document/d/19IOad0_Ua6MBCcvc2Y1iHC4XGMy_Vs_O/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)

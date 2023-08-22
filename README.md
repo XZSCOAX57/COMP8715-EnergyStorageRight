@@ -6,14 +6,18 @@ Table of Contents
   * [Main features](#Main-features)
   * [Deliverables](#Deliverables)
   * [Desired Features](#Desired-Features)
-  * [Milestones](#Milestones)
   * [The potential of the project](#The-potential-of-the_project)
   * [Acknowledgement](#Acknowledgement)
   * [Work allocation](#work-allocation)
   * [Link to Documentation](#Link-to-Documentation)
   * [Link to Webserver](#Link-to-Webserver)
   * [Other Readme resources](#Other-Readme-resources)
-   
+  ## Project Management
+  * [Decision Log](https://github.com/users/XZSCOAX57/projects/1)
+  * [Milestones](#Milestones)
+  * [Reflection Log](https://github.com/users/XZSCOAX57/projects/2)
+  * [Risk Log](https://docs.google.com/document/d/19IOad0_Ua6MBCcvc2Y1iHC4XGMy_Vs_O/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
+  * [Stakeholder](https://docs.google.com/document/d/1YDbaIrAVe7zR38DHSNd55uN4sTgGQPE0/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
 
 
 

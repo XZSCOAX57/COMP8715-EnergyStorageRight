@@ -15,8 +15,8 @@ Table of Contents
   * [Decision Log](#Link-to-Documentation)
   * [Milestones](#Milestones)
   * [Reflection Log](#Link-to-Documentation)
-  * [Risk Log](#https://docs.google.com/document/d/19IOad0_Ua6MBCcvc2Y1iHC4XGMy_Vs_O/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
-  * [Stakeholder](#https://docs.google.com/document/d/1YDbaIrAVe7zR38DHSNd55uN4sTgGQPE0/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
+  * [Risk Log](https://docs.google.com/document/d/19IOad0_Ua6MBCcvc2Y1iHC4XGMy_Vs_O/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
+  * [Stakeholder](https://docs.google.com/document/d/1YDbaIrAVe7zR38DHSNd55uN4sTgGQPE0/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
 
 
 

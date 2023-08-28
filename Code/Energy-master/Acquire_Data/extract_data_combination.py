@@ -15,7 +15,7 @@ def get_solar(geocode_list):
     # STEP 1: Build the url
     BASE_URL = 'https://api.globalsolaratlas.info/data/lta?loc='
     TOTAL_URL = BASE_URL + str(geocode_list[1]) + ',' + str(geocode_list[0])
-
+    print(TOTAL_URL)
     # STEP 2: request the content; Get the json data
     response = requests.get(TOTAL_URL)
     content = response.content

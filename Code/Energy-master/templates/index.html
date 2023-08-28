@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
+<html lang="en"><head>
     <title>ENERGY STORAGE RIGHTS</title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
-    <link href='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.min.css' rel='stylesheet'>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet'/>
+    <link href="https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.min.css" rel="stylesheet">
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css" rel="stylesheet">
 
     <link rel="import" href="https://fonts.googleapis.com/css?family=Raleway:400,800,200">
     <!-- edit to old version -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/MapView.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/widgets/Search.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/VectorTileLayer.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/GraphicsLayer.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/TileLayer.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/WMSLayer.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/BaseDynamicLayer.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/widgets/Legend.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/ogc/crsUtils.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/support/ExportWMSImageParameters.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/support/WMSSublayer.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/layers/support/wmsUtils.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/webglDeps.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/mapViewDeps.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/identity/IdentityManager.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/layers/GraphicsLayerView2D.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/layers/WMSLayerView2D.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/layers/TileLayerView2D.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/layers/LayerView2D.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/layers/support/ExportStrategy.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/layers/RefreshableLayerView.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/layers/WMSLayerView.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/views/2d/viewStateUtils.js"></script><script type="text/javascript" charset="utf-8" src="https://js.arcgis.com/4.23/esri/chunks/libtess.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -26,7 +24,7 @@
             top: 70px;
             left: 80px;
             height: 64px;
-            width: 150px;
+            width: 117px;
             position: fixed;
         }
 
@@ -75,7 +73,7 @@
 
         .info .tooltiptext {
             top: 45px;
-            left: 30px;
+            left: -10px;
             visibility: hidden;
             width: 120px;
             background-color: black;
@@ -98,7 +96,7 @@
 
         .warning .tooltiptext {
             top: 45px;
-            left: -10px;
+            left: 30px;
             visibility: hidden;
             width: 120px;
             background-color: black;
@@ -118,9 +116,7 @@
         .box {
             position: absolute;
             left: 0px;
-            height: 60%;
-            /*{#top: 40px;#}*/
-            bottom: 0px;
+            top: 40px;
         }
 
         /*original box setting:*/
@@ -133,9 +129,8 @@
         .box select {
             background-color: #0563af;
             color: white;
-            padding: 12px 8px 12px 16px;
-            width: 100%;
-            height: 100%;
+            padding: 12px;
+            width: 250px;
             border: none;
             font-size: 20px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
@@ -144,21 +139,21 @@
             outline: none;
         }
 
-        /*{#.box::before {#}*/
-        /*{#    content: ">";#}*/
-        /*{#    font-family: cursive;#}*/
-        /*{#    position: absolute;#}*/
-        /*{#    top: 0;#}*/
-        /*{#    right: 0;#}*/
-        /*{#    width: 20%;#}*/
-        /*{#    height: 100%;#}*/
-        /*{#    text-align: center;#}*/
-        /*{#    font-size: 28px;#}*/
-        /*{#    line-height: 45px;#}*/
-        /*{#    color: rgba(255, 255, 255, 0.5);#}*/
-        /*{#    background-color: rgba(255, 255, 255, 0.1);#}*/
-        /*{#    pointer-events: none;#}*/
-        /*{#}#}*/
+        .box::before {
+            content: ">";
+            font-family: cursive;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20%;
+            height: 100%;
+            text-align: center;
+            font-size: 28px;
+            line-height: 45px;
+            color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
 
         .box:hover::before {
             color: rgba(255, 255, 255, 0.6);
@@ -256,7 +251,7 @@
 
         .botnav {
             font-family: "Lato", sans-serif;
-            height: 10.5%;
+            height: 11%;
             width: 12vw;
             position: fixed;
             z-index: 1;
@@ -310,20 +305,6 @@
 
         table, td, th {
             border: 1px solid black;
-        }
-        .refreshBtn {
-            text-align: center;
-            background-color: DodgerBlue;
-            border: none;
-            color: white;
-            padding: 12px 30px;
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-        /* Darker background on mouse-over */
-        .refreshBtn:hover {
-            background-color: RoyalBlue;
         }
 
         .sbutton {
@@ -450,14 +431,14 @@
 
 
     </style>
-    
+
 
     <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.23/"></script>
 
     <!-- <script src="https://js.arcgis.com/4.9/"></script>
     <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css"> -->
-<!-- 
+<!--
 Debug phase _> change back to working versionn -->
     <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
     <script src="https://js.arcgis.com/4.16/"></script> -->
@@ -469,7 +450,7 @@ Debug phase _> change back to working versionn -->
         polygonlist = [];
         var lastpoint;
         // window.myChart;
-       
+
         require([
             "esri/Map",
             "esri/views/MapView",
@@ -496,7 +477,7 @@ Debug phase _> change back to working versionn -->
             "esri/widgets/Legend"
         ], function (Map, MapView, Search, VectorTileLayer, GraphicsLayer, FeatureLayer, TileLayer, WMSLayer,
                      Graphic, Point, SimpleMarkerSymbol, Polyline, SimpleLineSymbol, Polygon, SimpleFillSymbol, Legend, BaseDynamicLayer) {
-                        
+
             //function (Map, MapView, Search, VectorTileLayer, GraphicsLayer, FeatureLayer, TileLayer, WMSLayer,
             //Graphic, Point, SimpleMarkerSymbol, Polyline, SimpleLineSymbol, Polygon, SimpleFillSymbol, Legend, BaseDynamicLayer)
             transfer_data = [];
@@ -577,7 +558,7 @@ Debug phase _> change back to working versionn -->
             solar_layer.visible = false;
 
             // water_layer
-            //  was 2 ,new 1 
+            //  was 2 ,new 1
             water_layer = new WMSLayer({
                 url: "https://services.ga.gov.au/gis/services/UpperBurdekinClassifiedTasselledCapWetnessPercentageExceedance/MapServer/WMSServer"
                 //url: "https://storage.googleapis.com/global-surface-water/downloads_ancillary/WMTS_Global_Surface_Water.xml"
@@ -716,31 +697,6 @@ Debug phase _> change back to working versionn -->
                     // document.getElementById("area_a").value = area_value;
                     // }
                     showPopup_polygon(get_polygon_centroid(polygonlist));//null
-                }
-                else{
-                    if (show_mode == 3){
-                        drawpolygon();
-                        if (num_polygon == 1){
-                            drawpolygon1(storagepolygonlist)
-                        }
-                        storagepolygonlist.push(polygonlist)
-                        drawselection = 0;
-                        num_polygon += 1;
-                        polygonlist=[]
-                        if (storagepolygonlist.length == 2){
-                            drawheadline(get_polygon_centroid(storagepolygonlist[0]), get_polygon_centroid(storagepolygonlist[1]))
-                            fetch("http://127.0.0.1:5001/get_head_separation?lats=["+get_polygon_centroid(storagepolygonlist[0])[1]+","+get_polygon_centroid(storagepolygonlist[1])[1]+"]&lons=["+get_polygon_centroid(storagepolygonlist[0])[0]+","+get_polygon_centroid(storagepolygonlist[1])[0]+"]", {
-                                method: 'GET'
-                            }).then(function (response) {
-                                return response.json();
-                            }).then(function (result) {
-                                head_of_storage = result["data"]["head"]
-                                separation_of_storage = result["data"]["separation"]
-                                toStorageMode();
-                            })
-
-                        }
-                        lastpoint = null;
                 }
             });
 
@@ -1135,7 +1091,7 @@ Debug phase _> change back to working versionn -->
                     power_d = parseFloat(text.substring(n1 + 15, n2 - 1));
                     speed_w = parseFloat(text.substring(n2 + 12, n3 - 1));
                     pvout = parseFloat(text.substring(n3 + 11, n4 - 1));
-                    
+
                     dni = parseFloat(text.substring(n4 + 5, n5 - 1));
                     localStorage.setItem("itsdni",dni);
                     ghi = parseFloat(text.substring(n5 + 5, n6 - 1));
@@ -1171,7 +1127,7 @@ Debug phase _> change back to working versionn -->
                     // alert("1");
                     view.popup.open({
                         // title: "Latitude: " + "<div style='background-color:DarkGray;color:white'>"+Math.round(calculationpoint[1] * 100000) / 100000 +".</div>"+ ", Longitude" + "<div style='background-color:DarkGray;color:white'>"+Math.round(calculationpoint[0] * 100000) / 100000+".</div>",
-                       
+
                         content: "Area: " + area_value.toLocaleString()  + " m²<br><br><br>" + "Latitude: " + Math.round(calculationpoint[1] * 100) / 100 + ", Longitude: " + Math.round(calculationpoint[0] * 100) / 100 + "<br><br><br>Country: " + country + "<br><br><br>Distance to nearest grid: " + grid_distance,
 
                         // location: "<div style='color:black'>"+calculationpoint+".</div>",
@@ -1233,33 +1189,33 @@ Debug phase _> change back to working versionn -->
     </style>
 </head>
 
-<body onmousedown="showCoords(event)">
+<body onmousedown="showCoords(event)" style="zoom: 1;">
 
 <div class="outer">
     <!-- Top navigator -->
 
     <div class="topnav" style="padding: 2px 0px;">
         <ul>
-            <li><a class="active" href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('faq') }}">FAQ</a></li>
-            <li><a href="{{ url_for('openSolar') }}">OpenSolar.com</a></li>
-            <!--            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>-->
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="/tutorial">Tutorial</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/opensolar">OpenSolar.com</a></li>
+            <!--            <li><a href="/tutorial">Tutorial</a></li>-->
         </ul>
     </div>
 
     <!-- Select area zone -->
-    <div id="viewDiv" onclick="drawPanel()"></div>
+    <div id="viewDiv" onclick="drawPanel()" class="esri-view esri-view-height-small esri-view-height-greater-than-xsmall esri-view-height-less-than-medium esri-view-height-less-than-large esri-view-height-less-than-xlarge esri-view-orientation-landscape esri-view-width-medium esri-view-width-greater-than-xsmall esri-view-width-greater-than-small esri-view-width-less-than-large esri-view-width-less-than-xlarge"><div class="esri-view-root"><div class="esri-view-surface esri-view-surface--inset-outline esri-view-surface--touch-none" role="application" tabindex="0" data-interacting="false"><canvas style="width: 907px; height: 745px; display: block;" width="1814" height="1490"></canvas></div><div class="esri-overlay-surface"><div style="visibility: hidden;"></div></div><div class="esri-ui calcite-theme-light" style="inset: 0px;"><div class="esri-ui-inner-container esri-ui-corner-container" style="inset: 15px 15px 30px;"><div class="esri-ui-top-left esri-ui-corner"><div class="esri-component esri-zoom esri-widget"><div class="esri-widget--button esri-widget esri-interactive" role="button" tabindex="0" title="Zoom in"><span aria-hidden="true" role="presentation" class="esri-icon esri-icon-plus"></span><span class="esri-icon-font-fallback-text">Zoom in</span></div><div class="esri-widget--button esri-widget esri-disabled" role="button" tabindex="-1" title="Zoom out"><span aria-hidden="true" role="presentation" class="esri-icon esri-icon-minus"></span><span class="esri-icon-font-fallback-text">Zoom out</span></div></div><div class="esri-component esri-search esri-widget"><div tabindex="-1" class="esri-search__container"><div class="esri-search__input-container"><form class="esri-search__form" role="search"><input type="text" aria-autocomplete="list" aria-expanded="false" aria-controls="18a3a88b4d2-widget-3-suggest-menu" aria-haspopup="listbox" aria-label="Search" placeholder="Find address or place" autocomplete="off" class="esri-input esri-search__input" id="18a3a88b4d2-widget-3-input" role="combobox" data-node-ref="_inputNode" title="Find address or place"></form><div id="18a3a88b4d2-widget-3-suggest-menu" class="esri-menu esri-search__suggestions-menu" role="listbox" aria-labelledby="18a3a88b4d2-widget-3-input" data-node-ref="_suggestionListNode"><ul role="group" class="esri-menu__list esri-search__suggestions-list esri-search__suggestions-list--current-location"><li id="18a3a88b4d2-widget-3-suggestion-item-0" aria-selected="false" role="option" class="esri-menu__list-item"><span aria-hidden="true" class="esri-icon-locate-circled"></span> Use current location</li></ul></div></div><button aria-label="Search" class="esri-search__submit-button esri-widget--button" title="Search" type="button"><span aria-hidden="true" class="esri-icon-search"></span></button><div class="esri-menu esri-search__warning-menu"><div class="esri-search__warning-body"><div><span aria-hidden="true" class="esri-icon-notice-triangle"></span><span class="esri-search__no-value-text">Please enter a search term.</span></div></div></div></div></div></div><div class="esri-ui-top-right esri-ui-corner"></div><div class="esri-ui-bottom-left esri-ui-corner"></div><div class="esri-ui-bottom-right esri-ui-corner"><div id="coordsWidget" class="esri-widget esri-component" style="padding: 7px 15px 5px;"></div></div></div><div class="esri-ui-inner-container esri-ui-manual-container"><div class="esri-component esri-attribution esri-widget"><div class="esri-attribution__sources esri-interactive" tabindex="0" role="button">Earthstar Geographics</div><div class="esri-attribution__powered-by">Powered by <a class="esri-attribution__link" href="http://www.esri.com/" target="_blank" rel="noreferrer">Esri</a></div></div><div class="esri-component" style="display: none;"></div><div class="esri-component" style="display: none;"></div></div></div></div><div class="esri-view-user-storage"></div></div>
 </div>
 
 <div class="selectDraw">
-    <h1 style="margin-left:-3px;background-color:#ffffff;width:130px;text-align: center"><b>Select Area</b></h1>
-    <button id="point" class="btn success" onclick="changetopoint()">&#8226<span class="tooltiptext">Single Point<br>Data Select</span></button>
-    <button id = "polygon" class="btn info" onclick="changetopolygon()">&#9826;<span class="tooltiptext">Polygon Regional Data Select (double click to finish)</span>
+    <h1 style="margin-left:-3px;background-color:#ffffff;width:108px;text-align: center"><b>Select Area</b></h1>
+    <button class="btn success" onclick="changetopoint()">•<span class="tooltiptext">Single Point<br>Data Select</span></button>
+    <button class="btn info" onclick="changetopolygon()">♢<span class="tooltiptext">Polygon Regional Data Select (double click to finish)</span>
     </button>
-    <button class="btn warning" onclick="changetonan()">&#10008<span class="tooltiptext">Remove Selection</span>
+    <button class="btn warning" onclick="changetonan()">✘<span class="tooltiptext">Remove Selection</span>
     </button>
 </div>
 
@@ -1273,31 +1229,28 @@ Debug phase _> change back to working versionn -->
       top: -40px;
       border-radius:10px;
       background-color:rgba(0, 0, 0, 0.9);
-      padding: 10px;" onclick="openNav()">&#9776; reopen
+      padding: 10px;" onclick="openNav()">☰ reopen
 </span>
 
-<div id="popUpForPlacingPanel" class="popUp"
-     style="display:none;background:white;height:400px;width:250px;border-radius: 7px;
+<div id="popUpForPlacingPanel" class="popUp" style="display:none;background:white;height:400px;width:250px;border-radius: 7px;
      border-style:solid; border-color:#0084CC;
-     margin-left:20px; position:fixed;top: 250px;z-index: 1;">
+     margin-left:20px; position:fixed;top: 200px;z-index: 1;">
 
 
     <div style=" overflow:hidden; padding:5px; text-align:center">
         <script>
             function jump_panel() {
-                // location.href="{{ url_for('panelBoard') }}";
+                // location.href="/panelboard";
                 // window.localStorage.setItem('list',polygonlist.toString());
                 document.cookie = polygonlist.toString();
             }
 
         </script>
 
-        <a href="{{ url_for('panelBoard') }}" target="_blank">
+        <a href="/panelboard" target="_blank">
 
-            <button type="button" id=""
-                    style="margin-top:30px; padding:20px;font-size:16px;font-weight:bold; border-radius:5px; border-style:none;
-                background:rgb(125, 186, 214);outline:none; "
-                    value="" onclick="jump_panel()">
+            <button type="button" id="" style="margin-top:30px; padding:20px;font-size:16px;font-weight:bold; border-radius:5px; border-style:none;
+                background:rgb(125, 186, 214);outline:none; " value="" onclick="jump_panel()">
                 <p title="Jump to Panel Control Board" style="font-weight:10;font-size:16px">
                     Panel Control Board</p>
             </button>
@@ -1475,13 +1428,11 @@ Debug phase _> change back to working versionn -->
 
 <div id="mySidenavbottom" class="botnav">
     <!--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
-    <h1 style="font-size:14px;  font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"><a href=#
-                                                                                                       style="font-size:14px; margin-left: -20px; margin-top: -8px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"
-                                                                                                       title="You can choose different styles of maps according to your preferences, which will not affect the evaluation of the investment.">
+    <h1 style="font-size:14px;  font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"><a href="#" style="font-size:14px; margin-left: -20px; margin-top: -8px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;" title="You can choose different styles of maps according to your preferences, which will not affect the evaluation of the investment.">
         Change Base Map</a></h1>
     <br>
     <div class="box">
-        <select id="select_map" onclick="change_base_map()" style="font-size:16px; text-align: center">
+        <select id="select_map" onclick="change_base_map()" style="font-size:16px;">
             <option value="topo-vector">Topographic Map</option>
             <option value="satellite">World Imagery map</option>
             <option value="streets"> World Street Map</option>
@@ -1492,7 +1443,7 @@ Debug phase _> change back to working versionn -->
 
 <!-- side bar [top right button for changing map] -->
 <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <!--    <h1 style="font-size:20px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"><a href=#-->
     <!--                                                                                                      style="font-size:25px; margin-left: -20px; margin-top: -8px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"-->
     <!--                                                                                                      title="You can choose different styles of maps according to your preferences, which will not affect the evaluation of the investment.">-->
@@ -1512,19 +1463,15 @@ Debug phase _> change back to working versionn -->
     <!--Fix rgb to rgba in h3 color part-->
     <div style="color:rgb(255, 255, 255);background-color:rgba(11, 158, 238, 0.596);">
         <form action="" method="get" style="padding:10px; font-size:15px;">
-            <h3 title="You can choose different layers. More information about these layers can be found in FAQ"
-                style="font-size:20px; font-weight: bolder; color: rgba(255, 255, 255); text-align: center;">Change
+            <h3 title="You can choose different layers. More information about these layers can be found in FAQ" style="font-size:20px; font-weight: bolder; color: rgba(255, 255, 255); text-align: center;">Change
                 Layer</h3>
             <div style="display: inline">
-                <label title="Solar layer only covers Australia. You can tick it to help you select area. &#10The darker the color, the more abundant the solar energy."
-                       onclick="change_to_solar()"><input style="margin:13px;" name="e" type="checkbox"
-                                                          id="solar_button" value=""/>Solar </label>
-                <label title="Wind layer only covers Australia. You can tick it to help you select area. &#10The darker the color, the more abundant the wind energy."
-                       onclick="change_to_wind()"><input style="margin:13px;" name="e" type="checkbox" id="wind_button"
-                                                         value=""/>Wind </label>
-                <label title="Hydro layer covers the whole world. You can tick it to help you select area.&#10 Only area with points can show storage data."
-                       onclick="change_to_hydro()"><input style="margin:14px;" name="e" type="checkbox"
-                                                          id="hydro_button" value=""/>Hydro</label> <br/>
+                <label title="Solar layer only covers Australia. You can tick it to help you select area.
+The darker the color, the more abundant the solar energy." onclick="change_to_solar()"><input style="margin:13px;" name="e" type="checkbox" id="solar_button" value="">Solar </label>
+                <label title="Wind layer only covers Australia. You can tick it to help you select area.
+The darker the color, the more abundant the wind energy." onclick="change_to_wind()"><input style="margin:13px;" name="e" type="checkbox" id="wind_button" value="">Wind </label>
+                <label title="Hydro layer covers the whole world. You can tick it to help you select area.
+ Only area with points can show storage data." onclick="change_to_hydro()"><input style="margin:14px;" name="e" type="checkbox" id="hydro_button" value="">Hydro</label> <br>
 
             </div>
         </form>
@@ -1533,18 +1480,17 @@ Debug phase _> change back to working versionn -->
     <div class="option" style=" background-color:rgba(201, 225, 238); height:110px; margin-top:0px; margin-bottom:0px;
           width:325px; padding-left:0px; padding-right:30px; text-align: center ;">
 
-        <!--{# sub-button#}-->
+        <!---->
         <div class="sbutton">
             <ul>
                 <li>
-                    <a title="The data of solar energy in your selected area. &#10This tab will return the ROI and IRR for combination of Solar + Storage."
-                       class="active" tag="#solar" onclick="toSolarMode()" id="solar_m"> Solar</a></li>
+                    <a title="The data of solar energy in your selected area.
+This tab will return the ROI and IRR for combination of Solar + Storage." class="active" tag="#solar" onclick="toSolarMode()" id="solar_m"> Solar</a></li>
                 <li>
-                    <a title="The data of wind energy in your selected area. &#10This tab will return the ROI and IRR for combination of Wind + Storage."
-                       class="active" tag="#wind" onclick="toWindMode()" id="wind_m">Wind</a></li>
+                    <a title="The data of wind energy in your selected area.
+This tab will return the ROI and IRR for combination of Wind + Storage." class="active" tag="#wind" onclick="toWindMode()" id="wind_m">Wind</a></li>
                 <div class="dropdown">
-                    <li><a title="The data of storage, which contains hydro info and battery info."
-                           class="active dropbtn" tag="#storage" id="storage_m">Storage</a>
+                    <li><a title="The data of storage, which contains hydro info and battery info." class="active dropbtn" tag="#storage" id="storage_m">Storage</a>
                     </li>
                     <div class="dropdown-content">
                         <a tag="#storage" onclick="toStorageMode()" id="hydro_m">Hydro</a>
@@ -1557,18 +1503,16 @@ Debug phase _> change back to working versionn -->
 
     <!-- SideBar information -->
     <div id="SideBar_info">
+
         <div id="loader-container" style="display: none;">
             <p id="loadingText">Loading</p>
         </div>
 
-        <p id="Data_for_10%_windiest_areas"
-           style="background:#ffffff; font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px">
+        <p id="Data_for_10%_windiest_areas" style="background:#ffffff; font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px">
             Data for 10% windiest areas </p>
-        <p id="Power_Density"
-           style="background:#ffffff; font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px">
+        <p id="Power_Density" style="background:#ffffff; font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px">
             Power Density </p>
-        <p id="Wind_Speed"
-           style="background:#ffffff; font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px">
+        <p id="Wind_Speed" style="background:#ffffff; font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px">
             Wind Speed </p>
         <div id="energy_info"></div>
     </div>
@@ -1576,26 +1520,17 @@ Debug phase _> change back to working versionn -->
     <!-- parameters the users need to set on the start up screen: fixed bugs-->
     <br><br>
      <!-- remove return code in onsubmit -->
-    <form id = "form1" action="/main/form" ,method="get" , target="the_Frame", onsubmit="check_submit()">
-        <button class="refreshBtn" title="Refresh data." style="position:relative;top:-50px; width: 100%"
-            id="refreshBtn">
-        <i class="fa fa-refresh"></i> Refresh
-    </button>
+    <form id="form1" action="/main/form" ,method="get" ,="" target="the_Frame" onsubmit="check_submit()">
         <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px" id="calculate_energy">
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
                 project term:
-                <input type="number" name="project term" id="effi"
-                       style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;"
-                       id="effi" wrap="soft" title="Range from 1 - 20"
-                       value="20" oninput="if(value>20) value=20;if(value<1) value=1;"></input>
+                <input type="number" name="project term" id="effi" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Range from 1 - 20" value="20" oninput="if(value>20) value=20;if(value<1) value=1;">
                 year
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 itc on storage system:
-                <select name="itc_on_storage_ststem" id="rad_r"
-                        style="margin-top:20px; border-radius: 5px;width:60px; height:25px;"
-                        wrap="soft" title="If any federal tax incentive">
-                    <option value="true" selected>True</option>
+                <select name="itc_on_storage_ststem" id="rad_r" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="If any federal tax incentive">
+                    <option value="true" selected="">True</option>
                     <option value="false">False</option>
                 </select>
                 <!--<option type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;" id="rad_r"-->
@@ -1604,10 +1539,8 @@ Debug phase _> change back to working versionn -->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 sgip eligible:
-                <select name="sgip_eligible" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;"
-                        id="num_wind_turbine"
-                        wrap="soft" title="If any state rebate ">
-                    <option value="true" selected>True</option>
+                <select name="sgip_eligible" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="num_wind_turbine" wrap="soft" title="If any state rebate ">
+                    <option value="true" selected="">True</option>
                     <option value="false">False</option>
                 </select>
                 <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
@@ -1616,11 +1549,9 @@ Debug phase _> change back to working versionn -->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 In-state supplier:
-                <select name="in_state_supplier" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;"
-                        id="cost_c"
-                        wrap="soft" title="If any in-state supplier ">
+                <select name="in_state_supplier" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="cost_c" wrap="soft" title="If any in-state supplier ">
                     <option value="true">True</option>
-                    <option value="false" selected>False</option>
+                    <option value="false" selected="">False</option>
                 </select>
                 <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
                 <!--id="cost_c"-->
@@ -1629,9 +1560,8 @@ Debug phase _> change back to working versionn -->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 sgip step:
-                <select name="sgip_step" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="poe_e"
-                        wrap="soft" title="Range from 1-5">
-                    <option value="1" selected>1</option>
+                <select name="sgip_step" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="poe_e" wrap="soft" title="Range from 1-5">
+                    <option value="1" selected="">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -1643,10 +1573,8 @@ Debug phase _> change back to working versionn -->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 saving assumptions:
-                <select name="saving_assumptions" style="margin-top:20px; border-radius: 5px;width:105px; height:25px;"
-                        id="year_y"
-                        wrap="soft" title="The pattern of saving">
-                    <option value="Estimated" selected>Estimated</option>
+                <select name="saving_assumptions" style="margin-top:20px; border-radius: 5px;width:105px; height:25px;" id="year_y" wrap="soft" title="The pattern of saving">
+                    <option value="Estimated" selected="">Estimated</option>
                     <option value="Conservative">Conservative</option>
                     <option value="Optimal">Optimal</option>
                 </select>
@@ -1657,30 +1585,36 @@ Debug phase _> change back to working versionn -->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 calculation pattern:
-                <select name="calculation_pattern" id="calculation_pattern"
-                        style="margin-top:20px; border-radius: 5px;width:60px; height:25px;"
-                        wrap="soft"
-                        title=" 1: Solar & no storage&#10;2: Solar & pump hydro&#10;3: Solar & battery&#10;4: Wind & no storage&#10;5: Wind & pump hydro&#10;6: Wind & battery&#10;">
-                    <option value="1" selected>1: Solar & no storage</option>
-                    <option value="2">2: Solar & pump hydro</option>
-                    <option value="3">3: Solar & battery</option>
-                    <option value="4">4: Wind & no storage</option>
-                    <option value="5">5: Wind & pump hydro</option>
-                    <option value="6">6: Wind & battery</option>
+                <select name="calculation_pattern" id="calculation_pattern" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title=" 1: Solar &amp; no storage
+2: Solar &amp; pump hydro
+3: Solar &amp; battery
+4: Wind &amp; no storage
+5: Wind &amp; pump hydro
+6: Wind &amp; battery
+">
+                    <option value="1" selected="">1: Solar &amp; no storage</option>
+                    <option value="2">2: Solar &amp; pump hydro</option>
+                    <option value="3">3: Solar &amp; battery</option>
+                    <option value="4">4: Wind &amp; no storage</option>
+                    <option value="5">5: Wind &amp; pump hydro</option>
+                    <option value="6">6: Wind &amp; battery</option>
 
                 </select>
             </p>
 
             <!--this is new edit point-->
-            
+
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 Battery storage capacity:
-                <select name="Battery_storage_capacity" id="battery_storage_capacity"
-                        style="margin-top:20px; border-radius: 5px;width:60px; height:25px;"
-                        wrap="soft"
-                        title="0%&#10;20%&#10;40%&#10;60%&#10;80%&#10;100%&#10;">
+                <select name="Battery_storage_capacity" id="battery_storage_capacity" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="0%
+20%
+40%
+60%
+80%
+100%
+">
                     <option value="1">0%</option>
-                    <option value="2"  selected>20%</option>
+                    <option value="2" selected="">20%</option>
                     <option value="3">40%</option>
                     <option value="4">60%</option>
                     <option value="5">80%</option>
@@ -1688,15 +1622,11 @@ Debug phase _> change back to working versionn -->
 
                 </select>
             </p>
-            
-            <p id="isOnshore"
-               style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+
+            <p id="isOnshore" style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 onshore:
-                <select name="isOnshore"
-                        style="margin-top:20px; border-radius: 5px;width:60px; height:25px;"
-                        id="onshore"
-                        wrap="soft" title=" The position is onshore or offshore">
-                    <option value="true" selected>True</option>
+                <select name="isOnshore" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="onshore" wrap="soft" title=" The position is onshore or offshore">
+                    <option value="true" selected="">True</option>
                     <option value="false">False</option>
                 </select>
             </p>
@@ -1704,24 +1634,22 @@ Debug phase _> change back to working versionn -->
         <div id="two_btn">
             <div style="width:65px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
                 <button type="submit" id="submitBtn" value="myValue">
-                    <p title="Submit the value to be calculated."
-                       style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                    <p title="Submit the value to be calculated." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Submit</p>
                 </button>
             </div>
+
             <!-- Calculate button -->
             <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
-                <button id="calculateBtn" value="myValue">
-                    <p title="Calculate the ROI and IRR for the selected energy in selected area."
-                       style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                <button id="calculateBtn" value="myValue" onclick="getNum()">
+                    <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Calculate</p>
                 </button>
             </div>
             <!-- Apply loan button and the pop window-->
             <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
                 <button id="applyBtn" value="myValue" onclick="getNum()">
-                    <p title="Interested in investing in this area? Get a loan!"
-                       style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                    <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Apply Loan</p>
                 </button>
             </div>
@@ -1744,8 +1672,7 @@ Debug phase _> change back to working versionn -->
                         <div>
                             <span>
                                 <p style="font-weight:10;font-size:16px;color:#818181;padding:20px;padding-left:35px;margin-left:-60px;margin-top:-20px">
-                                <a href="https://www.nab.com.au/business/loans-and-finance/business-loans"
-                                   target="_blank" style="color: #818181;">National Australia Bank</a></p>
+                                <a href="https://www.nab.com.au/business/loans-and-finance/business-loans" target="_blank" style="color: #818181;">National Australia Bank</a></p>
                             </span>
                             <span>
                                 <p style="font-weight:10;font-size:24px;color:#818181;padding:20px;padding-left:35px;margin-left:600px;margin-top:-72px">Phone: 13 10 12</p>
@@ -1754,8 +1681,7 @@ Debug phase _> change back to working versionn -->
                         <div>
                             <span>
                                 <p style="font-weight:10;font-size:16px;color:#818181;padding:20px;padding-left:35px;margin-left:-60px;margin-top:-20px">
-                                <a href="https://www.commbank.com.au/business/loans-and-finance.html?ei=nav_loans-overdrafts"
-                                   target="_blank" style="color: #818181;">CommBank</a></p>
+                                <a href="https://www.commbank.com.au/business/loans-and-finance.html?ei=nav_loans-overdrafts" target="_blank" style="color: #818181;">CommBank</a></p>
                             </span>
                             <span>
                                 <p style="font-weight:10;font-size:24px;color:#818181;padding:20px;padding-left:35px;margin-left:600px;margin-top:-72px">Phone: 13 19 98</p>
@@ -1764,8 +1690,7 @@ Debug phase _> change back to working versionn -->
                         <div>
                             <span>
                                 <p style="font-weight:10;font-size:16px;color:#818181;padding:20px;padding-left:35px;margin-left:-60px;margin-top:-20px">
-                                <a href="https://www.westpac.com.au/business-banking/business-loans/" target="_blank"
-                                   style="color: #818181;">WestPac</a></p>
+                                <a href="https://www.westpac.com.au/business-banking/business-loans/" target="_blank" style="color: #818181;">WestPac</a></p>
                             </span>
                             <span>
                                 <p style="font-weight:10;font-size:24px;color:#818181;padding:20px;padding-left:35px;margin-left:600px;margin-top:-72px">Phone: 13 21 42</p>
@@ -1774,8 +1699,7 @@ Debug phase _> change back to working versionn -->
                         <div>
                             <span>
                                 <p style="font-weight:10;font-size:16px;color:#818181;padding:20px;padding-left:35px;margin-left:-60px;margin-top:-20px">
-                                <a href="https://online.citi.com/US/ag/personal-loan?JFP_TOKEN=TLIUKJ9R" target="_blank"
-                                   style="color: #818181;">CitiBank</a></p>
+                                <a href="https://online.citi.com/US/ag/personal-loan?JFP_TOKEN=TLIUKJ9R" target="_blank" style="color: #818181;">CitiBank</a></p>
                             </span>
                             <span>
                                 <p style="font-weight:10;font-size:24px;color:#818181;padding:20px;padding-left:35px;margin-left:600px;margin-top:-72px">Phone: 18773629100</p>
@@ -1784,8 +1708,7 @@ Debug phase _> change back to working versionn -->
                         <div>
                             <span>
                                 <p style="font-weight:10;font-size:16px;color:#818181;padding:20px;padding-left:35px;margin-left:-60px;margin-top:-20px">
-                                <a href="https://www.ubs.com/us/en/wealth-management/banking/sec-lending.html"
-                                   target="_blank" style="color: #818181;">The Union Bank of Switzerland</a></p>
+                                <a href="https://www.ubs.com/us/en/wealth-management/banking/sec-lending.html" target="_blank" style="color: #818181;">The Union Bank of Switzerland</a></p>
                             </span>
                             <span>
                                 <p style="font-weight:10;font-size:24px;color:#818181;padding:20px;padding-left:35px;margin-left:600px;margin-top:-72px">Phone: 0844 853 004</p>
@@ -1794,8 +1717,7 @@ Debug phase _> change back to working versionn -->
                         <div>
                             <span>
                                 <p style="font-weight:10;font-size:16px;color:#818181;padding:20px;padding-left:35px;margin-left:-60px;margin-top:-20px">
-                                <a href="https://www.anz.com.au/business/loans-finance/" target="_blank"
-                                   style="color: #818181;">Australia and New Zealand Banking Group Limited</a></p>
+                                <a href="https://www.anz.com.au/business/loans-finance/" target="_blank" style="color: #818181;">Australia and New Zealand Banking Group Limited</a></p>
                             </span>
                             <span>
                                 <p style="font-weight:10;font-size:24px;color:#818181;padding:20px;padding-left:35px;margin-left:600px;margin-top:-72px">Phone: 1800 801 485</p>
@@ -1804,8 +1726,7 @@ Debug phase _> change back to working versionn -->
                         <div>
                             <span>
                                 <p style="font-weight:10;font-size:16px;color:#818181;padding:20px;padding-left:35px;margin-left:-60px;margin-top:-20px">
-                                <a href="https://www.hsbc.co.uk/loans/products/" target="_blank"
-                                   style="color: #818181;">The Hongkong and Shanghai Banking Corporation</a></p>
+                                <a href="https://www.hsbc.co.uk/loans/products/" target="_blank" style="color: #818181;">The Hongkong and Shanghai Banking Corporation</a></p>
                             </span>
                             <span>
                                 <p style="font-weight:10;font-size:24px;color:#818181;padding:20px;padding-left:35px;margin-left:600px;margin-top:-72px">Phone: 44 1226 261 010</p>
@@ -1903,14 +1824,13 @@ Debug phase _> change back to working versionn -->
         var div = document.getElementById('background');
         var close = document.getElementById('close-button');
         var cal_btn = document.getElementById('calculateBtn');
-        var ref_btn = document.getElementById('refreshBtn');
 
 
         // edit point -> change to last version
         const block_button = document.querySelector('calculateBtn');
         //document.getElementById("applyBtn").disabled = true;
         //document.getElementById("applyBtn").disabled = true;
-        
+
         // btn.onclick = function () {
         //     hiddenLoading();
         //     document.getElementById("loader-container").style.display = "none";
@@ -1932,7 +1852,7 @@ Debug phase _> change back to working versionn -->
 
 
         cal_btn.onclick = function calculate_ROI_IRR() {
-            
+
             document.getElementById("form1").submit()
 
             //TODO: this is only solar
@@ -1948,7 +1868,7 @@ Debug phase _> change back to working versionn -->
                 irr_text = text.indexOf("irr");
                 roi_text = text.indexOf("roi");
                 irr = parseFloat(text.substring(irr_text + 5, roi_text - 1));
-       
+
             // id="energy_capacity"
 
             // id="storage_capacity"
@@ -1971,254 +1891,62 @@ Debug phase _> change back to working versionn -->
                     document.getElementById("IRR").innerHTML = "IRR: " ;
                     document.getElementById("energy_capacity").innerHTML ="Energy_Capacity: "  ;
                     document.getElementById("storage_capacity").innerHTML ="Storage_Capacity: " ;
-                }else{               
+                }else{
                     document.getElementById("ROI").innerHTML = "ROI: " + roi.toFixed(2) + "%";
                     document.getElementById("IRR").innerHTML = "IRR: " + irr.toFixed(2) + "%";
                     block_button.disabled = true;
                     }
-                    
-                    
+
+
                 // document.getElementById("ROI").innerHTML = "ROI:<br> " + roi.toFixed(2) + "%";
                 // document.getElementById("IRR").innerHTML = "IRR:<br> " + irr.toFixed(2) + "%";
                 // block_button.disabled = true
-                
+
             })
         }
-
-        ref_btn.onclick =  function refresh() {
-        if (show_mode == 1) {
-            toSolarMode();
-        } else if (show_mode == 2) {
-            toWindMode();
-        } else if (show_mode == 3) {
-            toStorageMode();
-        } else if (show_mode == 4) {
-            toBatteryMode();
-        }
-    }
     </script>
-     <div style="margin-bottom: 30px;margin-top: -20px;display: none" id = "storage_result_bar">
-        <div>
-            <p id="cost_power"
-               title="Estimated investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-               Capital Cost-power($/KW):
-        </div>
 
-        <div>
-            <p id="cost_energy"
-               title="Estimated battery cost on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Capital Cost-energy($/KWh):
-        </div>
-
-        <div>
-            <p id="cost"
-               title="Estimated battery install fee on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Capital Cost($ million):
-        </div>
-
-        <div>
-            <p id="cost_class"
-               title="Estimated energy capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Cost Class:
-        </div>
-
-        <div>
-            <p id="cost_reservoirs"
-               title="Estimated storage capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Cost-Reservoirs($ million):
-        </div>
-
-        <div>
-            <p id="cost_tunnel"
-               title="Estimated return of investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Cost-Tunnel($ million):
-        </div>
-
-        <div>
-            <p id="cost_powerhouse"
-               title="Estimated internal rate of return on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Cost-Powerhouse($ million):
-        </div>
-        <div>
-            <p id="total_reservoir_water_vol"
-               title="Estimated investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Total Reservoir Water Volume(Mm3):
-        </div>
-
-        <div>
-            <p id="available_reservoir_water_vol"
-               title="Estimated battery cost on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Available Reservoir Water Volume(Mm3):
-        </div>
-
-        <div>
-            <p id="rock_vol"
-               title="Estimated battery install fee on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Rock Volume(Mm3):
-        </div>
-
-        <div>
-            <p id="slope"
-               title="Estimated energy capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Slope(%):
-        </div>
-
-        <div>
-            <p id="hours_of_operation"
-               title="Estimated storage capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Hours of Operation at Full Power(h):
-        </div>
-
-        <div>
-            <p id="upper_reservoir_area"
-               title="Estimated return of investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Upper Reservoir Area(Ha):
-        </div>
-
-        <div>
-            <p id="annual_om"
-               title="Estimated internal rate of return on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                ANNUAL O&M(%):
-        </div>
-        <div>
-            <p id="annual_fixed"
-               title="Estimated investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Annual Fixed O&M($ million/MW):
-        </div>
-
-        <div>
-            <p id="annual_variable"
-               title="Estimated battery cost on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Annual Variable O&M($ million/MW):
-        </div>
-
-        <div>
-            <p id="annual_energy_purchase"
-               title="Estimated battery install fee on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Annual Energy Purchase(TWh):
-        </div>
-
-        <div>
-            <p id="annual_energy_sole"
-               title="Estimated energy capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Annual Energy Sold(TWh):
-        </div>
-
-        <div>
-            <p id="cost_to_purchase_lost_energy"
-               title="Estimated storage capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Cost to Purchase Lost Energy($/MWh):
-        </div>
-
-        <div>
-            <p id="capital_cost2"
-               title="Estimated return of investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Capital Cost($/MWh):
-        </div>
-
-        <div>
-            <p id="o&m_cost"
-               title="Estimated internal rate of return on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                O&M Cost($/MWh):
-        </div>
-        <div>
-            <p id="levelised_cost_of_storage"
-               title="Estimated storage capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -25px ">
-                Levelised Cost of Storage(%/MWh):
-        </div>
-
-        <div>
-            <p id="ROI_storage"
-               title="Estimated return of investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 30px;margin-left:-17px;margin-top: -25px ">
-                ROI:
-        </div>
-
-        <div>
-            <p id="IRR_storage"
-               title="Estimated internal rate of return on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 15px; color:#282c34;padding: 10px;margin-left:3px;margin-top: -40px ">
-                IRR:
-        </div>
-    </div>
 
     <!-- ROI and IRR -->
-    <div style="margin-bottom: 30px" ;>
+    <div style="margin-bottom: 30px" ;="">
         <div>
-            <p id="Investment"
-               title="Estimated investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
+            <p id="Investment" title="Estimated investment on your selected energy combination in your selected area." style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
                 Est. Investment
-        </div>
+        </p></div>
 
         <div>
-            <p id="battery_cost"
-               title="Estimated battery cost on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
+            <p id="battery_cost" title="Estimated battery cost on your selected energy combination in your selected area." style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
                 Battery Cost
-        </div>
+        </p></div>
 
         <div>
-            <p id="battery_fee"
-               title="Estimated battery install fee on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
+            <p id="battery_fee" title="Estimated battery install fee on your selected energy combination in your selected area." style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
                 Battery Install Fee
-        </div>
+        </p></div>
 
         <div>
-            <p id="energy_capacity"
-               title="Estimated energy capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
+            <p id="energy_capacity" title="Estimated energy capacity on your selected energy combination in your selected area." style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
                 Energy Capacity
-        </div>
+        </p></div>
 
         <div>
-            <p id="storage_capacity"
-               title="Estimated storage capacity on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
+            <p id="storage_capacity" title="Estimated storage capacity on your selected energy combination in your selected area." style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
                 Storage Capacity
-        </div>
+        </p></div>
 
         <div>
-            <p id="ROI"
-               title="Estimated return of investment on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
+            <p id="ROI" title="Estimated return of investment on your selected energy combination in your selected area." style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
                 ROI
-        </div>
+        </p></div>
 
         <div>
-            <p id="IRR"
-               title="Estimated internal rate of return on your selected energy combination in your selected area."
-               style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
+            <p id="IRR" title="Estimated internal rate of return on your selected energy combination in your selected area." style="background:#c9e1ee ;font-weight:bold;font-size: 20px; color:#282c34;padding: 35px;margin-left:-20px;margin-top: -25px ">
                 IRR
-        </div>
+        </p></div>
     </div>
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <button class="downloadBtn" title="Download the energy information." style="width:100%; margin-top:-100px"
-            id="downloadBtn">
+    <button class="downloadBtn" title="Download the energy information." style="width:100%; margin-top:-100px" id="downloadBtn">
         <i class="fa fa-download"></i> Download
     </button>
     <style>
@@ -2274,16 +2002,16 @@ Debug phase _> change back to working versionn -->
             background: white;
         }
     </style>
-    <div class="chartMenu" hidden>
+    <div class="chartMenu" hidden="">
         <p>WWW.CHARTJS3.COM (Chart JS 3.7.1)</p>
     </div>
-    <div class="chartCard" hidden>
+    <div class="chartCard" hidden="">
         <div class="chartBox">
-            <canvas id="myChart" hidden></canvas>
+            <canvas id="myChart" hidden=""></canvas>
             <!-- <canvas id="myChart1" hidden></canvas> -->
         </div>
         <div class="chartBox">
-            <canvas id="myChart1" hidden></canvas>
+            <canvas id="myChart1" hidden=""></canvas>
             <!-- <canvas id="myChart1" hidden></canvas> -->
         </div>
     </div>
@@ -2338,11 +2066,11 @@ Debug phase _> change back to working versionn -->
         var pump_fee = 0;
         var storage_dni = 0;
 
-        
+
         only_once = 0
         function cal_fee_counter(a,b){
             //alert(only_once);
-            
+
             if (only_once == 0 && document.getElementById("calculation_pattern").value == "3"){
                 only_once = only_once + 1;
                 const data = {
@@ -2384,7 +2112,7 @@ Debug phase _> change back to working versionn -->
                         ctx.restore()
                     }
                 }
-            
+
 
                 // config
                 const config = {
@@ -2414,11 +2142,13 @@ Debug phase _> change back to working versionn -->
                     document.getElementById('myChart1'),
                     config
                 );
-                
-            
+
+
             }
 
         }
+
+
 
         function cal_fee() {
             energy_generation = 0;
@@ -2428,7 +2158,7 @@ Debug phase _> change back to working versionn -->
             battery_fee = 0;
             new_investment = 0;
             total_energy_generation = 0;
-            
+
             //new edit point  200$/mwh
             battery_cost = 0;
             // 800$/kwh =0.8$/mwh
@@ -2441,13 +2171,13 @@ Debug phase _> change back to working versionn -->
             }
             // solar model
             if (show_mode == 1) {
-                
 
-                
+
+
 
                 if (document.getElementById("calculation_pattern").value == "1") {
                     cal_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5;
-                    
+
                 } else if (document.getElementById("calculation_pattern").value == "2") {
                     cal_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5 + pump_fee;
                 } else if (document.getElementById("calculation_pattern").value == "3") {
@@ -2456,22 +2186,22 @@ Debug phase _> change back to working versionn -->
                     //alert("run get data in cal_fee()");
 
 
-                    
+
                     //alert(storage_dni);
                     assitance_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5;
                     //cal_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5 + battery_fee;
-                    // total energy generation = area_value * global titled irradiation optimum anagle 
+                    // total energy generation = area_value * global titled irradiation optimum anagle
                     var e = document.getElementById("battery_storage_capacity");
                     var storage_percent = e.options[e.selectedIndex].text;
                     storage_percent= storage_percent.substring(0,storage_percent.length-1);
                     storage_percent= parseInt(storage_percent);
                     //alert(storage_percent);
-                    //alert("Energy generation mwh"+ area_value * gti / 1000);   
-                    //storage_capacity = area_value * gti / 1000 * storage_percent / 100 
+                    //alert("Energy generation mwh"+ area_value * gti / 1000);
+                    //storage_capacity = area_value * gti / 1000 * storage_percent / 100
                     energy_capacity = area_value * 0.2
-                    storage_capacity =  energy_capacity * (storage_percent / 100) * 5 
+                    storage_capacity =  energy_capacity * (storage_percent / 100) * 5
                     // total price = energy output per year * battery storage * investment: 200$/mwh 800$/kwh = 0.8$/mwh
-                    total_energy_generation = area_value * gti / 1000 
+                    total_energy_generation = area_value * gti / 1000
                     battery_cost = total_energy_generation * storage_percent / 100 * 200
                     battery_installation = total_energy_generation * storage_percent / 100 * 0.8
                     new_investment = area_value * gti / 1000 * storage_percent / 100 * 200.8
@@ -2484,13 +2214,13 @@ Debug phase _> change back to working versionn -->
                     // energy_capacity mwh
                     cal_fee_counter(energy_capacity.toFixed(1),storage_capacity.toFixed(1));
                     //alert("new image added")
-                   
+
                     //alert("Energy_capcity is " + energy_capacity);
                 }
             }
             if (show_mode == 2) {
                 //storage_dni = dni;
-                
+
 
                 if (document.getElementById("calculation_pattern").value == "4") {
                     cal_value = cal_value + 0.001 * power_d * area_value / 1000 * 70 * 60;
@@ -2596,7 +2326,7 @@ Debug phase _> change back to working versionn -->
         //     var storage_capacity = e.options[e.selectedIndex].text;
         //     storage_percent= storage_capacity.substring(0,storage_capacity.length-1);
         //     storage_percent= parseInt(storage_capacity);
-        //     alert(storage_percent);       
+        //     alert(storage_percent);
         // }
         // new_calculation()
 
@@ -2653,7 +2383,7 @@ Debug phase _> change back to working versionn -->
         //             grid_distance = text.substring(c2 + 10, c3 - 1) + " km";
         //             elec_price = text.substring(c3 + 12);
 
-        // var exam; 
+        // var exam;
         // async function fetchExam() {
         //     try {
         //         const response = await fetch ('/energy_info', {
@@ -2672,7 +2402,7 @@ Debug phase _> change back to working versionn -->
         //     }catch(error){
         //         console.error(error);
         //     }
-        
+
         // }
         // async function renderExam() {
         //     exam = await fetchExam();
@@ -2683,7 +2413,7 @@ Debug phase _> change back to working versionn -->
         //     alert("its new" +typeof(exam));
         // }
         async function renderExam(){
-            
+
             await cal_fee();
             const bgColor = {
                 id: 'bgColor',
@@ -2760,7 +2490,7 @@ Debug phase _> change back to working versionn -->
                     ctx.restore()
                 }
             }
-          
+
 
             // config
             const config = {
@@ -2787,12 +2517,15 @@ Debug phase _> change back to working versionn -->
             );
             // myChart.destory();
 
-            
 
 
-            
-            
+
+
+
     }
+
+
+
 
         //jsPDF download function
         function downloadPDFfromHTML() {
@@ -2802,7 +2535,7 @@ Debug phase _> change back to working versionn -->
             // bannerImg.src = "data:image/png;base64," + dataImage;
             var dataImage = localStorage.getItem('img1');
             dataImage = dataImage.replace('image/webp', 'image/png')
-            
+
 
 
 
@@ -2831,7 +2564,7 @@ Debug phase _> change back to working versionn -->
                     pdf.text("Diffuse Horizontal Irradiation: " + dif + " kWh/m²", 20, 70);
                     pdf.text("Global Titled Irradiation At Optimum Angle: " + gti + " kWh/m²", 20, 75);
                     pdf.addImage(canvasImage, 'JPEG', 20, 90, 170, 120);
-                    
+
 
                     pdf.text("2. Investment Information:", 20, 220);
                     pdf.text("project term: " + document.getElementById("effi").value, 20, 225);
@@ -2965,8 +2698,8 @@ Debug phase _> change back to working versionn -->
                     pdf.text("total cost (include Estimated Solar Panels Investment): " + ( (cal_fee() + dni * (28800 * a_count + 14400 * b_count) * 70 / 24 * 5 / 1000) / 1000000).toFixed(6) + " million$", 20, 80);
                     pdf.text("Battery Cost: " + battery_cost.toFixed(2) + "$",20,85);
                     pdf.text("Battery installation fee: " + battery_installation.toFixed(2) + "$",20,90);
-                    pdf.text("distance to nearest energy grid: " + grid_distance, 20, 95); 
-                    
+                    pdf.text("distance to nearest energy grid: " + grid_distance, 20, 95);
+
                     pdf.text("4. ROI & IRR:", 20, 105);
                     pdf.text("ROI: " + roi.toFixed(2) + "%", 20, 110);
                     pdf.text("IRR: " + irr.toFixed(2) + "%", 20, 115);
@@ -3131,25 +2864,20 @@ Debug phase _> change back to working versionn -->
                     pdf.save('EnergyStorageRights.pdf');
                 }
             }
- 
+
         };
         var element = document.getElementById("downloadBtn");
         element.addEventListener("click", downloadPDFfromHTML);
         //element.addEventListener("click",renderExam)
 
-       
+
     </script>
 </div>
-</div>
+
 
 <script>
 
     function changetopoint() {
-        var point = document.getElementById("point");
-        point.style.backgroundColor = 'lightgray';
-
-        var polygon = document.getElementById("polygon");
-        polygon.style.backgroundColor = '#ffffff';
         console.log("C")
         if (drawselection != 1) {
             drawselection = 1;
@@ -3161,12 +2889,6 @@ Debug phase _> change back to working versionn -->
 
 
     function changetopolygon() {
-        var polygon = document.getElementById("polygon");
-        polygon.style.backgroundColor = 'lightgray';
-
-        var point = document.getElementById("point");
-        point.style.backgroundColor = '#ffffff';
-
         console.log("B")
         console.log(drawselection)
         if (drawselection != 2) {
@@ -3177,12 +2899,6 @@ Debug phase _> change back to working versionn -->
     }
 
     function changetonan() {
-        var point = document.getElementById("point");
-        point.style.backgroundColor = '#ffffff';
-
-        var polygon = document.getElementById("polygon");
-        polygon.style.backgroundColor = '#ffffff';
-
         console.log("A")
         drawselection = 0;
         clearall();
@@ -3324,44 +3040,6 @@ Debug phase _> change back to working versionn -->
             toBatteryMode();
         }
     }
-    function reset_fields_understorage(){
-        efficiency = 100;
-        area_value = 1;
-        poe = 0.3441;
-        year = 5;
-        cost_value = 45.74;
-        solar_e = 0;
-        wind_e = 0;
-        speed_w = 0;
-        power_d = 0;
-        pvout = 0;
-        dni = 0;
-        ghi = 0;
-        dif = 0;
-        gti = 0;
-        class_ = 0;
-        head_ = 0;
-        separation = 0;
-        head_of_storage = 0;
-        separation_of_storage = 0;
-        slope = 0;
-        volume = 0;
-        w_r = 0;
-        energy_battery = 0;
-        storage_time = 0;
-        power_storage = 0;
-        country = " ";
-        panel_capacity = 150;
-        // 150 200 selection TBD
-        number_of_wind_turbine = 1;
-        //horizontal pi r^2
-        radius_of_wind_turbine = 25;
-        equipment_cost = 0;
-        // equipment cost 40,000 +45.74*area
-        // 8= 10kw wind turbine cost 500000, radius=22.5
-        lastpt = null;
-        calculationpoint = null;
-    }
 
     function clearall() {
         lastpoint = null;
@@ -3374,7 +3052,7 @@ Debug phase _> change back to working versionn -->
         var x = document.getElementById("select_map").value;
         map.basemap = x;
         localStorage.setItem("key",x);
-        
+
     }
 
     function openNav() {
@@ -3425,9 +3103,6 @@ Debug phase _> change back to working versionn -->
 
         document.getElementById("calculate_energy").style.display = "block";
         document.getElementById("two_btn").style.display = "inline";
-        document.getElementById("refreshBtn").style.display = "inline";
-        document.getElementById("storage_result_bar").style.display="none";
-        document.getElementById("result_bar").style.display = "block";
 
         // document.getElementById("calculate_energy").innerHTML = "";
         //
@@ -3446,6 +3121,7 @@ Debug phase _> change back to working versionn -->
         //     document.getElementById("cost_c").value = panel_capacity * 0.4;
         //     cost_value = panel_capacity * 0.4;
         // }
+
         document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Specific Photovoltaic Power output:<br> " + pvout.toFixed(2) + " kWh/kWp";
         document.getElementById("Power_Density").innerHTML = "Direct Normal Irradiation:<br> " + dni.toFixed(2) + " kWh/m²";
         document.getElementById("Wind_Speed").innerHTML = "Global Horizontal Irradiation:<br> " + ghi.toFixed(2) + " kWh/m²";
@@ -3492,83 +3168,18 @@ Debug phase _> change back to working versionn -->
         document.getElementById("Wind_Speed").innerHTML = "Separation:<br> " + separation + " km";
 
         var energy_info = document.getElementById("energy_info");
-         if (has_button1){
-           var storage_app_btn = document.createElement("input");
-           storage_app_btn.type = "button";
-           storage_app_btn.value = "Apply Loan";
-           storage_app_btn.style.width = "90px";
-           storage_app_btn.style.border = "none";
-           storage_app_btn.style.background = "#0084CC";
-           storage_app_btn.style.color = "white";
-           storage_app_btn.style.padding = "5px";
-           storage_app_btn.style.marginTop = "-100px";
-           storage_app_btn.style.marginBottom = "30px";
-           storage_app_btn.style.marginLeft = "15px";
-           storage_app_btn.style.borderRadius = "7px";
-           document.getElementById("storage_result_bar").insertBefore(storage_app_btn,document.getElementById("storage_result_bar").firstChild);
-           var storage_cal_btn = document.createElement("input");
-           storage_cal_btn.type = "button";
-           storage_cal_btn.value = "Calculate";
-           storage_cal_btn.style.width = "90px";
-           storage_cal_btn.style.border = "none"
-           storage_cal_btn.style.background = "#0084CC";
-           storage_cal_btn.style.color = "white";
-           storage_cal_btn.style.padding = "5px";
-           storage_cal_btn.style.marginTop = "-100px";
-           storage_cal_btn.style.marginBottom = "30px";
-           storage_cal_btn.style.marginLeft = "65px";
-           storage_cal_btn.style.borderRadius = "7px";
-           document.getElementById("storage_result_bar").insertBefore(storage_cal_btn,document.getElementById("storage_result_bar").firstChild);
-           has_button1 = false;
-        }
 
 
         energy_info.innerHTML = "";
         energy_info.innerHTML =
-             "\n" +
-            "        <p id=\"exchange_to_usd\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Exchange rate to USD(%): <input type='number' name='power_rating1' id='exchange_to_usd_value' value='0.66' step='0.01' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
             "\n" +
-            "        <p id=\"power_rating\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Power Rating(MW): <input type='number' name='power_rating1' id='power_rating_value' value='1000.0' step='0.1' style='border: 1px solid;border-radius: 5px;width: 64px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"stored_energy\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Stored energy(GMh): <input type='number' name='power_rating1' id='stored_energy_value' value='24.0' step='0.1' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"equity_fraction\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Equity fraction(%): <input type='number' name='power_rating1' id='equity_fraction_value' value='0.30' step='0.01' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"equity_rate_of_return\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Equity rate of return(%): <input type='number' name='power_rating1' id='equity_rate_of_return_value' value='0.10' step='0.01' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"bank_interest_rate\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Bank interest rate(%): <input type='number' name='power_rating1' id='bank_interest_rate_value' value='0.05' step='0.01' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"inflation_rate\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Inflation rate(%): <input type='number' name='power_rating1' id='inflation_rate_value' value='0.015' step='0.001' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"energy_purchase_price\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Energy purchase price($/MWh): <input type='number' name='power_rating1' id='energy_purchase_price_value' value='40.0' step='0.1' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"system_life\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            System life(years): <input type='number' name='power_rating1' id='system_life_value' value='60.0' step='0.1' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n" +
-            "\n" +
-            "        <p id=\"pumping_generatting_cycles_anually\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Pumping generating cycles anually(%/year): <input type='number' name='power_rating1' id='pumping_cycles_value' value='150.00' step='0.01' style='border: 1px solid;border-radius: 5px;width: 64px;height: 20px;margin-right: 20px'> </p>\n" +
+            "        <p id=\"volume\"\n" +
+            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
+            "            Volume </p>\n" +
             "\n" +
             "        <p id=\"water_to_rock\"\n" +
-            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:12px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-            "            Water to Rock(Pair): <input type='number' name='power_rating1' id='water_to_rock_value' value='18.48' step='0.01' style='border: 1px solid;border-radius: 5px;width: 57px;height: 20px;margin-right: 20px'> </p>\n"
+            "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
+            "            Water to Rock </p>\n"
         // "\n" +
         // "        <p id=\"storage_energy\"\n" +
         // "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
@@ -3577,61 +3188,7 @@ Debug phase _> change back to working versionn -->
         // "        <p id=\"storage_time\"\n" +
         // "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
         // "            Storage Time </p>\n"
-        if(!has_button1){
-            storage_cal_btn.onclick = function calculate_storage_result(){
-                const exchange_to_usd_r = document.getElementById("exchange_to_usd_value").value;
-                const power_rating_r = document.getElementById("power_rating_value").value;
-                const storage_energy_r = document.getElementById("stored_energy_value").value;
-                const equity_fraction_r = document.getElementById("equity_fraction_value").value;
-                const equity_rate_of_return_r = document.getElementById("equity_rate_of_return_value").value;
-                const bank_interest_rate_r = document.getElementById("bank_interest_rate_value").value;
-                const inflation_rate_r = document.getElementById("inflation_rate_value").value;
-                const energy_purchase_price_r = document.getElementById("energy_purchase_price_value").value;
-                const system_life_r = document.getElementById("system_life_value").value;
-                const pumping_generating_cycle_annully_r = document.getElementById("pumping_cycles_value").value;
-                const water_to_rock_r = document.getElementById("water_to_rock_value").value;
-                const url_1 = 'http://127.0.0.1:5001/phes_results?exchange_rate_to_USD='+exchange_to_usd_r+'&power_rating='+power_rating_r+'&stored_energy='+storage_energy_r+'&water_to_rock='+water_to_rock_r+'&equity_fraction='+equity_fraction_r+'&equity_rate_of_return='+equity_rate_of_return_r+'&bank_interest_rate='+bank_interest_rate_r+'&inflation_rate='+inflation_rate_r+'&energy_purchase_price='+energy_purchase_price_r+'&system_life='+system_life_r+'&pumping_generating_cycles_annually='+pumping_generating_cycle_annully_r+'&head='+head_of_storage+'&separation='+separation_of_storage
-                 fetch(url_1, {
-                     method: 'GET'
-                 }).then(function (response) {
-                     return response.json();
-                 }).then(function (result) {
-                     document.getElementById("cost_power").innerHTML = "Capital Cost-power($/KW): "+result["data"]["power_capital_cost"];
-                     document.getElementById("cost_energy").innerHTML = "Capital Cost-energy($/KWh): "+result["data"]["energy_capital_cost"];
-                     document.getElementById("cost").innerHTML = "Capital Cost($ million): "+result["data"]["capital_cost"];
-                     document.getElementById("cost_class").innerHTML = "Cost Class: "+result["data"]["cost_class"];
-                     document.getElementById("cost_reservoirs").innerHTML = "Cost-Reservoirs($ million): "+result["data"]["reservoir_cost"];
-                     document.getElementById("cost_tunnel").innerHTML = "Cost-Tunnel($ million): "+result["data"]["tunnel_cost"];
-                     document.getElementById("cost_powerhouse").innerHTML = "Cost-Powerhouse($ million): "+result["data"]["powerhouse_cost"];
-                     document.getElementById("total_reservoir_water_vol").innerHTML = "Total Reservoir Water Volume(Mm3): "+result["data"]["total_reservoir_water_volume"];
-                     document.getElementById("available_reservoir_water_vol").innerHTML = "Available Reservoir Water Volume(Mm3): "+result["data"]["available_reservoir_water_volume"];
-                     document.getElementById("rock_vol").innerHTML = "Rock Volume(Mm3): "+result["data"]["rock_volume"];
-                     document.getElementById("slope").innerHTML = "Slope(%): "+result["data"]["slope"];
-                     document.getElementById("hours_of_operation").innerHTML = "Hours of Operation at Full Power(h): "+result["data"]["operation_hours"];
-                     document.getElementById("upper_reservoir_area").innerHTML = "Upper Reservoir Area(Ha): "+result["data"]["upper_reservoir_area"];
-                     document.getElementById("annual_om").innerHTML = "Annual O&M(%): "+result["data"]["annual_om_rate"];
-                     document.getElementById("annual_fixed").innerHTML = "Annual Fixed O&M($ million/MW): "+result["data"]["annual_fixed_om_pmw"];
-                     document.getElementById("annual_variable").innerHTML = "Annual Variable O&M($ million/MW): "+result["data"]["annual_variable_om_pmw"];
-                     document.getElementById("annual_energy_purchase").innerHTML = "Annual Energy Purchase(TWh): "+result["data"]["annual_energy_purchased"];
-                     document.getElementById("annual_energy_sole").innerHTML = "Annual Energy Sold(TWh): "+result["data"]["annual_energy_sold"];
-                     document.getElementById("cost_to_purchase_lost_energy").innerHTML = "Cost to Purchase Lost Energy($/MWh): "+result["data"]["cost_lost_energy_mwh"];
-                     document.getElementById("capital_cost2").innerHTML = "Capital Cost($/MWh): "+result["data"]["capital_cost_mwh"];
-                     document.getElementById("o&m_cost").innerHTML = "O&M Cost($/MWh): "+result["data"]["om_cost_mwh"];
-                     document.getElementById("levelised_cost_of_storage").innerHTML = "Levelised Cost of Storage(%/MWh): "+result["data"]["levelised_cost_of_storage_mwh"];
-                     document.getElementById("ROI_storage").innerHTML = "ROI: "+result["data"]["roi"];
-                     document.getElementById("IRR_storage").innerHTML = "IRR: "+result["data"]["irr"];
-                 })
 
-
-
-            }
-            storage_app_btn.onclick = function show(){
-                    document.getElementById("background").style.display = "block";
-
-
-
-            }
-        }
         document.getElementById("volume").innerHTML = "Volume:<br> " + volume + " GL";
         document.getElementById("water_to_rock").innerHTML = "Water to Rock:<br> " + w_r + " Pair";
         // document.getElementById("storage_energy").innerHTML = "Storage Energy:<br> " + energy_battery.toFixed(2) + " GWh";
@@ -3907,8 +3464,6 @@ Debug phase _> change back to working versionn -->
             "        <div id=\"loader-container\">\n" +
             "            <p id=\"loadingText\">Loading</p>\n" +
             "        </div>" +
-
-
             "<p id=\"null_1\"\n" +
             "           style=\"background:#ffffff; font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px\">\n" +
             "           \n </p>\n" +
@@ -4006,6 +3561,6 @@ Debug phase _> change back to working versionn -->
 
 </script>
 
-</body>
 
-</html>
+
+</body></html>

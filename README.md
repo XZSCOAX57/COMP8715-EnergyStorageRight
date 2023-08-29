@@ -98,7 +98,7 @@ This project is carried out under computing project courses including COMP3500, 
 ## Work allocation
 |Role|Principle|Vice|Assistant|
 |--------|------|--------|--------|
-|Project Manager| Peilin Liu|
+|Project Manager| Peilin Liu| Boyang Zhang|
 |Product Manager | Zhengyu Chen|
 |Spokesman| Zhengshi Xie | Peilin Liu|
 |Recorder| Peilin Liu | Zhengshi Xie | Derek Huang|

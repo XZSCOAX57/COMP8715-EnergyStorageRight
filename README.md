@@ -43,82 +43,43 @@ Through our development on this project, we use Google drive for documentation p
 * **Predict potential energy output using data that not involve in the equation (e.g. tempurature) instead of correlated data (e.g. solar irradiation)**
 ## System Architecture
 # ![image](https://github.com/tudorelu/energy_storage_rights/blob/master/Documents/System%20Architecture.png)
+
 ## Deliverables
-### First deliverable (Semester 1 Week 6):
-* **A basic website with maps ready to use**
-* **A basic map with some basic functions including search, zoom in & out.**
-* **A user interface which should be able to display renewable energy distribution in map.**
-* **Basic data is sourced**<br />
-Relevant data of World-wide Wind speed, Solar exposure, Water coverage
-* **Basic data is normalized and ready to use**<br />
-The data we search should be modified to the same format which can be used and visualized by our map. 
-* **Being able to visualize layer data**<br />
-A kind of renewable energy will be shown on our map, including solar, wind and hydro energy, which will be displayed on different layers, at least for sample size scale. 
-### Second deliverable (MVP, Semester 1 Week 10)
-* **Improved functionality of the map engine**<br />
-Able to change the basemap base on user preference. Better visualize the data (use transparency and different ways of visualization such as discrete or category)
-* **A high-efficient map engine**<br />
-The speed of switching between different data layer is slow in deliverable one, it is resonable and neccessary to improve the performance and efficient of the website.
-* **Relevant data is sourced**<br />
-Solar energy: Global horizontal irradiation, Optimum tilt to maximize yearly yield, Photovoltaic power potential
-Wind energy: Wind direction, Wind power density at different height
-Water energy: The depth of lake, occurence of water, potential sites for pumped hydro
-* **Energy grid data is implemented**<br />
-Display energy grid on the map and their distances between each other. The visualization should tell the distance from the energy grid line ( electricity transmission line) to the point of interest. This can be used to future calculation of the cost required to implement various renewable technologies.
-* **Calculate the user selected area**<br />
-The user will be able to select the area that they are interesting to develop renewable technologies. The shape can be in polygon or rectangle. Our application should be able to measure the size of the area and output the estimated potential energy generation and its return for each renewable energy in details. 
-* **Calculate the potential return of development**<br />
-This include calculate annual power output, annual profit, net profit, and return of investment. The calculation is basic calculation that should be further improved in later development.
-* **Calculate the estimated gross return of energy storage installation.**<br />
-As above.
-* **User-friendly interface to display essential information**<br />
-Refine the design on side bar to be more professional.
-### Third deliverable (Semester 2)
-#### Stage 1 (By Week 6): 
-##### Front-end: 
-* **User interface design research and improvement**<br />
--A more user-friendly UI plan is refined.<br />
--Self-review previous UI structure<br />
--Develop and improve the information panel.<br />
-* **Onboarding information page**<br />
--Use short, clear, subtle images and video, and plenty of personality in its user onboarding flow to welcome new users and introduce important features.<br />
--Design a step by step User Manual/Guide and FAQ to make clear instruction for users. All core functions and features are included.<br />
-* **Technical Review**<br />
--Review code readability, cohesion and coupling<br />
--Review program structure and architecture<br />
--Review compatibility<br />
-* **Web server testing, comparison, and selection**<br />
-* **Research & find an appropriate web server for backend usage**<br />
-##### Back-end: 
-* **Prepare a basic algorithm report on renewable energy calculation**<br />
-1.	Wind  2.	Solar  3.	Pump Hydro
-* **Find a storage method for Map layer data that has better compatibility**<br />
-Given that our local data is big and is not compatible with many devices. Therefore, a faster way should be considered and implemented to allow the data can be read and process from every computer. <br />
-The solution should be: <br />
--Allow the data to be read by every computer <br />
--Allow the data to be preprocessed  in a more efficient way. <br />
-* **Research on alternative algorithm for energy calculation**<br />
-Explore on other algorithm that can be used for calculation to determine the pros and cons of each algorithm.
-* **Research and implement on algorithm of implementation cost of renewable energy facility**<br />
-* **Integrate every algorithm with website**<br />
+### Stage 1:Critical Fixes and Basic Enhancements (Semester 1 Week 6 & Second Audit)
+#### Introduction
+This stage focuses on addressing the most critical issues, ensuring the application's stability, security, and basic user experience.
+#### Deliverables
+##### Back-end Group
+* **Uniform API Response Formats (Implement a basic authentication system to secure the API endpoints.)**
+* **Remove Unused API Endpoints (Identify and remove any redundant routes or functions.)**
+* **API Authentication I (Implement a basic authentication system to secure the API endpoints.)
+* **PHES Module I (Understanding the Principles of PHES Modules)**
+##### Front-end Group
+* **HTML5 Keywords (Update any deprecated or old-version-specific keywords.)**
+* **Basic Error Handling (Implement basic error handling for common issues, such as failed data fetches.)**
+* **HI-FI Prototype (Develop a detailed and interactive prototype using Mockplus for user experience research.)**
+* **LO-FI Prototype (Sketch out the basic design and flow of the application on paper.)**
 
-#### Stage 2 (By Week 10):
-##### Front-end: 
-* **Complete user acceptance testing. UI is refined based on user feedback**<br />
-* **Web host is implemented and integrated.**<br />
-Web hosting is a server where websites stored. Some features to consider: Server performance, price, features, customer supports, and server physical locations. Our website will need to be live by this stage.
-* **Test case for web host implementation is created and tested. The test case should cover the program stability, usability, and efficiency.**<br />
-* **Final code review**<br />
--Review code readability, cohesion and coupling<br />
--Review program structure and architecture<br />
--Review compatibility<br />
-* **Handover documentation.**<br />
-##### Front-end: 
-* **ML model to predict energy output where incomplete data is presented**<br />
-Select and train the ML model where it can predict the potential energy output where there is little or no data are given. Select and compare to choose a suitable model where it can predict with the highest accuracy. <br />
--    For example, when predicting solar energy output in a given point, potential output is given where the solar irradiation data is presented by default. When there is no available data for solar irradiation, the model should predict the solar irradiation value base on the data such as temperature where it is widely available.<br />
--    The model performance should be measured by accuracy, the accuracy measurement method will be decided later when we use different models. Some possible measure method includes Mean Squared Error, F1 score, and absolute difference. 
+### Stage 2: Advanced Enhancements and Detailed Development (Semester 1 Week 10 & Final Audit)
+#### Introduction
+This stage focuses on refining the user experience, adding advanced features, and further optimizations.
+#### Deliverables
+ ##### Back-end Group
+* **Advanced API Authentication (Enhance the authentication system with features like token refresh, blacklisting, and more fine-grained access controls.)**
+* **Optimisation of data storage methods (At this stage the amount of data used is large and the data is stored locally, try using an online database.)**
+* **PHES Module II (Examine the methodology and explore if there are options for improvement.)**
+##### Front-end Group
+* **Advanced Error Handling (Implement more advanced error handling mechanisms, such as retry mechanisms for failed requests or user feedback systems for reporting issues.)**
+* **Security Protection for CSV (Implement basic security measures for sending CSV data.)**
+* **Function Development (Develop the Home page showcase, Map loading, and Help/contact document showcase features.)**
 
+### Long-term plans
+#### Introduction
+There are no exact delivery times for the long term plans as these will always be in place throughout the timeline of our projects.
+#### Deliverables
+* **Advanced Performance and Caching (Profile the application to identify areas for further optimization；Implement advanced caching mechanisms on both the client and server sides；Optimize heavy computations and consider offloading them to background tasks if necessary)**
+* **Separate Front-end and Back-end Code (Begin the process of separating the codebases into distinct directories.
+)**
 
 ## Desired Features
 Our final product is desired to have some other functions. The application should be able to identify the top N locations that are suitable for development in a relatively large area. To rank different locations, we will continue to use the return of investment as the parameter.<br />

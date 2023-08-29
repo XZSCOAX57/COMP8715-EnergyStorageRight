@@ -101,8 +101,8 @@ This project is carried out under computing project courses including COMP3500, 
 |Product Manager | Zhengyu Chen|
 |Spokesman| Zhengshi Xie | Peilin Liu|
 |Recorder| Peilin Liu | Zhengshi Xie | Derek Huang|
-|Back-end| Zhengshi Xie| Ziyang Wu | Yuli Lin
-|Front-end|| Derek Huang | Boyang Zhang | Peilin Liu
+|Back-end| Ziyang Wu| Zhengshi Xie | Yuli Lin|
+|Front-end| Peilin Liu | Boyang Zhang | Ziyang Wu|
 
 ## Link to Documentation
 [Website](https://propane-net-292307.ts.r.appspot.com/) <br/>

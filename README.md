@@ -119,19 +119,3 @@ This project is carried out under computing project courses including COMP3500, 
 
 ## Link to Webserver
 [Website]( https://propane-net-292307.ts.r.appspot.com/)<br/>
-
-## Other Readme resources
-### Master Branch
-[Master](https://github.com/tudorelu/energy_storage_rights)<br />
-[Algorithm Document](https://github.com/tudorelu/energy_storage_rights/tree/master/Documents/Algorithm%20Documents)<br />
-[Code](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)<br />
-[Code/Testing](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/Testing%20on%20sample%20algorithm)<br />
-[Code/data](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/data)<br />
-[Data Research](https://github.com/tudorelu/energy_storage_rights/tree/master/Data%20Research)<br />
-[Progress](https://github.com/tudorelu/energy_storage_rights/tree/master/Progress)<br />
-[To Do List App](https://github.com/tudorelu/energy_storage_rights/tree/master/To%20Do%20list%20App)<br />
-
-### Web Branch
-[Web](https://github.com/tudorelu/energy_storage_rights/tree/Web)<br />
-[Large Data File](https://github.com/tudorelu/energy_storage_rights/tree/Web/Large%20Data%20File%20To%20Create%20Layers)<br />
-[Basic Arcgis](https://github.com/tudorelu/energy_storage_rights/tree/Web/basic-arcgis)<br />

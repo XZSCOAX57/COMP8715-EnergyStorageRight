@@ -23,9 +23,8 @@ Table of Contents
 
 ## Status
 
-
-Our website is currently live in [Here](http://energy-storage-rights.herokuapp.com/). We have developed a website that can visualize Solar irradiation, Water occurrence, Windpower density, Possible site for Pumped Hydro, and the distance to energy grid node in Australia. Also, our website has the abilities to do data analysis by identifying the possible energy output at the point of interest (for wind and solar for now), determined the possible annual power output, and calculate the return of investment (ROI). 
-However, UI development, the speed of loading data and algorithm accuracy need to be adjust in the future
+The previous EnergyStorageRights development team has built a user-friendly web application designed to help companies increase their profits by pinpointing the best places to get the most abundant energy. The web application will support users in selecting their favorite areas either through automated processes or manual controls via a user-friendly panel.
+However, the site has some lingering issues stemming from previous development phases. Our primary focus lies in resolving these lingering concerns left behind by the previous team. One of the highest priority of these legacy issues is on the construction of the PHES module. Furthermore, we aim to enhance the user experience and explore potential avenues for refining algorithmic quality and datasets.
 
 ## Introduction
 Deployment of renewable energy technologies in a different location often comes with advantage and disadvantage. The energy storage rights is a digital platform that will map, evaluate, promote and help investments in the development rights for energy storage pilot projects such as pumped hydro energy storage, floating solar pilots on lake or sea. Alongside with the platform is energy storage rights application.
@@ -34,8 +33,6 @@ We strike to build up an application which used to evaluate and optimize the per
 
 Through our development on this project, we use Google drive for documentation purposes and data storage. Trello for task management and assignment. The links can be found in [Link to our other resources](#Link-to-our-other-resources).
 
-## Vision
-Our client, the team of Energy Storage Rights, wishes to develop a website application that can find the best location to get the richest energy source in order to maximize the profit margin. The target users include small enterprises, organizations, individuals. In summary, an applicable and portable website application which can evaluate and utilize the renewable energy for potential users is our client’s desired outcome at the end of the project.  
 
 ## Main features
 
@@ -134,12 +131,13 @@ Refer to [Gantt Chart](https://github.com/tudorelu/energy_storage_rights/blob/ma
 Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allows for generating more interaction between the property owner and the renewable energy developer. The landowner can benefit from this application by making a more effective and smart decision on the use of renewable energy product, it also helps them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to develop their products. This application is expected to create a win-win situation between each party.
 
 ## Acknowledgement
-This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and carried out under computing project courses including COMP3500, COMP4500, and COMP8715 from The Australian National University. This project team is lead by project manager Yuanxin Ye (u5669371@anu.edu.au) and consist sixe other team members, Yunyuan Yu (u6092441@anu.edu.au), Yuanxin Ye (u5669371@anu.edu.au), Weiwei Liang (u6642464@anu.edu.au), Yufei Qian (u5981067@anu.edu.au), Peilin Song (u6225953@anu.edu.au), Dawei Zhang (u6302602@anu.edu.au), and Daoyu Li (u5912264@anu.edu.au).
+This project is carried out under computing project courses including COMP3500, COMP4500, and COMP8715 from The Australian National University. This project team is led by project manager Peilin Liu(u7518297@anu.edu.au) and consist six other team members, Yuli Lin(u5927759@anu.edu.au), Ziyang Wu(u6262265@anu.edu.au), Zhengshi Xie(u7503941@anu.edu.au), Boyang Zhang(u7528692@anu.edu.au), Derek Huang(u7300484@anu.edu.au), Zhengyu Chen(u7531371@anu.edu.au).
+
 
 ## Work allocation
 |Role|Principle|Vice|Assistant|
 |--------|------|--------|--------|
-|Project Manager|Yuanxin Ye|
+|Project Manager|Boyang Zhang|
 |Spokesman|Yuanxin Ye | Yufei Qian|Yunyuan Yu|
 |Recorder|Weiwei Liang |Yufei Qian|Yuanxin Ye|
 |Back-end: Data Source Researcher|Yufei Qian|Daoyu Li|Yunyuan Yu, Weiwei Liang|
@@ -155,7 +153,7 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 ## Link to Documentation
 [Website](http://energy-storage-rights.herokuapp.com/) <br/>
 [Google doc](https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs) <br/>
-[Meeting Agendas]( https://drive.google.com/drive/folders/1ruHMGQEwZx8xxoOjOGPwa9xU5NgL7rAN  )<br/>
+[Meeting Agendas](https://drive.google.com/drive/folders/1u-J-U2CourcMfQXPsqqY9ymTFHw-hAev)<br/>
 [Algorithm Document]( https://drive.google.com/drive/folders/1IF7tnOA0B2_ef84wrJ-9GveKArFg9Ek4  )<br/>
 [Data Research](https://drive.google.com/drive/folders/1ouNpwJ68z57oJTDXcNoi7cSna5wYiK6W  )<br/>
 [Data Collection]( https://drive.google.com/drive/folders/1mtH_evyiBC0kgZiA23ROwWvUPP2KmC6z  )<br/>

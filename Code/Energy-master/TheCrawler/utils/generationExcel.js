@@ -1,4 +1,5 @@
-giimport xlsx from 'node-xlsx';
+//import xlsx from 'xlsx';
+import * as xlsx from 'xlsx';
 import fs from 'fs';
 import path from 'path'
 import { fileURLToPath  } from 'url'
@@ -18,14 +19,15 @@ export default function generationExcel(exceldata, name) {
         //定义列宽，使用默认列宽，可以忽略
         let sheetOptions = { "!cols": [{ wch: 30 }, { wch: 30 }] };
         //生成buffer
-        let buffer = xlsx.build([{ name, data: exceldata }], { sheetOptions });
+        let buffer = {}
+        //xlsx.build([{ name, data: exceldata }], { sheetOptions });
         
         //导出
-        fs.writeFile(filePath, buffer, err => {
-            console.log('err: ', err);
-            if (err) return reject(err)
-            console.log('excel 生成完成')
-            resolve()
-        });
+        // fs.writeFile(filePath, buffer, err => {
+        //     console.log('err: ', err);
+        //     if (err) return reject(err)
+        //     console.log('excel 生成完成')
+        //     resolve()
+        // });
     })
 }

@@ -1,6 +1,6 @@
 import request from 'request'
 import fs from 'fs'
-import alljobList from './data/job.json' assert { type: 'json' }
+//import alljobList from './data/job.json' assert { type: 'json' }
 const errIndexList = []
 import execFun from './utils/execFun.js'
 const baseUrl = `https://nationalmap.gov.au/proxy/_0d/https://gis.aremi.data61.io/anu/wms?`
@@ -57,12 +57,12 @@ function saveFile(content, index) {
 ;(async () => {
     console.log('start')
     let start = 3340
-    await execFun(alljobList, readItem, 10)
-    // for (let i = start; i < alljobList.length; i ++) {
-    //     const curJob = alljobList[i];
-    //     console.log('curJob: ', `${i + 1} / ${alljobList.length}`);
-    //     await readItem(curJob)
-    // }
+    // await execFun(alljobList, readItem, 10)
+    // // for (let i = start; i < alljobList.length; i ++) {
+    // //     const curJob = alljobList[i];
+    // //     console.log('curJob: ', `${i + 1} / ${alljobList.length}`);
+    // //     await readItem(curJob)
+    // // }
     console.log('end')
 })()
 

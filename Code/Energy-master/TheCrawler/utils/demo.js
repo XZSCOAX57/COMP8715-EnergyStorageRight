@@ -1,4 +1,4 @@
-import projzh from 'projzh'
+import * as projzh from 'projzh'
 export const ll2gcj = (input) => {
     const res = projzh.projection.sphericalMercator.inverse(input);
 //     const res = projzh.bmerc2ll(input);

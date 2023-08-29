@@ -1,7 +1,8 @@
-import { getItemDataByHtmlStr } from './utils/util.js'
+import { getItemDataByHtmlStr } from './util.js'
 import fs from 'fs'
-const allList = fs.readdirSync('./src/10/data/json')
-import generationExcel from './utils/generationExcel.js'
+// const allList = fs.readdirSync('./src/10/data/json')
+const allList = []
+import generationExcel from './generationExcel.js'
 // import { ll2gcj } from './utils/demo.js'
 const dataList = [
     ['数据集', 'key', 'Class', 'Head (m)', 'Separation (km)', 'Average Slope (%)', 'Volume (GL)', 'Water to Rock (Pair)', 'Energy (GWh)', 'Storage time (h)', 'lat, lng']

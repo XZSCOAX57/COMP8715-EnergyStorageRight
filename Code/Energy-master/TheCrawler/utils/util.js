@@ -1,3 +1,4 @@
+// var Cheerio = require("cheerio");
 import Cheerio from "cheerio";
 /**
  * getItemDataByHtmlStr:  {

@@ -1,6 +1,7 @@
 import { getItemDataByHtmlStr } from './utils/util.js'
 import fs from 'fs'
-const allList = fs.readdirSync('./src/10/data/json')
+//const allList = fs.readdirSync('./src/10/data/json')
+const allList = {}
 import generationExcel from './utils/generationExcel.js'
 // import { ll2gcj } from './utils/demo.js'
 const dataList = [

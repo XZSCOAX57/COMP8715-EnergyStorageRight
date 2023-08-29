@@ -114,7 +114,7 @@ This project is carried out under computing project courses including COMP3500, 
 [Decision Log]( https://github.com/users/XZSCOAX57/projects/1  )<br/>
 [Reflection](https://github.com/users/XZSCOAX57/projects/2 )<br/>
 [Risk Register]( https://drive.google.com/drive/folders/1XYEa8MV4klCDVyCWnQFCGeZhQz6f1vuU?usp=share_link)<br/>
-[[Milestone]( https://github.com/users/XZSCOAX57/projects/4  )<br/>
+[Milestone]( https://github.com/users/XZSCOAX57/projects/4  )<br/>
 [Trello page]( https://trello.com/b/kCYjanpm/links-with-project  )<br/>
 
 ## Link to Webserver

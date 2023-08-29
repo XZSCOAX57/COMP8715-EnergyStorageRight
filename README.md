@@ -49,12 +49,12 @@ Through our development on this project, we use Google drive for documentation p
 #### Introduction
 This stage focuses on addressing the most critical issues, ensuring the application's stability, security, and basic user experience.
 #### Deliverables
-##### Back-end Group
+#### Back-end Group
 * **Uniform API Response Formats (Implement a basic authentication system to secure the API endpoints.)**
 * **Remove Unused API Endpoints (Identify and remove any redundant routes or functions.)**
 * **API Authentication I (Implement a basic authentication system to secure the API endpoints.)
 * **PHES Module I (Understanding the Principles of PHES Modules)**
-##### Front-end Group
+#### Front-end Group
 * **HTML5 Keywords (Update any deprecated or old-version-specific keywords.)**
 * **Basic Error Handling (Implement basic error handling for common issues, such as failed data fetches.)**
 * **HI-FI Prototype (Develop a detailed and interactive prototype using Mockplus for user experience research.)**
@@ -64,11 +64,11 @@ This stage focuses on addressing the most critical issues, ensuring the applicat
 #### Introduction
 This stage focuses on refining the user experience, adding advanced features, and further optimizations.
 #### Deliverables
- ##### Back-end Group
+#### Back-end Group
 * **Advanced API Authentication (Enhance the authentication system with features like token refresh, blacklisting, and more fine-grained access controls.)**
 * **Optimisation of data storage methods (At this stage the amount of data used is large and the data is stored locally, try using an online database.)**
 * **PHES Module II (Examine the methodology and explore if there are options for improvement.)**
-##### Front-end Group
+#### Front-end Group
 * **Advanced Error Handling (Implement more advanced error handling mechanisms, such as retry mechanisms for failed requests or user feedback systems for reporting issues.)**
 * **Security Protection for CSV (Implement basic security measures for sending CSV data.)**
 * **Function Development (Develop the Home page showcase, Map loading, and Help/contact document showcase features.)**

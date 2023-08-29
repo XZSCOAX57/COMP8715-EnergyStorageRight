@@ -94,40 +94,30 @@ Many potential users are interested in renewable energy, our application can hel
 ## Acknowledgement
 This project is carried out under computing project courses including COMP3500, COMP4500, and COMP8715 from The Australian National University. This project team is led by project manager Peilin Liu(u7518297@anu.edu.au) and consist six other team members, Yuli Lin(u5927759@anu.edu.au), Ziyang Wu(u6262265@anu.edu.au), Zhengshi Xie(u7503941@anu.edu.au), Boyang Zhang(u7528692@anu.edu.au), Derek Huang(u7300484@anu.edu.au), Zhengyu Chen(u7531371@anu.edu.au).
 
-
 ## Work allocation
 |Role|Principle|Vice|Assistant|
 |--------|------|--------|--------|
-|Project Manager|Boyang Zhang|
-|Spokesman|Yuanxin Ye | Yufei Qian|Yunyuan Yu|
-|Recorder|Weiwei Liang |Yufei Qian|Yuanxin Ye|
-|Back-end: Data Source Researcher|Yufei Qian|Daoyu Li|Yunyuan Yu, Weiwei Liang|
-|Back-end: Algorithm Researcher|Weiwei Liang|Yufei Qian|Yunyuan Yu
-|Back-end: Machine Learning Researcher and Developer|Daoyu Li|Yunyuan Yu|Yufei Qian, Yuanxin Ye|
-|Back-end: Data Cleaning and Management developer|Dawei Zhang|Yunyuan Yu|
-|Front-end: Web Developer|Peilin Song |Dawei Zhang|Yunyuan Yu, Daoyu Li|
-|Front-end: Algorithm Tester and Developer|Yunyuan Yu|Peilin Song|Yufei Qian, Weiwei Liang|
-|Front-end: Web Host server researcher|Dawei Zhang|Peilin Song|Yunyuan Yu, Daoyu Li|
-|Front-end: Web Host implementation Developer|Daiwei Zhang|PeilinSong|Yunyuan Yu, Daoyu Li|
-|Font-end Back-end Integrator|Yunyuan Yu|Yuanxin Ye|
+|Project Manager| Peilin Liu|
+|Product Manager | Zhengyu Chen|
+|Spokesman| Zhengshi Xie | Peilin Liu|
+|Recorder| Peilin Liu | Zhengshi Xie | Derek Huang|
+|Back-end| Zhengshi Xie| Ziyang Wu | Yuli Lin
+|Front-end|| Derek Huang | Boyang Zhang | Peilin Liu
 
 ## Link to Documentation
-[Website](http://energy-storage-rights.herokuapp.com/) <br/>
-[Google doc](https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs) <br/>
-[Meeting Agendas](https://drive.google.com/drive/folders/1u-J-U2CourcMfQXPsqqY9ymTFHw-hAev)<br/>
-[Algorithm Document]( https://drive.google.com/drive/folders/1IF7tnOA0B2_ef84wrJ-9GveKArFg9Ek4  )<br/>
-[Data Research](https://drive.google.com/drive/folders/1ouNpwJ68z57oJTDXcNoi7cSna5wYiK6W  )<br/>
-[Data Collection]( https://drive.google.com/drive/folders/1mtH_evyiBC0kgZiA23ROwWvUPP2KmC6z  )<br/>
-[Decision Log]( https://drive.google.com/drive/folders/1CEMSQgAogMe8vQJReyoHRvSMf1Q6JC9H  )<br/>
-[Reflection](https://drive.google.com/drive/folders/1XsYDRaATwrU3pg5XVH8vvCI1uunZui_c  )<br/>
-[Risk Register]( https://drive.google.com/drive/folders/1cQ4A8ppLE5xk9f_Fk1UyjdJrg7GF1jlN  )<br/>
-[Stakeholder analysis]( https://drive.google.com/drive/folders/10gsUFsP6mTIeGsW1DiLlHAU1DYdazl2U  )<br/>
-[Test Case]( https://drive.google.com/drive/folders/1mXzHyvk3NEHUHc-ea4OYsFEOOUlcOTlA  )<br/>
-[Work Log]( https://drive.google.com/drive/folders/1MQU0xjfCFbGTKCB5QzTTYm8QJPny00xG  )<br/>
-[Trello page]( https://trello.com/b/A7bMM3s1/energy-storage-rights  )<br/>
+[Website](https://propane-net-292307.ts.r.appspot.com/) <br/>
+[Google doc](https://drive.google.com/drive/folders/1k5dIK1WhgznQoBR5lxQIU7OrqCI_OeCf) <br/>
+[Meeting Agendas](https://drive.google.com/drive/folders/1lbQkP5mrmUKXxlAF_FvXwwWyoZpDpv8R)<br/>
+[Algorithm Document]( https://drive.google.com/drive/folders/1ZyEXnGx5kGcSUAVw1QPgWDjQdaQ5DUON?usp=share_link)<br/>
+[Data Research](https://drive.google.com/drive/folders/12mnskEiLVKCq8pss-6izwgLr6nEDkFq0?usp=share_link  )<br/>
+[Decision Log]( https://github.com/users/XZSCOAX57/projects/1  )<br/>
+[Reflection](https://github.com/users/XZSCOAX57/projects/2 )<br/>
+[Risk Register]( https://drive.google.com/drive/folders/1XYEa8MV4klCDVyCWnQFCGeZhQz6f1vuU?usp=share_link)<br/>
+[[Milestone]( https://github.com/users/XZSCOAX57/projects/4  )<br/>
+[Trello page]( https://trello.com/b/kCYjanpm/links-with-project  )<br/>
 
 ## Link to Webserver
-[Website]( https://energy-stroage-rights.herokuapp.com/)<br/>
+[Website]( https://propane-net-292307.ts.r.appspot.com/)<br/>
 
 ## Other Readme resources
 ### Master Branch

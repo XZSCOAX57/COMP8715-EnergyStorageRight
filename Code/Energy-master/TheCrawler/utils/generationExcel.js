@@ -1,5 +1,5 @@
 //import xlsx from 'xlsx';
-import * as xlsx from 'xlsx';
+import * as xlsx from 'node-xlsx';
 import fs from 'fs';
 import path from 'path'
 import { fileURLToPath  } from 'url'

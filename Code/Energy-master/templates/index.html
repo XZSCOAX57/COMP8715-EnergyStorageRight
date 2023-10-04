@@ -167,23 +167,34 @@
         .topnav {
             font-family: Arial, Helvetica, sans-serif;
             overflow: hidden;
+            width: auto; /* 修改宽度 */
+            max-width: 80%; /* 最大宽度不超过100% */
+            height: 60px; /* 修改高度 */
+            opacity: 0.71; /* 修改透明度 */
+            border-radius: 14px; /* 修改边框圆角 */
             background-color: #333;
+            color: white;
+            padding: 2px 0px;
+            z-index: 1; /* 设置一个较高的 z-index 以确保位于视图上方 */
             font-size: 20px;
-            margin-top: 120px;
-            right: 10px;
-            height: 60px;
-            width: 110vw;
+            margin-top: 10%;
             position: fixed;
-            z-index: 1;
             top: -130px;
-            margin-right: -10vw;
-            padding: 10px;
+            left: 10%;
+
         }
 
         .topnav ul {
             list-style-type: none;
-        }
+            display: flex; /* 使用 flex 布局使导航项水平排列 */
+            justify-content: space-around; /* 均匀分布导航项 */
+            align-items: center; /* 垂直居中导航项 */
 
+        }
+        .topnav li {
+
+            text-align: center;
+        }
         .topnav a {
             text-decoration: none;
             float: left;
@@ -1166,27 +1177,39 @@ Debug phase _> change back to working versionn -->
     </script>
 
 
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-        }
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
 
-        .outer {
-            height: 100%;
-            padding: 50px 0 0;
-            box-sizing: border-box;
-            position: relative;
-        }
+    .outer {
+        height: 100%;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+    }
 
-        #viewDiv {
-            height: 100%;
-            width: 100%;
-        }
+    .topnav {
+        background-color: #333;
+        color: white;
+        padding: 2px 0px;
+        position: absolute; /* 设置为绝对定位，可以重叠在其他内容上方 */
+        width: 100%; /* 宽度占满整个 .outer 容器 */
+        z-index: 1; /* 设置一个较高的 z-index 以确保位于视图上方 */
+    }
 
-    </style>
+
+    #viewDiv {
+        width: 100%;
+        height: 100%;
+        position: relative; /* 设置为相对定位，以允许子元素绝对定位在其中 */
+        z-index: 0; /* 设置一个较低的 z-index 以确保位于导航栏下方 */
+    }
+</style>
+
 </head>
 
 <body onmousedown="showCoords(event)" style="zoom: 1;">

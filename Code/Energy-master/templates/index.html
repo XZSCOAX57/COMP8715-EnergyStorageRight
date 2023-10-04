@@ -21,10 +21,10 @@
 
         .selectDraw {
             background-color: #ffffff;
-            top: 70px;
-            left: 80px;
+            top: 130px;
+            left: 20px;
             height: 64px;
-            width: 117px;
+            width: auto;
             position: fixed;
         }
 
@@ -443,40 +443,7 @@
 
     </style>
 
-    {#侧边导航栏#}
-    <style>
-        /* 定义左侧导航栏的样式 */
-        .leftbar {
-            position: fixed;
-            left: 20px; /* 距离屏幕左边缘 20px */
-            top: 0;
-            width: 3%; /* 宽度为屏幕宽度的 3% */
-            height: 100%; /* 高度自适应 */
-            background-color: rgba(0, 0, 0, 0.7); /* 半透明背景色 */
-            z-index: 1; /* 确保导航栏在内容之上 */
-            display: flex;
-            flex-direction: column; /* 垂直排列按钮 */
-            justify-content: center; /* 垂直居中按钮 */
-            align-items: center; /* 水平居中按钮 */
-        }
 
-        /* 定义导航栏按钮的样式 */
-        .leftbar-button {
-            color: #fff; /* 文本颜色 */
-            text-decoration: none;
-            padding: 10px 15px; /* 按钮内边距 */
-            margin: 10px 0; /* 按钮之间的外边距 */
-            border: none;
-            background-color: transparent; /* 透明背景色 */
-            cursor: pointer;
-            transition: background-color 0.3s ease; /* 添加过渡效果 */
-        }
-
-        /* 鼠标悬停时修改按钮背景色 */
-        .leftbar-button:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* 半透明背景色 */
-        }
-    </style>
 
     <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.23/"></script>
@@ -669,6 +636,7 @@ Debug phase _> change back to working versionn -->
             coordsWidget.className = "esri-widget esri-component";
             coordsWidget.style.padding = "7px 15px 5px";
             view.ui.add(coordsWidget, "bottom-right");
+
             view.ui.add(search, "top-left", index = 2);
 
             //自定义叠加图片图层
@@ -1330,22 +1298,12 @@ Debug phase _> change back to working versionn -->
             </div>
         </div>
         <div class="esri-view-user-storage"></div>
-         <!-- 左侧导航栏容器 -->
-        <div class="leftbar">
-        <!-- 导航栏按钮 1 -->
-        <a href="#" class="leftbar-button">按钮 1</a>
-        <!-- 导航栏按钮 2 -->
-        <a href="#" class="leftbar-button">按钮 2</a>
-        <!-- 导航栏按钮 3 -->
-        <a href="#" class="leftbar-button">按钮 3</a>
-        <!-- 添加更多按钮 -->
-    </div>
     </div>
 
 </div>
 
 <div class="selectDraw">
-    <h1 style="margin-left:-3px;background-color:#ffffff;width:108px;text-align: center"><b>Select Area</b></h1>
+    <h1 style="margin-left:-3px;;background-color:#ffffff;width:auto;text-align: center"><b>Select Area</b></h1>
     <button class="btn success" onclick="changetopoint()">•<span class="tooltiptext">Single Point<br>Data Select</span></button>
     <button class="btn info" onclick="changetopolygon()">♢<span class="tooltiptext">Polygon Regional Data Select (double click to finish)</span>
     </button>

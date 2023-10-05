@@ -19,7 +19,8 @@ import { imgBboxMapList, layersList, getParams, getIAndJListByBbox } from './con
             }
         }
     }
-    fs.writeFile('./src/10/data/job.json', JSON.stringify(allParamsList.map((v ,i) => ({ ...v, index: i }))), err => {err})
+    //fs.writeFile('./src/10/data/job.json', JSON.stringify(allParamsList.map((v ,i) => ({ ...v, index: i }))), err => {err})
+    fs.writeFile('./job.json', JSON.stringify(allParamsList.map((v ,i) => ({ ...v, index: i }))), err => {err})
     console.log(count)
 })();
 

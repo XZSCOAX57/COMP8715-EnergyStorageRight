@@ -1,6 +1,6 @@
 import request from 'request'
 import fs from 'fs'
-//import alljobList from './data/job.json' assert { type: 'json' }
+import alljobList from './job.json' assert { type: 'json' }
 const errIndexList = []
 import execFun from './utils/execFun.js'
 const baseUrl = `https://nationalmap.gov.au/proxy/_0d/https://gis.aremi.data61.io/anu/wms?`
@@ -10,7 +10,7 @@ function readItem(params) {
     const requestUrl = `${baseUrl}${query}`
     console.log('requestUrl: ', requestUrl);
     return new Promise((resolve, reject) => {
-        const ffP = `./src/10/data/json/${params.layers}-${index}.json`
+        const ffP = `./data/json/${params.layers}-${index}.json`
         const is = fs.existsSync(ffP)
         if (is) return resolve(index)
         request(requestUrl, {
@@ -48,7 +48,7 @@ function readItem(params) {
 
 function saveFile(content, index) {
     return new Promise((resolve, reject) => {
-        fs.writeFile(`./src/10/data/json/${index}.json`, content, err => {
+        fs.writeFile(`./data/json/${index}.json`, content, err => {
             err ? reject(err) : resolve()
         })
     })
@@ -57,7 +57,7 @@ function saveFile(content, index) {
 ;(async () => {
     console.log('start')
     let start = 3340
-    // await execFun(alljobList, readItem, 10)
+    await execFun(alljobList, readItem, 10)
     // // for (let i = start; i < alljobList.length; i ++) {
     // //     const curJob = alljobList[i];
     // //     console.log('curJob: ', `${i + 1} / ${alljobList.length}`);

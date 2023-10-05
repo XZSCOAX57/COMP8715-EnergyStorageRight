@@ -1,6 +1,7 @@
 import { getItemDataByHtmlStr } from './utils/util.js'
 import fs from 'fs'
-const allList = fs.readdirSync('./src/10/data/json')
+const allList = fs.readdirSync('./data/json')
+//const allList = {}
 import generationExcel from './utils/generationExcel.js'
 // import { ll2gcj } from './utils/demo.js'
 const dataList = [
@@ -14,7 +15,7 @@ for (let i = 0; i < allList.length; i ++) {
         kk = allList[i].split('-')[0]
     }
     resMap[kk] = resMap[kk] || []
-    const ffPath = `./src/10/data/json/${allList[i]}`
+    const ffPath = `./data/json/${allList[i]}`
     const fileContent = JSON.parse(fs.readFileSync(ffPath, 'utf-8')).features
     fileContent.forEach(item => {
         const { name,  description } = item.properties

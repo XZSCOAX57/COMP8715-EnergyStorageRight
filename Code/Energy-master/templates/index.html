@@ -211,23 +211,34 @@
         .topnav {
             font-family: Arial, Helvetica, sans-serif;
             overflow: hidden;
+            width: auto; /* 修改宽度 */
+            max-width: 80%; /* 最大宽度不超过100% */
+            height: 60px; /* 修改高度 */
+            opacity: 0.71; /* 修改透明度 */
+            border-radius: 14px; /* 修改边框圆角 */
             background-color: #333;
+            color: white;
+            padding: 2px 0px;
+            z-index: 1; /* 设置一个较高的 z-index 以确保位于视图上方 */
             font-size: 20px;
-            margin-top: 120px;
-            right: 10px;
-            height: 60px;
-            width: 110vw;
+            margin-top: 10%;
             position: fixed;
-            z-index: 1;
             top: -130px;
-            margin-right: -10vw;
-            padding: 10px;
+            left: 10%;
+
         }
 
         .topnav ul {
             list-style-type: none;
-        }
+            display: flex; /* 使用 flex 布局使导航项水平排列 */
+            justify-content: space-around; /* 均匀分布导航项 */
+            align-items: center; /* 垂直居中导航项 */
 
+        }
+        .topnav li {
+
+            text-align: center;
+        }
         .topnav a {
             text-decoration: none;
             float: left;
@@ -1212,26 +1223,38 @@
 
 
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-        }
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
 
-        .outer {
-            height: 100%;
-            padding: 50px 0 0;
-            box-sizing: border-box;
-            position: relative;
-        }
+    .outer {
+        height: 100%;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+    }
 
-        #viewDiv {
-            height: 100%;
-            width: 100%;
-        }
+    .topnav {
+        background-color: #333;
+        color: white;
+        padding: 2px 0px;
+        position: absolute; /* 设置为绝对定位，可以重叠在其他内容上方 */
+        width: 100%; /* 宽度占满整个 .outer 容器 */
+        z-index: 1; /* 设置一个较高的 z-index 以确保位于视图上方 */
+    }
 
-    </style>
+
+    #viewDiv {
+        width: 100%;
+        height: 100%;
+        position: relative; /* 设置为相对定位，以允许子元素绝对定位在其中 */
+        z-index: 0; /* 设置一个较低的 z-index 以确保位于导航栏下方 */
+    }
+</style>
+
 </head>
 
 <body onmousedown="showCoords(event)" style="zoom: 1;">
@@ -1252,11 +1275,11 @@
     </div>
 
     <!-- Select area zone -->
-    <div id="viewDiv" onclick="drawPanel()"
-         class="esri-view esri-view-height-small esri-view-height-greater-than-xsmall esri-view-height-less-than-medium esri-view-height-less-than-large esri-view-height-less-than-xlarge esri-view-orientation-landscape esri-view-width-medium esri-view-width-greater-than-xsmall esri-view-width-greater-than-small esri-view-width-less-than-large esri-view-width-less-than-xlarge">
+
+    <div id="viewDiv" onclick="drawPanel()" class="esri-view esri-view-height-small esri-view-height-greater-than-xsmall esri-view-height-less-than-medium esri-view-height-less-than-large esri-view-height-less-than-xlarge esri-view-orientation-landscape esri-view-width-medium esri-view-width-greater-than-xsmall esri-view-width-greater-than-small esri-view-width-less-than-large esri-view-width-less-than-xlarge">
         <div class="esri-view-root">
-            <div class="esri-view-surface esri-view-surface--inset-outline esri-view-surface--touch-none"
-                 role="application" tabindex="0" data-interacting="false">
+            <div class="esri-view-surface esri-view-surface--inset-outline esri-view-surface--touch-none" role="application" tabindex="0" data-interacting="false">
+
                 <canvas style="width: 907px; height: 745px; display: block;" width="1814" height="1490"></canvas>
             </div>
             <div class="esri-overlay-surface">
@@ -1266,78 +1289,58 @@
                 <div class="esri-ui-inner-container esri-ui-corner-container" style="inset: 15px 15px 30px;">
                     <div class="esri-ui-top-left esri-ui-corner">
                         <div class="esri-component esri-zoom esri-widget">
-                            <div class="esri-widget--button esri-widget esri-interactive" role="button" tabindex="0"
-                                 title="Zoom in"><span aria-hidden="true" role="presentation"
-                                                       class="esri-icon esri-icon-plus"></span><span
-                                    class="esri-icon-font-fallback-text">Zoom in</span></div>
-                            <div class="esri-widget--button esri-widget esri-disabled" role="button" tabindex="-1"
-                                 title="Zoom out"><span aria-hidden="true" role="presentation"
-                                                        class="esri-icon esri-icon-minus"></span><span
-                                    class="esri-icon-font-fallback-text">Zoom out</span></div>
+                            <div class="esri-widget--button esri-widget esri-interactive" role="button" tabindex="0" title="Zoom in">
+                                <span aria-hidden="true" role="presentation" class="esri-icon esri-icon-plus"></span>
+                                <span class="esri-icon-font-fallback-text">Zoom in</span>
+                            </div>
+                            <div class="esri-widget--button esri-widget esri-disabled" role="button" tabindex="-1" title="Zoom out">
+                                <span aria-hidden="true" role="presentation" class="esri-icon esri-icon-minus"></span>
+                                <span class="esri-icon-font-fallback-text">Zoom out</span>
+                            </div>
                         </div>
                         <div class="esri-component esri-search esri-widget">
                             <div tabindex="-1" class="esri-search__container">
                                 <div class="esri-search__input-container">
-                                    <form class="esri-search__form" role="search"><input type="text"
-                                                                                         aria-autocomplete="list"
-                                                                                         aria-expanded="false"
-                                                                                         aria-controls="18a3a88b4d2-widget-3-suggest-menu"
-                                                                                         aria-haspopup="listbox"
-                                                                                         aria-label="Search"
-                                                                                         placeholder="Find address or place"
-                                                                                         autocomplete="off"
-                                                                                         class="esri-input esri-search__input"
-                                                                                         id="18a3a88b4d2-widget-3-input"
-                                                                                         role="combobox"
-                                                                                         data-node-ref="_inputNode"
-                                                                                         title="Find address or place">
+                                    <form class="esri-search__form" role="search">
+                                        <input type="text" aria-autocomplete="list" aria-expanded="false" aria-controls="18a3a88b4d2-widget-3-suggest-menu" aria-haspopup="listbox" aria-label="Search" placeholder="Find address or place" autocomplete="off" class="esri-input esri-search__input" id="18a3a88b4d2-widget-3-input" role="combobox" data-node-ref="_inputNode" title="Find address or place">
                                     </form>
-                                    <div id="18a3a88b4d2-widget-3-suggest-menu"
-                                         class="esri-menu esri-search__suggestions-menu" role="listbox"
-                                         aria-labelledby="18a3a88b4d2-widget-3-input"
-                                         data-node-ref="_suggestionListNode">
-                                        <ul role="group"
-                                            class="esri-menu__list esri-search__suggestions-list esri-search__suggestions-list--current-location">
-                                            <li id="18a3a88b4d2-widget-3-suggestion-item-0" aria-selected="false"
-                                                role="option" class="esri-menu__list-item"><span aria-hidden="true"
-                                                                                                 class="esri-icon-locate-circled"></span>
-                                                Use current location
+                                    <div id="18a3a88b4d2-widget-3-suggest-menu" class="esri-menu esri-search__suggestions-menu" role="listbox" aria-labelledby="18a3a88b4d2-widget-3-input" data-node-ref="_suggestionListNode">
+                                        <ul role="group" class="esri-menu__list esri-search__suggestions-list esri-search__suggestions-list--current-location">
+                                            <li id="18a3a88b4d2-widget-3-suggestion-item-0" aria-selected="false" role="option" class="esri-menu__list-item">
+                                                <span aria-hidden="true" class="esri-icon-locate-circled"></span> Use current location
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <button aria-label="Search" class="esri-search__submit-button esri-widget--button"
-                                        title="Search" type="button"><span aria-hidden="true"
-                                                                           class="esri-icon-search"></span></button>
+                                <button aria-label="Search" class="esri-search__submit-button esri-widget--button" title="Search" type="button">
+                                    <span aria-hidden="true" class="esri-icon-search"></span>
+                                </button>
                                 <div class="esri-menu esri-search__warning-menu">
                                     <div class="esri-search__warning-body">
-                                        <div><span aria-hidden="true" class="esri-icon-notice-triangle"></span><span
-                                                class="esri-search__no-value-text">Please enter a search term.</span>
+                                        <div>
+                                            <span aria-hidden="true" class="esri-icon-notice-triangle"></span>
+                                            <span class="esri-search__no-value-text">Please enter a search term.</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="esri-ui-top-right esri-ui-corner"></div>
-                    <div class="esri-ui-bottom-left esri-ui-corner"></div>
-                    <div class="esri-ui-bottom-right esri-ui-corner">
-                        <div id="coordsWidget" class="esri-widget esri-component" style="padding: 7px 15px 5px;"></div>
-                    </div>
                 </div>
-                <div class="esri-ui-inner-container esri-ui-manual-container">
-                    <div class="esri-component esri-attribution esri-widget">
-                        <div class="esri-attribution__sources esri-interactive" tabindex="0" role="button">Earthstar
-                            Geographics
-                        </div>
-                        <div class="esri-attribution__powered-by">Powered by <a class="esri-attribution__link"
-                                                                                href="http://www.esri.com/"
-                                                                                target="_blank"
-                                                                                rel="noreferrer">Esri</a></div>
-                    </div>
-                    <div class="esri-component" style="display: none;"></div>
-                    <div class="esri-component" style="display: none;"></div>
+                <div class="esri-ui-top-right esri-ui-corner"></div>
+                <div class="esri-ui-bottom-left esri-ui-corner"></div>
+                <div class="esri-ui-bottom-right esri-ui-corner">
+                    <div id="coordsWidget" class="esri-widget esri-component" style="padding: 7px 15px 5px;"></div>
                 </div>
+            </div>
+            <div class="esri-ui-inner-container esri-ui-manual-container">
+                <div class="esri-component esri-attribution esri-widget">
+                    <div class="esri-attribution__sources esri-interactive" tabindex="0" role="button">Earthstar Geographics</div>
+                    <div class="esri-attribution__powered-by">Powered by <a class="esri-attribution__link" href="http://www.esri.com/" target="_blank" rel="noreferrer">Esri</a></div>
+                </div>
+                <div class="esri-component" style="display: none;"></div>
+                <div class="esri-component" style="display: none;"></div>
+
             </div>
         </div>
         <div class="esri-view-user-storage"></div>
@@ -1366,6 +1369,23 @@
       background-color:rgba(0, 0, 0, 0.9);
       padding: 10px;" onclick="openNav()">☰ reopen
 </span>
+
+<span style="font-size:20px;cursor:pointer;margin-top: 120px;
+      left:10px;
+      height: 100px;
+      width: 120px;
+      position: fixed;
+      z-index: 1;
+      top: 400px;
+      border-radius:10px;
+      background-color: rgba(0, 255, 0, 0.9);
+      padding: 10px;" onclick="showMessage()">☰ Display PHES Details
+</span>
+
+<span id="messageSpan" style="display: none; font-size: 20px; cursor: pointer; margin-top: 120px; left: 10px; 
+height: 100px; width: 120px; position: fixed; z-index: 1; top: 400px; border-radius: 10px; background-color: 
+rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES Details</span>
+<button onclick="changeToPolygon()">Change to Polygon</button>
 
 <div id="popUpForPlacingPanel" class="popUp" style="display:none;background:white;height:400px;width:250px;border-radius: 7px;
      border-style:solid; border-color:#0084CC;
@@ -1561,7 +1581,7 @@
     <!--position: absolute;zoom: 2">-->
 </div>
 
-<div id="mySidenavbottom" class="botnav">
+<div id="mySidenavbottom" class="botnav" >
     <!--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
     <h1 style="font-size:14px;  font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"><a href="#"
                                                                                                        style="font-size:14px; margin-left: -20px; margin-top: -8px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"
@@ -1577,6 +1597,146 @@
         </select>
     </div>
 </div>
+
+<div id="myPHESnav" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;">
+
+    <!-- remove return code in onsubmit -->
+    <form id="form1" action="/main/form" ,method="get" ,="" target="the_Frame" onsubmit="check_submit()">
+        <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px" id="calculate_energy">
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                project term:
+                <input type="number" name="project term" id="effi" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Range from 1 - 20" value="20" oninput="if(value>20) value=20;if(value<1) value=1;">
+                year
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                itc on storage system:
+                <select name="itc_on_storage_ststem" id="rad_r" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="If any federal tax incentive">
+                    <option value="true" selected="">True</option>
+                    <option value="false">False</option>
+                </select>
+                <!--<option type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;" id="rad_r"-->
+                <!--wrap="soft"-->
+                <!--value="1"></option>-->
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                sgip eligible:
+                <select name="sgip_eligible" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="num_wind_turbine" wrap="soft" title="If any state rebate ">
+                    <option value="true" selected="">True</option>
+                    <option value="false">False</option>
+                </select>
+                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
+                <!--id="num_wind_turbine"-->
+                <!--wrap="soft" value="1"></input>-->
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                In-state supplier:
+                <select name="in_state_supplier" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="cost_c" wrap="soft" title="If any in-state supplier ">
+                    <option value="true">True</option>
+                    <option value="false" selected="">False</option>
+                </select>
+                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
+                <!--id="cost_c"-->
+                <!--wrap="soft"-->
+                <!--value="45.74"></input>-->
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                sgip step:
+                <select name="sgip_step" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="poe_e" wrap="soft" title="Range from 1-5">
+                    <option value="1" selected="">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
+                <!--id="poe_e" wrap="soft"-->
+                <!--value="0.3441"></input>-->
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                saving assumptions:
+                <select name="saving_assumptions" style="margin-top:20px; border-radius: 5px;width:105px; height:25px;" id="year_y" wrap="soft" title="The pattern of saving">
+                    <option value="Estimated" selected="">Estimated</option>
+                    <option value="Conservative">Conservative</option>
+                    <option value="Optimal">Optimal</option>
+                </select>
+                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
+                <!--id="year_y"-->
+                <!--wrap="soft"-->
+                <!--value="5"></input>-->
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                calculation pattern:
+                <select name="calculation_pattern" id="calculation_pattern" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title=" 1: Solar &amp; no storage
+2: Solar &amp; pump hydro
+3: Solar &amp; battery
+4: Wind &amp; no storage
+5: Wind &amp; pump hydro
+6: Wind &amp; battery
+">
+                    <option value="1" selected="">1: Solar &amp; no storage</option>
+                    <option value="2">2: Solar &amp; pump hydro</option>
+                    <option value="3">3: Solar &amp; battery</option>
+                    <option value="4">4: Wind &amp; no storage</option>
+                    <option value="5">5: Wind &amp; pump hydro</option>
+                    <option value="6">6: Wind &amp; battery</option>
+
+                </select>
+            </p>
+
+            <!--this is new edit point-->
+
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                Battery storage capacity:
+                <select name="Battery_storage_capacity" id="battery_storage_capacity" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="0%
+20%
+40%
+60%
+80%
+100%
+">
+                    <option value="1">0%</option>
+                    <option value="2" selected="">20%</option>
+                    <option value="3">40%</option>
+                    <option value="4">60%</option>
+                    <option value="5">80%</option>
+                    <option value="6">100%</option>
+
+                </select>
+            </p>
+
+            <p id="isOnshore" style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                onshore:
+                <select name="isOnshore" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="onshore" wrap="soft" title=" The position is onshore or offshore">
+                    <option value="true" selected="">True</option>
+                    <option value="false">False</option>
+                </select>
+            </p>
+        </div>
+        <div id="two_btn">
+            <div style="width:65px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
+                <button type="submit" id="submitBtn" value="myValue">
+                    <p title="Submit the value to be calculated." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                        Submit</p>
+                </button>
+            </div>
+
+            <!-- Calculate button -->
+            <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
+                <button id="calculateBtn" value="myValue" onclick="getNum()">
+                    <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                        Calculate</p>
+                </button>
+            </div>
+            <!-- Apply loan button and the pop window-->
+            <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
+                <button id="applyBtn" value="myValue" onclick="getNum()">
+                    <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                        Apply Loan</p>
+                </button>
+            </div>
+        </div>
+    </form>
+ </div>
 
 <!-- side bar [top right button for changing map] -->
 <div id="mySidenav" class="sidenav">
@@ -3074,7 +3234,39 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             clearall();
             reset_fields();
         }
+
+        setTimeout(function () {
+        // Hide the message only if it was shown
+        if (showMessageFlag) {
+            var messageSpan = document.getElementById("messageSpan");
+            messageSpan.style.display = "none";
+            showMessageFlag = false;
+            }
+        }, 2000); // Adjust the delay time as needed
+
+        setTimeout(function () {
+        // After the changeToPolygon logic is complete, open myPHESnav
+            openMyPHESnav();
+        }, 2000); // Adjust the delay time as needed (replace with actual delay)
     }
+
+//     function changetopolygon() {
+//     console.log("B");
+//     console.log(drawselection);
+
+//     if (drawselection != 2) {
+//         drawselection = 2;
+//         clearall();
+//         reset_fields();
+
+//         // Log a message to check if this point is reached.
+//         console.log("Showing myPHESnav");
+
+//         // Show myPHESnav
+//         var myPHESnav = document.getElementById("myPHESnav");
+//         myPHESnav.style.display = "block";
+//     }
+// }
 
     function changetonan() {
         console.log("A")
@@ -3240,6 +3432,30 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+
+    function openMyPHESnav() {
+        document.getElementById("myPHESnav").style.width = "325px";
+        document.getElementById("myPHESnav").style.height = "250px";
+    }
+
+
+    function displaySelectAreaMessage() {
+    alert("please select region."); // Set your fixed message here
+    }
+
+    var showMessageFlag = false; // Flag to control message visibility
+
+    function showMessage() {
+        if (!showMessageFlag) {
+            var messageSpan = document.getElementById("messageSpan");
+            messageSpan.innerHTML = "please select region.";
+
+            // Show the message
+            messageSpan.style.display = "block";
+            showMessageFlag = true;
+        }
+    }
+
 
     function toWindMode() {
         show_mode = 2;
@@ -3739,5 +3955,5 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 </script>
 
 
-</body>
-</html>
+
+</body></html>

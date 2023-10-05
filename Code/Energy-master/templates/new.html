@@ -601,23 +601,6 @@
             map.add(hydro_layer);
             hydro_layer.visible = false;
 
-            //power_layer
-            // power_layer = new WMSLayer({
-            //     url: "https://gis.aremi.data61.io/bom/wms",
-            //     id: "power",
-            //     opacity: 0.5,
-            //     sublayers: [{
-            //         name: ""
-            //     }]
-            // });
-
-            // var opts = {
-            //     "url": "http://worldmap.harvard.edu/geoserver/wfs?outputFormat=SHAPE-ZIP&service=WFS&request=GetFeature&format_options=charset%3AUTF-8&typename=geonode%3Aosm_power_tmm&version=1.0.0",
-            //     "version": "1.0.0",
-            //     "name": "JapanPrefectures2018"
-            // };
-            // map.add(power_layer);
-            // power_layer.visible = false;
 
 
             view = new MapView({
@@ -732,20 +715,6 @@
                     drawPoint(evt.mapPoint);
                 }
 
-                // -=Todo:这里可以放出来，注释掉下面的addpanel
-                // if (addPanelState == 1) {
-                //
-                //     var ImageOverlayLayer = new CustomImageOverlayLayer({
-                //         picUrl: "array_B.png",
-                //         extent: {
-                //             xmin: evt.mapPoint.longitude - 120 / 0.11131955 * 0.000001,
-                //             ymin: evt.mapPoint.latitude - 60 / 0.11131955 * 0.000001,
-                //             xmax: evt.mapPoint.longitude + 120 / 0.11131955 * 0.000001,
-                //             ymax: evt.mapPoint.latitude + 60 / 0.11131955 * 0.000001
-                //         }
-                //     });
-                //     map.add(ImageOverlayLayer);
-                // }
             });
 
 
@@ -861,24 +830,6 @@
             //new calculation ends
 
 
-            // function calculatepolygonarea(coordinates) {
-            //     var area;
-            //     area = 0;
-            //     if (coordinates.length > 2) {
-            //         for (var i = 0; i < coordinates.length - 1; i++) {
-            //             var p1;
-            //             var p2;
-            //             p1 = coordinates[i];
-            //             p2 = coordinates[i + 1];
-            //             area += ConvertToRadian(p2[0] - p1[0]) * (2
-            //                 + Math.sin(ConvertToRadian(p1[1]))
-            //                 + Math.sin(ConvertToRadian(p2[1])));
-            //         }
-            //         area = area * 6378137 * 6378137 / 20000; //originally /2 here is to change to M^2
-            //     }
-            //     return Math.abs(area);
-            // }
-
             function degToRad(degrees) {
                 return degrees * (Math.PI / 180);
             };
@@ -934,11 +885,6 @@
                 });
                 // Add the graphic to the view
                 view.graphics.add(polygonGraphic);
-                // <form name="form" method="post" onsubmit="return check()">
-                //     <input type="text" name="name" id="name"/>
-                //     <input type="submit" value="提交" />
-                // </form>
-                // showPopup_point(polygonlist[0])
                 showPopUpSideBar();
             }
 
@@ -1011,22 +957,13 @@
                                     }
                                 }
                             } else {
-                                // alert("No results");
                             }
                         } else {
-                            // alert("Status: " + status);
                         }
                     }
                 );
             }
 
-            // var fill = new SimpleFillSymbol("solid", null, new Color("#A4CE67"));
-            // var popup = new Popup({
-            // fillSymbol: fill,
-            // titleInBody: false
-            // });
-            //Add the dark theme which is customized further in the <style> tag at the top of this page
-            // domClass.add(popup.domNode, "dark");
 
             function showPopup_point(pt) {
                 vertex = [pt.longitude, pt.latitude];
@@ -1120,52 +1057,24 @@
                     country = text.substring(c1 + 9, c2 - 1);
                     grid_distance = text.substring(c2 + 10, c3 - 1) + " km";
                     elec_price = text.substring(c3 + 12);
-                    //'DNI', 'GHI', 'DHI', 'GTI'
-                    // pdf.text("Direct Normal Irradiation: " + dni + " kWh/m²", 20, 60);
-                    // pdf.text("Global Horizontal Irradiation: " + ghi + " kWh/m²", 20, 65);
-                    // pdf.text("Diffuse Horizontal Irradiation: " + dif + " kWh/m²", 20, 70);
-                    // pdf.text("Global Titled Irradiation At Optimum Angle: " + gti + " kWh/m²", 20, 75);
                     transfer_data = [dni.toFixed(2),ghi.toFixed(2),dif.toFixed(2),gti.toFixed(2)];
                     itistest(transfer_data);
-                    //myChart.destroy();
-                    //buildimage(transfer_data);
-                    //alert(typeof(dni));
-                    //alert("I have build the image");
-                    // if (country != ' Australia') {
-                    //     grid_distance = "Currently we don't support this area."
-                    // }
 
-                    // alert("1");
                     view.popup.open({
-                        // title: "Latitude: " + "<div style='background-color:DarkGray;color:white'>"+Math.round(calculationpoint[1] * 100000) / 100000 +".</div>"+ ", Longitude" + "<div style='background-color:DarkGray;color:white'>"+Math.round(calculationpoint[0] * 100000) / 100000+".</div>",
+
 
                         content: "Area: " + area_value.toLocaleString()  + " m²<br><br><br>" + "Latitude: " + Math.round(calculationpoint[1] * 100) / 100 + ", Longitude: " + Math.round(calculationpoint[0] * 100) / 100 + "<br><br><br>Country: " + country + "<br><br><br>Distance to nearest grid: " + grid_distance,
 
-                        // location: "<div style='color:black'>"+calculationpoint+".</div>",
-                        // highlightAll: [255,0,0]
                     });
                     // once calculation finish, the data will update here first and then change use the sub-tab
                     if (show_mode == 1) {
-                        // document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Specific Photovoltaic Power Output:<br> " + pvout.toFixed(2) + " kWh/kWp";
-                        // document.getElementById("Power_Density").innerHTML = "Direct Normal Irradiation:<br> " + dni.toFixed(2) + " kWh/m2";
-                        // document.getElementById("Wind_Speed").innerHTML = "Global Horizontal Irradiation:<br> " + ghi.toFixed(2) + " kWh/m2";
                         toSolarMode();
                     }
                     if (show_mode == 2) {
-                        // document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Specific Photovoltaic Power Output:<br> " + pvout.toFixed(2) + " kWh/kWp";
-                        // document.getElementById("Power_Density").innerHTML = "Power Density: <br> " + power_d.toFixed(2) + " W/m²";
-                        // document.getElementById("Wind_Speed").innerHTML = "Wind Speed: <br> " + speed_w.toFixed(2) + " m/s";
-                        // document.getElementById("diffuse_horizontal_irradiation").innerHTML = "Diffuse Horizontal Irradiation:<br> " + dif.toFixed(2) + " kWh/m2";
-                        // document.getElementById("global_titled_irradiation_at_optimum_angle").innerHTML = "Global Titled Irradiation At Optimum Angle:<br> " + gti.toFixed(2) + " kWh/m2";
+
                         toWindMode();
                     }
                     if (show_mode == 3) {
-                        // document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Class:<br> " + class_.toFixed(4) ;
-                        // document.getElementById("Power_Density").innerHTML = "Storage head:<br> " + head_.toFixed(4) + " m";
-                        // document.getElementById("Wind_Speed").innerHTML = "Separation:<br> " + separation.toFixed(4) + " km";
-                        // document.getElementById("Slope").innerHTML = "Slope:<br> " + slope.toFixed(4) + " %";
-                        // document.getElementById("Volume").innerHTML = "Volume:<br> " + volume.toFixed(4) + " GL";
-                        // document.getElementById("water_to_rock").innerHTML = "Water to Rock Ratio:<br> " + w_r.toFixed(4) ;
                         toStorageMode();
                     }
                     if (show_mode == 4) {
@@ -1324,20 +1233,15 @@
 
 <span style="font-size:20px;cursor:pointer;margin-top: 120px;
       left:10px;
-      height: 100px;
+      height: 50px;
       width: 120px;
       position: fixed;
       z-index: 1;
-      top: 400px;
+      top: 450px;
       border-radius:10px;
-      background-color: rgba(0, 255, 0, 0.9);
-      padding: 10px;" onclick="showMessage()">☰ Display PHES Details
+      background-color:rgba(187, 40, 40, 0.9);
+      padding: 10px;" onclick="openPHESNav()">☰ Display PHES
 </span>
-
-<span id="messageSpan" style="display: none; font-size: 20px; cursor: pointer; margin-top: 120px; left: 10px; 
-height: 100px; width: 120px; position: fixed; z-index: 1; top: 400px; border-radius: 10px; background-color: 
-rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES Details</span>
-<button onclick="changeToPolygon()">Change to Polygon</button>
 
 <div id="popUpForPlacingPanel" class="popUp" style="display:none;background:white;height:400px;width:250px;border-radius: 7px;
      border-style:solid; border-color:#0084CC;
@@ -1347,8 +1251,6 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
     <div style=" overflow:hidden; padding:5px; text-align:center">
         <script>
             function jump_panel() {
-                // location.href="/panelboard";
-                // window.localStorage.setItem('list',polygonlist.toString());
                 document.cookie = polygonlist.toString();
             }
 
@@ -1376,44 +1278,7 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
     var positionX;
     var positionY;
     var addPanelState = 0;
-    // function mousePosition(ev) {
-    //     if (ev.pageX || ev.pageY) {
-    //         return {x: ev.pageX, y: ev.pageY};
-    //     }
-    //     return {
-    //         x: ev.clientX + document.body.scrollLeft - document.body.clientLeft,
-    //         y: ev.clientY + document.body.scrollTop - document.body.clientTop
-    //     };
-    // }
 
-    // function mouseMove(ev) {
-    //     ev = ev || window.event;
-    //     var mousePos = mousePosition(ev);
-    //     document.getElementById('xxx').value = mousePos.x;
-    //     document.getElementById('yyy').value = mousePos.y;
-    //     positionX = x;
-    //     positionY = y;
-    // }
-
-
-    // document.onmousemove = mouseMove;
-
-    // function Show(el) {
-    //     var x = parseInt(document.getElementById('xxx').value) - el.offsetLeft;
-    //     var y = parseInt(document.getElementById('yyy').value) - el.offsetTop;
-    //     x = "X:" + x;
-    //     y = "Y:" + y;
-    //     positionX = x;
-    //     positionY = y;
-    //
-    //     document.getElementById("imgPic").style.top = positionX;
-    //     document.getElementById("imgPic").style.left = positionY;
-    //     alert(x + "," + y);
-    // }
-
-    //
-    // document.getElementById("imgPic").style.top = "1000px";
-    // document.getElementById("imgPic").style.left = "1000px";
 
     function showCoords(evt) {
         console.log(
@@ -1466,38 +1331,9 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
 
         if (addPanelState == 1) {
             var currentInnerHTML = document.getElementById('panelLayer').innerHTML;
-            // alert(currentInnerHTML);
-            //
-            //         view.on("click", function (evt) {
-            //             var ImageOverlayLayer = new CustomImageOverlayLayer({
-            //                 picUrl: "array_B.png",
-            //                 extent: {
-            //                     xmin: evt.mapPoint.longitude - 120 / 0.11131955 * 0.000001,
-            //                     ymin: evt.mapPoint.latitude - 60 / 0.11131955 * 0.000001,
-            //                     xmax: evt.mapPoint.longitude + 120 / 0.11131955 * 0.000001,
-            //                     ymax: evt.mapPoint.latitude + 60 / 0.11131955 * 0.000001
-            //                 }
-            //             });
-            //             map.add(ImageOverlayLayer);
-            //        });
-            // //
-            //
-            //         // let mapView = document.getElementById('viewDiv');
-            //         //
-            //         // mapView.onclick = (e) => {
-            //         //     console.log(e.screenX, e.screenY);
-            //         //     positionX = hand_position.x;
-            //         //     positionY = hand_position.y;
-            //         // }
-            //
-            //         // var hand_position = getMousePos();
-            //
-            //         // alert(positionX);
-            //         // alert(positionY);
-            //
+
             let btnNum = event.button;
-            //         //
-            //         //
+
             if (btnNum == 0) {
 
                 document.getElementById('panelLayer').innerHTML = currentInnerHTML +
@@ -1508,8 +1344,6 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
                     " position: absolute;" + "zoom: 2;\"\">"
 
             }
-            //
-            //
         }
     }
 
@@ -1524,16 +1358,9 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
 </script>
 
 <div id="panelLayer" class="panelAdding">
-    <!--<img src="array_A.png" alt=""-->
-    <!--style=" width:47.2px; height: 22.6px; left:950px; top:25px;-->
-    <!--position: absolute;zoom: 2;">-->
-
-    <!--<img src="array_A.png" alt=""-->
-    <!--style=" left:250px; bottom:250px; ;-->
-    <!--position: absolute;zoom: 2">-->
 </div>
 
-<div id="mySidenavbottom" class="botnav" >
+<div id="mySidenavbottom" class="botnav">
     <!--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
     <h1 style="font-size:14px;  font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"><a href="#" style="font-size:14px; margin-left: -20px; margin-top: -8px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;" title="You can choose different styles of maps according to your preferences, which will not affect the evaluation of the investment.">
         Change Base Map</a></h1>
@@ -1548,163 +1375,10 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
     </div>
 </div>
 
-<div id="myPHESnav" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;">
-
-    <!-- remove return code in onsubmit -->
-    <form id="form1" action="/main/form" ,method="get" ,="" target="the_Frame" onsubmit="check_submit()">
-        <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px" id="calculate_energy">
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
-                project term:
-                <input type="number" name="project term" id="effi" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Range from 1 - 20" value="20" oninput="if(value>20) value=20;if(value<1) value=1;">
-                year
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                itc on storage system:
-                <select name="itc_on_storage_ststem" id="rad_r" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="If any federal tax incentive">
-                    <option value="true" selected="">True</option>
-                    <option value="false">False</option>
-                </select>
-                <!--<option type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;" id="rad_r"-->
-                <!--wrap="soft"-->
-                <!--value="1"></option>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                sgip eligible:
-                <select name="sgip_eligible" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="num_wind_turbine" wrap="soft" title="If any state rebate ">
-                    <option value="true" selected="">True</option>
-                    <option value="false">False</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
-                <!--id="num_wind_turbine"-->
-                <!--wrap="soft" value="1"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                In-state supplier:
-                <select name="in_state_supplier" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="cost_c" wrap="soft" title="If any in-state supplier ">
-                    <option value="true">True</option>
-                    <option value="false" selected="">False</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
-                <!--id="cost_c"-->
-                <!--wrap="soft"-->
-                <!--value="45.74"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                sgip step:
-                <select name="sgip_step" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="poe_e" wrap="soft" title="Range from 1-5">
-                    <option value="1" selected="">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
-                <!--id="poe_e" wrap="soft"-->
-                <!--value="0.3441"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                saving assumptions:
-                <select name="saving_assumptions" style="margin-top:20px; border-radius: 5px;width:105px; height:25px;" id="year_y" wrap="soft" title="The pattern of saving">
-                    <option value="Estimated" selected="">Estimated</option>
-                    <option value="Conservative">Conservative</option>
-                    <option value="Optimal">Optimal</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
-                <!--id="year_y"-->
-                <!--wrap="soft"-->
-                <!--value="5"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                calculation pattern:
-                <select name="calculation_pattern" id="calculation_pattern" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title=" 1: Solar &amp; no storage
-2: Solar &amp; pump hydro
-3: Solar &amp; battery
-4: Wind &amp; no storage
-5: Wind &amp; pump hydro
-6: Wind &amp; battery
-">
-                    <option value="1" selected="">1: Solar &amp; no storage</option>
-                    <option value="2">2: Solar &amp; pump hydro</option>
-                    <option value="3">3: Solar &amp; battery</option>
-                    <option value="4">4: Wind &amp; no storage</option>
-                    <option value="5">5: Wind &amp; pump hydro</option>
-                    <option value="6">6: Wind &amp; battery</option>
-
-                </select>
-            </p>
-
-            <!--this is new edit point-->
-
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                Battery storage capacity:
-                <select name="Battery_storage_capacity" id="battery_storage_capacity" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="0%
-20%
-40%
-60%
-80%
-100%
-">
-                    <option value="1">0%</option>
-                    <option value="2" selected="">20%</option>
-                    <option value="3">40%</option>
-                    <option value="4">60%</option>
-                    <option value="5">80%</option>
-                    <option value="6">100%</option>
-
-                </select>
-            </p>
-
-            <p id="isOnshore" style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                onshore:
-                <select name="isOnshore" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="onshore" wrap="soft" title=" The position is onshore or offshore">
-                    <option value="true" selected="">True</option>
-                    <option value="false">False</option>
-                </select>
-            </p>
-        </div>
-        <div id="two_btn">
-            <div style="width:65px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
-                <button type="submit" id="submitBtn" value="myValue">
-                    <p title="Submit the value to be calculated." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Submit</p>
-                </button>
-            </div>
-
-            <!-- Calculate button -->
-            <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
-                <button id="calculateBtn" value="myValue" onclick="getNum()">
-                    <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Calculate</p>
-                </button>
-            </div>
-            <!-- Apply loan button and the pop window-->
-            <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
-                <button id="applyBtn" value="myValue" onclick="getNum()">
-                    <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Apply Loan</p>
-                </button>
-            </div>
-        </div>
-    </form>
- </div>
-
 <!-- side bar [top right button for changing map] -->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <!--    <h1 style="font-size:20px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"><a href=#-->
-    <!--                                                                                                      style="font-size:25px; margin-left: -20px; margin-top: -8px; font-weight: bolder; color:rgba(0, 0, 0, 0.9); text-align: center;"-->
-    <!--                                                                                                      title="You can choose different styles of maps according to your preferences, which will not affect the evaluation of the investment.">-->
-    <!--        Change Base Map</a></h1>-->
-    <!--    <br>-->
-    <!--    <div class="box">-->
-    <!--        <select id="select_map" onclick="change_base_map()">-->
-    <!--            <option value="topo-vector">Topographic Map</option>-->
-    <!--            <option value="satellite">World Imagery map</option>-->
-    <!--            <option value="streets"> World Street Map</option>-->
-    <!--            <option value="streets-night-vector"> World Street Map (Night)</option>-->
-    <!--        </select>-->
-    <!--    </div>-->
-    <!--    <br><br>-->
+
 
     <!-- Choose energy part -->
     <!--Fix rgb to rgba in h3 color part-->
@@ -1780,9 +1454,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     <option value="true" selected="">True</option>
                     <option value="false">False</option>
                 </select>
-                <!--<option type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;" id="rad_r"-->
-                <!--wrap="soft"-->
-                <!--value="1"></option>-->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 sgip eligible:
@@ -1790,9 +1461,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     <option value="true" selected="">True</option>
                     <option value="false">False</option>
                 </select>
-                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
-                <!--id="num_wind_turbine"-->
-                <!--wrap="soft" value="1"></input>-->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 In-state supplier:
@@ -1800,10 +1468,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     <option value="true">True</option>
                     <option value="false" selected="">False</option>
                 </select>
-                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
-                <!--id="cost_c"-->
-                <!--wrap="soft"-->
-                <!--value="45.74"></input>-->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 sgip step:
@@ -1814,9 +1478,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
-                <!--id="poe_e" wrap="soft"-->
-                <!--value="0.3441"></input>-->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 saving assumptions:
@@ -1825,10 +1486,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     <option value="Conservative">Conservative</option>
                     <option value="Optimal">Optimal</option>
                 </select>
-                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
-                <!--id="year_y"-->
-                <!--wrap="soft"-->
-                <!--value="5"></input>-->
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 calculation pattern:
@@ -1987,6 +1644,168 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
     </div>
     <!-- end of the pop window -->
 
+    <div id="PHESSideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closePHES()">×</a>
+
+        <div class="option" style=" background-color:rgba(201, 225, 238); height:110px; margin-top:0px; margin-bottom:0px;
+          width:325px; padding-left:0px; padding-right:30px; text-align: center ;">
+
+            <!---->
+            <div class="sbutton">
+                <ul>
+                    <li>
+                        <a title="The data of solar energy in your selected area.
+This tab will return the ROI and IRR for combination of Solar + Storage." class="active" tag="#solar" onclick="toSolarMode()" id="solar_m"> Solar</a></li>
+                    <li>
+                        <a title="The data of wind energy in your selected area.
+This tab will return the ROI and IRR for combination of Wind + Storage." class="active" tag="#wind" onclick="toWindMode()" id="wind_m">Wind</a></li>
+                    <div class="dropdown">
+                        <li><a title="The data of storage, which contains hydro info and battery info." class="active dropbtn" tag="#storage" id="storage_m">Storage</a>
+                        </li>
+
+                    </div>
+                </ul>
+            </div>
+
+            <form id="form1" action="/main/form" ,method="get" ,="" target="the_Frame" onsubmit="check_submit()">
+                <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px" id="calculate_energy">
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                        project term:
+                        <input type="number" name="project term" id="effi" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Range from 1 - 20" value="20" oninput="if(value>20) value=20;if(value<1) value=1;">
+                        year
+                    </p>
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        itc on storage system:
+                        <select name="itc_on_storage_ststem" id="rad_r" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="If any federal tax incentive">
+                            <option value="true" selected="">True</option>
+                            <option value="false">False</option>
+                        </select>
+                        <!--<option type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;" id="rad_r"-->
+                        <!--wrap="soft"-->
+                        <!--value="1"></option>-->
+                    </p>
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        sgip eligible:
+                        <select name="sgip_eligible" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="num_wind_turbine" wrap="soft" title="If any state rebate ">
+                            <option value="true" selected="">True</option>
+                            <option value="false">False</option>
+                        </select>
+                        <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
+                        <!--id="num_wind_turbine"-->
+                        <!--wrap="soft" value="1"></input>-->
+                    </p>
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        In-state supplier:
+                        <select name="in_state_supplier" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="cost_c" wrap="soft" title="If any in-state supplier ">
+                            <option value="true">True</option>
+                            <option value="false" selected="">False</option>
+                        </select>
+                        <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
+                        <!--id="cost_c"-->
+                        <!--wrap="soft"-->
+                        <!--value="45.74"></input>-->
+                    </p>
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        sgip step:
+                        <select name="sgip_step" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="poe_e" wrap="soft" title="Range from 1-5">
+                            <option value="1" selected="">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
+                        <!--id="poe_e" wrap="soft"-->
+                        <!--value="0.3441"></input>-->
+                    </p>
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        saving assumptions:
+                        <select name="saving_assumptions" style="margin-top:20px; border-radius: 5px;width:105px; height:25px;" id="year_y" wrap="soft" title="The pattern of saving">
+                            <option value="Estimated" selected="">Estimated</option>
+                            <option value="Conservative">Conservative</option>
+                            <option value="Optimal">Optimal</option>
+                        </select>
+                        <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
+                        <!--id="year_y"-->
+                        <!--wrap="soft"-->
+                        <!--value="5"></input>-->
+                    </p>
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        calculation pattern:
+                        <select name="calculation_pattern" id="calculation_pattern" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title=" 1: Solar &amp; no storage
+    2: Solar &amp; pump hydro
+    3: Solar &amp; battery
+    4: Wind &amp; no storage
+    5: Wind &amp; pump hydro
+    6: Wind &amp; battery
+    ">
+                            <option value="1" selected="">1: Solar &amp; no storage</option>
+                            <option value="2">2: Solar &amp; pump hydro</option>
+                            <option value="3">3: Solar &amp; battery</option>
+                            <option value="4">4: Wind &amp; no storage</option>
+                            <option value="5">5: Wind &amp; pump hydro</option>
+                            <option value="6">6: Wind &amp; battery</option>
+
+                        </select>
+                    </p>
+
+                    <!--this is new edit point-->
+
+                    <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        Battery storage capacity:
+                        <select name="Battery_storage_capacity" id="battery_storage_capacity" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="0%
+    20%
+    40%
+    60%
+    80%
+    100%
+    ">
+                            <option value="1">0%</option>
+                            <option value="2" selected="">20%</option>
+                            <option value="3">40%</option>
+                            <option value="4">60%</option>
+                            <option value="5">80%</option>
+                            <option value="6">100%</option>
+
+                        </select>
+                    </p>
+
+                    <p id="isOnshore" style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
+                        onshore:
+                        <select name="isOnshore" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="onshore" wrap="soft" title=" The position is onshore or offshore">
+                            <option value="true" selected="">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </p>
+                </div>
+                <div id="two_btn">
+                    <div style="width:65px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
+                        <button type="submit" id="submitBtn" value="myValue">
+                            <p title="Submit the value to be calculated." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                                Submit</p>
+                        </button>
+                    </div>
+
+                    <!-- Calculate button -->
+                    <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
+                        <button id="calculateBtn" value="myValue" onclick="getNum()">
+                            <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                                Calculate</p>
+                        </button>
+                    </div>
+                    <!-- Apply loan button and the pop window-->
+                    <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
+                        <button id="applyBtn" value="myValue" onclick="getNum()">
+                            <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                                Apply Loan</p>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -2075,13 +1894,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
         // edit point -> change to last version
         const block_button = document.querySelector('calculateBtn');
-        //document.getElementById("applyBtn").disabled = true;
-        //document.getElementById("applyBtn").disabled = true;
 
-        // btn.onclick = function () {
-        //     hiddenLoading();
-        //     document.getElementById("loader-container").style.display = "none";
-        // }
 
         btn.onclick = function show() {
             div.style.display = "block";
@@ -2116,12 +1929,8 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                 roi_text = text.indexOf("roi");
                 irr = parseFloat(text.substring(irr_text + 5, roi_text - 1));
 
-            // id="energy_capacity"
-
-            // id="storage_capacity"
 
                 // TODO: Put ROI here:
-                // roi_text = text.indexOf("roi");
                 roi = parseFloat(text.substring(roi_text + 5));
                 document.getElementById("Investment").innerHTML = "Est. Investment: " + (cal_fee() / 1000000).toFixed(2) + "m $";
                 document.getElementById("battery_cost").innerHTML ="Battery Cost: " +(battery_cost/ 1000000).toFixed(2) + "m $"
@@ -2144,10 +1953,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     block_button.disabled = true;
                     }
 
-
-                // document.getElementById("ROI").innerHTML = "ROI:<br> " + roi.toFixed(2) + "%";
-                // document.getElementById("IRR").innerHTML = "IRR:<br> " + irr.toFixed(2) + "%";
-                // block_button.disabled = true
 
             })
         }
@@ -2376,14 +2181,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     },
                     plugins: [bgColor,ChartDataLabels],
 
-                // plugins: [ChartDataLabels]
-                };
-                // if(myChart){
-                //     alert("previous chart removed")
-                //     myChart.destroy();
-                // }
-                // alert(myChart);
-                // myChart.destory();
                 // render init block
                 const myChart1 = new Chart(
                     document.getElementById('myChart1'),
@@ -2428,41 +2225,24 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                 } else if (document.getElementById("calculation_pattern").value == "2") {
                     cal_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5 + pump_fee;
                 } else if (document.getElementById("calculation_pattern").value == "3") {
-                    //storage_dni = dni;
-                    //get_data();
-                    //alert("run get data in cal_fee()");
 
-
-
-                    //alert(storage_dni);
                     assitance_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5;
-                    //cal_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5 + battery_fee;
-                    // total energy generation = area_value * global titled irradiation optimum anagle
                     var e = document.getElementById("battery_storage_capacity");
                     var storage_percent = e.options[e.selectedIndex].text;
                     storage_percent= storage_percent.substring(0,storage_percent.length-1);
                     storage_percent= parseInt(storage_percent);
-                    //alert(storage_percent);
-                    //alert("Energy generation mwh"+ area_value * gti / 1000);
-                    //storage_capacity = area_value * gti / 1000 * storage_percent / 100
                     energy_capacity = area_value * 0.2
                     storage_capacity =  energy_capacity * (storage_percent / 100) * 5
-                    // total price = energy output per year * battery storage * investment: 200$/mwh 800$/kwh = 0.8$/mwh
+
                     total_energy_generation = area_value * gti / 1000
                     battery_cost = total_energy_generation * storage_percent / 100 * 200
                     battery_installation = total_energy_generation * storage_percent / 100 * 0.8
                     new_investment = area_value * gti / 1000 * storage_percent / 100 * 200.8
-
-
-                    //alert("storage_capacity is "+ storage_capacity);
-                    //alert("Old investment"+ cal_value + dni * area_value / 1000 * 70 / 24 * 5)
                     cal_value = cal_value + dni * area_value / 1000 * 70 / 24 * 5 + new_investment;
-                    //alert("new investment" + cal_value);
+
                     // energy_capacity mwh
                     cal_fee_counter(energy_capacity.toFixed(1),storage_capacity.toFixed(1));
-                    //alert("new image added")
 
-                    //alert("Energy_capcity is " + energy_capacity);
                 }
             }
             if (show_mode == 2) {
@@ -2480,81 +2260,9 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             return cal_value;
         }
 
-        // // Start file download.
-        // document.getElementById("downloadBtn")
-        //     .addEventListener("click", function () {
-        //         // Generate download of test download.txt file with some content
-        //         //this is the way to download the content of elements
-        //         var text = "ENERGY STORAGE RIGHTS" + "\n"
-        //             + "Your chosen energy combination:" + get_combination() + "\n"
-        //             + "\n"
-        //             + "1. Solar Information:" + "\n"
-        //             + "Specific Photovoltaic Power output:" + pvout + "kWh/kWp" + "\n"
-        //             + "Direct Normal Irradiation: " + dni + "kWh/m²" + "\n"
-        //             + "Global Horizontal Irradiation: " + ghi + "kWh/m²" + "\n"
-        //             + "Diffuse Horizontal Irradiation: " + dif + "kWh/m²" + "\n"
-        //             + "Global Titled Irradiation At Optimum Angle: " + gti + "kWh/m²" + "\n"
-        //             + "\n"
-        //             + "2. Wind Information:" + "\n"
-        //             + "Data for 10% windiest areas: " + "\n"
-        //             + "Power Density: " + power_d + "W/m²" + "\n"
-        //             + "Wind Speed: " + speed_w + "m/s" + "\n"
-        //             + "\n"
-        //             + "3. Storage Information:" + "\n"
-        //             + "(1). Hydro:" + "\n"
-        //             + "Class: " + class_ + "\n"
-        //             + "Storage head: " + head_ + "m" + "\n"
-        //             + "Separation: " + separation + "km" + "\n"
-        //             + "Volume: " + volume + "GL" + "\n"
-        //             + "Water to Rock: " + w_r + "Pair" + "\n"
-        //             + "\n"
-        //             + "(2). Battery:" + "\n"
-        //             + "Energy: " + energy_battery + "GWh" + "\n"
-        //             + "Storage: " + storage_time + "h" + "\n"
-        //             + "Power: " + power_storage + "GW" + "\n"
-        //             + "\n"
-        //             + "4. Investment Information:" + "\n"
-        //             + "project term: " + document.getElementById("effi").value + "\n"
-        //             + "itc on storage system: " + document.getElementById("rad_r").value + "\n"
-        //             + "sgip eligible: " + document.getElementById("num_wind_turbine").value + "\n"
-        //             + "In-state supplier: " + document.getElementById("cost_c").value + "\n"
-        //             + "sgip step: " + document.getElementById("poe_e").value + "\n"
-        //             + "saving assumptions: " + document.getElementById("year_y").value + "\n"
-        //             + "calculation pattern: " + document.getElementById("calculation_pattern").value + "\n"
-        //             + "onshore: " + document.getElementById("onshore").value + "\n"
-        //             + "cost for power: " + "800$/kW" + "\n"
-        //             + "cost for energy: " + "70$/kW" + "\n"
-        //             + "desired hours for solar operation: " + "5h" + "\n"
-        //             + "electricity price in your selected country/region: " + elec_price+"$\n"
-        //             + "total cost: " + (cal_fee() / 1000000).toFixed(6) + "million$\n"
-        //             + "distance to nearest energy grid: " + grid_distance + "\n"
-        //             + "\n"
-        //             + "5. ROI & IRR:" + "\n"
-        //             + "ROI: " + roi.toFixed(2) + "%" + "\n"
-        //             + "IRR: " + irr.toFixed(2) + "%" + "\n"
-        //             + "\n"
-        //             + "Note: The calculation results on this website are for reference only.";
-        //         var filename = "ROI&IRR.txt";
-        //         download(filename, text);
-        //     }, false);
 
         function getCookies() {
-            //获取传递过来的localStorage
-            // 	console.log(window.localStorage.getItem('list'))
-            // var strCookie=document.cookie;
-            // var arrCookie=strCookie.split("; ");
-            // var userId;
-            // //遍历cookie数组，处理每个cookie对
-            // for(var i=0;i<arrCookie.length;i++){
-            // var arr=arrCookie[i].split("=");
-            // //找到名称为userId的cookie，并返回它的值
-            // if("panel"==arr[0]){
-            //     userId=arr[1];
-            //     var ck = userId.split(",");
-            //     a_count = parseInt(ck[0]);
-            //     b_count = parseInt(ck[1]);
-            //     break;
-            // }
+
             var ck = document.cookie.split(",");
             if (parseInt(ck[0])==ck[0]){
                 a_count = parseInt(ck[0]);
@@ -2567,98 +2275,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
 
         }
-        // new edit point
-        // function new_calculation(){
-        //     var e = document.getElementById("battery_storage_capacity");
-        //     var storage_capacity = e.options[e.selectedIndex].text;
-        //     storage_percent= storage_capacity.substring(0,storage_capacity.length-1);
-        //     storage_percent= parseInt(storage_capacity);
-        //     alert(storage_percent);
-        // }
-        // new_calculation()
-
-        //add real data
-        //alert(storage_dni);
-        // fetch('/energy_info', {
-        //             method: 'POST',
-        //             body: JSON.stringify({
-        //                 "lon": calculationpoint[0],
-        //                 "lat": calculationpoint[1],
-        //                 "mode": show_mode
-        //             }),
-        //             headers: {'Content-type': 'application/json'}
-        //         }).then(function (response) {
-        //             return response.text();
-        //         }).then(function (text) {
-        //             n1 = text.indexOf("power_density");
-        //             n2 = text.indexOf("wind_speed");
-        //             n3 = text.indexOf("PVOUT_csi");
-        //             n4 = text.indexOf("DNI");
-        //             n5 = text.indexOf("GHI");
-        //             n6 = text.indexOf("DIF");
-        //             n7 = text.indexOf("GTI_opta");
-        //             s1 = text.indexOf("Class");
-        //             s2 = text.indexOf("Head");
-        //             s3 = text.indexOf("Separation");
-        //             s4 = text.indexOf("Slope");
-        //             s5 = text.indexOf("Volume");
-        //             s6 = text.indexOf("Water to Rock");
-        //             s7 = text.indexOf("Energy");
-        //             s8 = text.indexOf("Storage time");
-        //             s9 = text.indexOf("Power");
-        //             c1 = text.indexOf("Country");
-        //             c2 = text.indexOf("Distance");
-        //             c3 = text.indexOf("Elec_price")
-
-        //             power_d = parseFloat(text.substring(n1 + 15, n2 - 1));
-        //             speed_w = parseFloat(text.substring(n2 + 12, n3 - 1));
-        //             pvout = parseFloat(text.substring(n3 + 11, n4 - 1));
-        //             dni = parseFloat(text.substring(n4 + 5, n5 - 1));
-        //             ghi = parseFloat(text.substring(n5 + 5, n6 - 1));
-        //             dif = parseFloat(text.substring(n6 + 5, n7 - 1));
-        //             gti = parseFloat(text.substring(n7 + 10, s1 - 1));
-        //             class_ = (text.substring(s1 + 7, s2 - 1));
-        //             head_ = (text.substring(s2 + 6, s3 - 1));
-        //             separation = (text.substring(s3 + 12, s4 - 1));
-        //             slope = (text.substring(s4 + 7, s5 - 1));
-        //             volume = (text.substring(s5 + 8, s6 - 1));
-        //             w_r = (text.substring(s6 + 15, s7 - 1));
-        //             energy_battery = (text.substring(s7 + 8, s8 - 1));
-        //             storage_time = (text.substring(s8 + 14, s9 - 1));
-        //             power_storage = (text.substring(s9 + 7, c1 - 1));
-        //             country = text.substring(c1 + 9, c2 - 1);
-        //             grid_distance = text.substring(c2 + 10, c3 - 1) + " km";
-        //             elec_price = text.substring(c3 + 12);
-
-        // var exam;
-        // async function fetchExam() {
-        //     try {
-        //         const response = await fetch ('/energy_info', {
-        //         method: 'POST',
-        //         body: JSON.stringify({
-        //             "lon": calculationpoint[0],
-        //             "lat": calculationpoint[1],
-        //             "mode": show_mode
-        //         }),
-        //         headers: {'Content-type': 'application/json'}
-        //         });
-        //         exam = await response.text();
-        //         //exam = JSON.parse(exam);
-        //         return exam;
-
-        //     }catch(error){
-        //         console.error(error);
-        //     }
-
-        // }
-        // async function renderExam() {
-        //     exam = await fetchExam();
-        //     console.log(exam);
-        //     alert(exam);
-        //     alert("its old" + typeof(exam));
-        //     exam = exam.indexOf("DNI");
-        //     alert("its new" +typeof(exam));
-        // }
         async function renderExam(){
 
             await cal_fee();
@@ -2692,12 +2308,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                 config
             );
         }
-    //itistest();
         function itistest(input_value){
-            //myChart.clear();
-            // alert("wait cal_fee")
-            // await get_data();
-            // alert("get_data")
             const data = {
             labels: ['DNI', 'GHI', 'DHI', 'GTI'],
             datasets: [{
@@ -2771,29 +2382,19 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
     }
 
-
-
-
         //jsPDF download function
         function downloadPDFfromHTML() {
             getCookies();
             var pdf = new jsPDF();
-            // var dataImage = localStorage.getItem('img1');
-            // bannerImg.src = "data:image/png;base64," + dataImage;
             var dataImage = localStorage.getItem('img1');
             dataImage = dataImage.replace('image/webp', 'image/png')
 
 
-
-
-            //itistest();
             const canvas = document.getElementById('myChart');
             const canvasImage = canvas.toDataURL('image/jpeg', 1.0);
 
 
 
-            //alert("test");
-            //alert(storage_dni);
             if (show_mode == 1) {
 
                 if (document.getElementById("calculation_pattern").value == "1") {
@@ -2936,7 +2537,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     pdf.text("calculation pattern: " + document.getElementById("calculation_pattern").value, 20, 50);
                     pdf.text("onshore: " + document.getElementById("onshore").value, 20, 55);
 
-                    // pdf.addPage()
 
                     pdf.text("cost for power: " + "800 $/kW", 20, 60);
                     pdf.text("cost for energy: " + "0.07 $/kWh", 20, 65);
@@ -2953,18 +2553,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
                     pdf.text("Energy Capacity: " + energy_capacity.toFixed(2) + "mwh",20,120);
                     pdf.text("Storage Capacity: " + storage_capacity.toFixed(2) + "mwh",20,125);
                     pdf.addImage(canvasImage1, 'JPEG', 20, 135, 170, 120);
-
-
-
-
-
-                    //pdf.addPage()
-                    // pdf.text("4. ROI & IRR:", 20, 15);
-                    // pdf.text("ROI: " + roi.toFixed(2) + "%", 20, 20);
-                    // pdf.text("IRR: " + irr.toFixed(2) + "%", 20, 25);
-                    // pdf.text("Energy Capacity: " + energy_capacity.toFixed(2) + "mwh",20,30);
-                    // pdf.text("Storage Capacity: " + storage_capacity.toFixed(2) + "mwh",20,35);
-                    // pdf.addImage(canvasImage1, 'JPEG', 20, 45, 170, 120);
 
                     pdf.addPage();
                     pdf.text("5. Solar Panels Combination:", 20, 15);
@@ -3115,7 +2703,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         };
         var element = document.getElementById("downloadBtn");
         element.addEventListener("click", downloadPDFfromHTML);
-        //element.addEventListener("click",renderExam)
 
 
     </script>
@@ -3143,39 +2730,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             clearall();
             reset_fields();
         }
-
-        setTimeout(function () {
-        // Hide the message only if it was shown
-        if (showMessageFlag) {
-            var messageSpan = document.getElementById("messageSpan");
-            messageSpan.style.display = "none";
-            showMessageFlag = false;
-            }
-        }, 2000); // Adjust the delay time as needed
-
-        setTimeout(function () {
-        // After the changeToPolygon logic is complete, open myPHESnav
-            openMyPHESnav();
-        }, 2000); // Adjust the delay time as needed (replace with actual delay)
     }
-
-//     function changetopolygon() {
-//     console.log("B");
-//     console.log(drawselection);
-
-//     if (drawselection != 2) {
-//         drawselection = 2;
-//         clearall();
-//         reset_fields();
-
-//         // Log a message to check if this point is reached.
-//         console.log("Showing myPHESnav");
-
-//         // Show myPHESnav
-//         var myPHESnav = document.getElementById("myPHESnav");
-//         myPHESnav.style.display = "block";
-//     }
-// }
 
     function changetonan() {
         console.log("A")
@@ -3196,28 +2751,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
     }
 
     function reset_fields() {
-
-        // speed_w = 0;
-        // power_d = 0;
-        // pvout = 0;
-        // dni = 0;
-        // ghi = 0;
-        // dif = 0;
-        // gti = 0;
-        // efficiency = 100;
-        // area_value = 1;
-        // poe = 0.3441;
-        // year = 5;
-        // cost_value = 45.74;
-        // solar_e = 0;
-        // wind_e = 0;
-        // panel_capacity = 150;
-        // // 150 200 selection TBD
-        // number_of_wind_turbine = 1;
-        // //horizontal pi r^2
-        // radius_of_wind_turbine = 25;
-        // equipment_cost = 0;
-        // // change type call reset
 
         efficiency = 100;
         area_value = 1;
@@ -3260,59 +2793,10 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         // when click with no point (no data enter), data will refresh here
         if (show_mode == 1) {
             toSolarMode();
-            // document.getElementById("Data_for_10%_windiest_areas").innerText = "Data for 10% windiest areas";
-            // document.getElementById("Power_Density").innerHTML = "Power Density: <br> " + power_d + " W/m²";
-            // document.getElementById("Wind_Speed").innerHTML = "Wind Speed: <br> " + speed_w + " m/s";
-            // document.getElementById("energy_info").innerHTML = "";
-            // solar_e = 0;
-            // wind_e = 0;
-            // panel_capacity = 150
-            // document.getElementById("cost_c").value = 90;
-            // cost_value = document.getElementById("cost_c").value;
-            // document.getElementById("poe_e").value = 0.3441;
-            // poe = 0.3441
-            // document.getElementById("year_y").value = 5;
-            // year = 5;
-            // document.getElementById("effi").value = 100;
-            // efficiency = 100;
-            // document.getElementById("rad_r").value = 25;
-            // radius_of_wind_turbine = 25;
-            // document.getElementById("num_wind_turbine").value = 1;
-            // number_of_wind_turbine = 100;
-            // // TBD panel capacity
-            // document.getElementById("energy_show").innerHTML = "Annual Solar energy output: test1";
-            // document.getElementById("Annual_profit").innerHTML = "Annual profit: ";
-            // document.getElementById("Net_profit").innerHTML = "Net profit: ";
-            // document.getElementById("total_cost").innerHTML = "Total Cost: ";
-            // document.getElementById("ROI").innerHTML = "ROI: ";
+
         } else if (show_mode == 2) {
             toWindMode();
-            // document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Specific Photovoltaic Power output:<br> " + pvout + " kWh/kWp";
-            // document.getElementById("Power_Density").innerHTML = "Direct Normal Irradiation:<br> " + dni + " kWh/m2";
-            // document.getElementById("Wind_Speed").innerHTML = "Global Horizontal Irradiation:<br>" + ghi + " kWh/m2";
-            // document.getElementById("diffuse_horizontal_irradiation").innerHTML = "Diffuse Horizontal Irradiation:<br> " + dif + " kWh/m2";
-            // document.getElementById("global_titled_irradiation_at_optimum_angle").innerHTML = "Global Titled Irradiation At Optimum Angle:<br> " + gti + " kWh/m2";
-            // solar_e = 0;
-            // wind_e = 0;
-            // document.getElementById("cost_c").value = 0.4 * panel_capacity;
-            // cost_value = document.getElementById("cost_c").value;
-            // document.getElementById("area_a").value = 1;
-            // area_value = 1;
-            // document.getElementById("poe_e").value = 0.3441;
-            // poe = 0.3441
-            // document.getElementById("year_y").value = 5;
-            // year = 5;
-            // document.getElementById("effi").value = 100;
-            // efficiency = 100;
-            // document.getElementById("sp_ca").value = 150;
-            // panel_capacity = 150;
-            // // TBD panel capacity
-            // panel_capacity = 150;
-            // document.getElementById("energy_show").innerHTML = "Annual Solar energy output:test 2 ";
-            // document.getElementById("Annual_profit").innerHTML = "Annual profit: ";
-            // document.getElementById("Net_profit").innerHTML = "Net profit: ";
-            // document.getElementById("total_cost").innerHTML = "Total Cost: ";
-            // document.getElementById("ROI").innerHTML = "ROI: ";
+
         } else if (show_mode == 3) {
             toStorageMode();
         } else if (show_mode == 4) {
@@ -3338,33 +2822,17 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         document.getElementById("mySidenav").style.width = "325px";
     }
 
+    function openPHESNav() {
+        document.getElementById("PHESSideNav").style.width = "640px";
+    }
+
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
 
-    function openMyPHESnav() {
-        document.getElementById("myPHESnav").style.width = "325px";
-        document.getElementById("myPHESnav").style.height = "250px";
+    function closePHESNav() {
+        document.getElementById("PHESSideNav").style.width = "0px";
     }
-
-
-    function displaySelectAreaMessage() {
-    alert("please select region."); // Set your fixed message here
-    }
-
-    var showMessageFlag = false; // Flag to control message visibility
-
-    function showMessage() {
-        if (!showMessageFlag) {
-            var messageSpan = document.getElementById("messageSpan");
-            messageSpan.innerHTML = "please select region.";
-
-            // Show the message
-            messageSpan.style.display = "block";
-            showMessageFlag = true;
-        }
-    }
-
 
     function toWindMode() {
         show_mode = 2;
@@ -3378,16 +2846,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         document.getElementById("calculate_energy").style.display = "block";
         document.getElementById("two_btn").style.display = "inline";
 
-        // document.getElementById("calculate_energy").innerHTML = "";
-        // var input1 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> wind parameter1: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"101\"></input> related unit </p > "
-        // var input2 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> wind parameter2: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"rad_r\" wrap=\"soft\" value=\"102\"></input> related unit </p > "
-        // var input3 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> wind parameter3: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"num_wind_turbine\" wrap=\"soft\" value=\"103\"></input> related unit </p > "
-        // var input4 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> wind parameter4: <input type=\"text\" style=\"margin-top:20px; width:34px; height:25px;\"id=\"cost_c\" wrap=\"soft\" value=\"104\"></input> related unit </p > "
-        // var input5 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> wind parameter5: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"poe_e\" wrap=\"soft\" value=\"105\"></input> related unit </p > "
-        // var input6 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> wind parameter6: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"year_y\" wrap=\"soft\" value=\"106\"></input> related unit </p > "
-        // var inputs = input1 + input2 + input3 + input4 + input5 + input6;
-        //
-        // document.getElementById("calculate_energy").innerHTML = inputs;
 
         document.getElementById("Data_for_10%_windiest_areas").innerText = "Data for 10% windiest areas";
         document.getElementById("Power_Density").innerHTML = "Power Density: <br> " + power_d.toFixed(2) + " W/m²";
@@ -3407,23 +2865,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         document.getElementById("calculate_energy").style.display = "block";
         document.getElementById("two_btn").style.display = "inline";
 
-        // document.getElementById("calculate_energy").innerHTML = "";
-        //
-        // var input1 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34 ;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px \"> solar parameter1:  <select style=\"margin-top:20px; width:75px; height:25px; \"id=\"sp_ca\" wrap=\"soft\"> <option value =\"150\">change1</option> <option value =\"200\">change2</option></select></p>"
-        // var input2 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px \"> solar parameter2:  <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px; \"id=\"effi\" wrap=\"soft\" value=\"232\"></input> related unit  </p > "
-        // var input3 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px \"> solar parameter3:  <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px; \"id=\"area_a\" wrap=\"soft\" value=\"233\"></input> related unit  </p >"
-        // var input4 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px \"> solar parameter4:  <input type=\"text\" style=\"margin-top:20px; width:34px; height:25px; \" id=\"cost_c\" wrap=\"soft\" value=\"234\"></input> related unit </p >"
-        // var input5 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px \"> solar parameter5:  <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px; \" id=\"poe_e\" wrap=\"soft\" value=\"235\"></input> related unit  </p >"
-        // var input6 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px \"> solar parameter6:  <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px; \" id=\"year_y\" wrap=\"soft\" value = \"236\"></input> related unit </p >"
-        //
-        // var inputs = input1 + input2 + input3 + input4 + input5 + input6
-        //
-        // document.getElementById("calculate_energy").innerHTML = inputs
-
-        // if (document.getElementById("cost_c").value == "") {
-        //     document.getElementById("cost_c").value = panel_capacity * 0.4;
-        //     cost_value = panel_capacity * 0.4;
-        // }
 
         document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Specific Photovoltaic Power output:<br> " + pvout.toFixed(2) + " kWh/kWp";
         document.getElementById("Power_Density").innerHTML = "Direct Normal Irradiation:<br> " + dni.toFixed(2) + " kWh/m²";
@@ -3454,17 +2895,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         document.getElementById("calculate_energy").style.display = "none";
         document.getElementById("two_btn").style.display = "none";
 
-        // document.getElementById("calculate_energy").innerHTML = "";
-        // var input1 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor1: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"301\"></input> related unit </p > "
-        // var input2 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor2: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"302\"></input> related unit </p > "
-        // var input3 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor3: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"303\"></input> related unit </p > "
-        // var input4 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor4: <input type=\"text\" style=\"margin-top:20px; width:34px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"304\"></input> related unit </p > "
-        // var input5 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor5: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"305\"></input> related unit </p > "
-        // var input6 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor6: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"306\"></input> related unit </p > "
-        //
-        // var inputs = input1 + input2 + input3 + input4 + input5 + input6;
-        //
-        // document.getElementById("calculate_energy").innerHTML = inputs;
 
         document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Class:<br> " + class_;
         document.getElementById("Power_Density").innerHTML = "Storage head:<br> " + head_ + " m";
@@ -3483,19 +2913,9 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             "        <p id=\"water_to_rock\"\n" +
             "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
             "            Water to Rock </p>\n"
-        // "\n" +
-        // "        <p id=\"storage_energy\"\n" +
-        // "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-        // "            Storage Energy </p>\n" +
-        // "\n" +
-        // "        <p id=\"storage_time\"\n" +
-        // "           style=\"background:#ffffff ;font-weight:30; font-size: 16px; color:#282c34; padding:20px; padding-left: 35px; margin-left:-20px; margin-top: -20px \">\n" +
-        // "            Storage Time </p>\n"
 
         document.getElementById("volume").innerHTML = "Volume:<br> " + volume + " GL";
         document.getElementById("water_to_rock").innerHTML = "Water to Rock:<br> " + w_r + " Pair";
-        // document.getElementById("storage_energy").innerHTML = "Storage Energy:<br> " + energy_battery.toFixed(2) + " GWh";
-        // document.getElementById("storage_time").innerHTML = "Storage Time:<br> " + storage_time.toFixed(2) + " h";
     }
 
     function toBatteryMode() {
@@ -3509,18 +2929,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         document.getElementById("calculate_energy").style.display = "none";
 
 
-        // document.getElementById("calculate_energy").innerHTML = "";
-        //
-        // var input1 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor1: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"301\"></input> related unit </p > "
-        // var input2 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor2: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"302\"></input> related unit </p > "
-        // var input3 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor3: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"303\"></input> related unit </p > "
-        // var input4 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor4: <input type=\"text\" style=\"margin-top:20px; width:34px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"304\"></input> related unit </p > "
-        // var input5 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor5: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"305\"></input> related unit </p > "
-        // var input6 = "<p style=\"background:#c9e1ee ;font-weight:10;font-size:16px; color:#282c34; padding:20px; padding-left:35px;margin-left:-20px;margin-top: -48px\"> Storage factor6: <input type=\"text\" style=\"margin-top:20px; width:35px; height:25px;\"id=\"effi\" wrap=\"soft\" value=\"306\"></input> related unit </p > "
-        //
-        // var inputs = input1 + input2 + input3 + input4 + input5 + input6;
-
-
         document.getElementById("Data_for_10%_windiest_areas").innerHTML = "Energy:<br> " + energy_battery + " GWh";
         document.getElementById("Power_Density").innerHTML = "Storage:<br> " + storage_time + " h";
         document.getElementById("Wind_Speed").innerHTML = "Power:<br> " + power_storage + " GW";
@@ -3529,150 +2937,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
         energy_info.innerHTML = "";
     }
-
-    // function getNum() {
-    //     if (document.getElementById("cost_c").value == "") {
-    //         document.getElementById("cost_c").value = 45.74;
-    //         cost_value = 45.74
-    //     }
-    //     if (document.getElementById("cost_c").value == "") {
-    //         document.getElementById("cost_c").value = panel_capacity * 0.4;
-    //         cost_value = panel_capacity * 0.4;
-    //     }
-    //     // TBD panel capacity
-    //     if (show_mode == 1) {
-    //         cost_value = document.getElementById("cost_c").value;
-    //         poe = document.getElementById("poe_e").value;
-    //         year = document.getElementById("year_y").value;
-    //         efficiency = document.getElementById("effi").value;
-    //         radius_of_wind_turbine = document.getElementById("rad_r").value;
-    //         number_of_wind_turbine = document.getElementById("num_wind_turbine").value;
-    //
-    //     } else if (show_mode == 2) {
-    //         cost_value = document.getElementById("cost_c").value;
-    //         area_value = document.getElementById("area_a").value;
-    //         poe = document.getElementById("poe_e").value;
-    //         year = document.getElementById("year_y").value;
-    //         efficiency = document.getElementById("effi").value;
-    //         panel_capacity = document.getElementById("sp_ca").value;
-    //     } else {
-    //         cost_value = document.getElementById("cost_c").value;
-    //         area_value = document.getElementById("area_a").value;
-    //         poe = document.getElementById("poe_e").value;
-    //         year = document.getElementById("year_y").value;
-    //         efficiency = document.getElementById("effi").value;
-    //         panel_capacity = document.getElementById("sp_ca").value;
-    //     }
-    //     if (drawselection == 2 || drawselection == 0) {
-    //         fetch('/calculate_wind_power_density', {
-    //             // Specify the method
-    //             method: 'POST',
-    //
-    //             // A JSON payload
-    //             body: JSON.stringify({
-    //                 "lon": calculationpoint[0],
-    //                 "lat": calculationpoint[1],
-    //                 "ef": efficiency,
-    //                 "area": area_value,
-    //             }),
-    //             headers: {'Content-type': 'application/json'}
-    //         }).then(function (response) {
-    //             return response.text();
-    //         }).then(function (text) {
-    //             wind_e = parseFloat(text.split("Wh per")[0].slice(6));
-    //             solar_e = parseFloat(text.split("Solar: ")[1].split("kWh")[0])
-    //
-    //             view.popup.open({
-    //                 title: "Latitude: " + Math.round(calculationpoint[1] * 100000) / 100000 + ", Longitude" + Math.round(calculationpoint[0] * 100000) / 100000,
-    //                 content: "Solar: " + solar_e + " Kwh for " + area_value + " M^2 Wind:" + wind_e + " W/M^2 for " + number_of_wind_turbine + " wind turbine size of " + (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine) + " M^2",
-    //                 location: calculationpoint
-    //             });
-    //             if (show_mode == 1) {
-    //                 document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " KWh";
-    //                 document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000).toFixed(4) + " AUD";
-    //                 document.getElementById("total_cost").innerHTML = "Total Cost: " + (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine)).toFixed(4) + " AUD";
-    //                 document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)).toFixed(4) + " AUD";
-    //                 document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)) * 100 / (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine))).toFixed(4) + "%";
-    //             } else if (show_mode == 2) {
-    //                 document.getElementById("specific_Photovoltaic_power_output").innerHTML = "Specific Photovoltaic Power Output: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " kWh/kWp";
-    //                 document.getElementById("direct_normal_irradiation").innerHTML = "Direct Normal Irradiation: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " \n" + " kWh/m2";
-    //                 document.getElementById("global_horizontal_irradiation").innerHTML = "Global Horizontal Irradiation: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " \n" + " kWh/m2";
-    //                 document.getElementById("diffuse_horizontal_irradiation").innerHTML = "Diffuse Horizontal Irradiation: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " kWh/m2";
-    //                 document.getElementById("global_titled_irradiation_at_optimum_angle").innerHTML = "Global Titled Irradiation at Optimum Angle: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " kWh/m2";
-    //                 document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e * 365 * panel_capacity * poe / 1000).toFixed(4) + " AUD";
-    //                 document.getElementById("total_cost").innerHTML = "Total Cost: " + (cost_value * area_value).toFixed(4) + " AUD";
-    //                 document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e * 365 * panel_capacity * poe / 1000 - 8 * area_value) * year - cost_value * area_value).toFixed(4) + " AUD";
-    //                 document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e * 365 * panel_capacity * poe / 1000 - 8 * area_value) * year - cost_value * area_value) * 100 / (cost_value * area_value)).toFixed(4) + "%";
-    //             } else {
-    //                 document.getElementById("storage_head").innerHTML = "Head: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " m";
-    //                 document.getElementById("separation").innerHTML = "Separation: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " km";
-    //                 document.getElementById("average_slope").innerHTML = "Average Slope: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " %";
-    //                 document.getElementById("volume").innerHTML = "Volume: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " GL";
-    //                 document.getElementById("water_to_rock").innerHTML = "Water to Rock: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " Pair";
-    //                 document.getElementById("storage_energy").innerHTML = "Energy: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " GWh";
-    //                 document.getElementById("storage_time").innerHTML = "Storage Time: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " h";
-    //                 document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000).toFixed(4) + " AUD";
-    //                 document.getElementById("total_cost").innerHTML = "Total Cost: " + (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine));
-    //                 document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)).toFixed(4) + " AUD";
-    //                 document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)) * 100 / (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine))).toFixed(4) + "%";
-    //             }
-    //         });
-    //     } else if (drawselection == 1) {
-    //         fetch('/calculate_wind_power_density', {
-    //             // Specify the method
-    //             method: 'POST',
-    //
-    //             // A JSON payload
-    //             body: JSON.stringify({
-    //                 "lon": calculationpoint.longitude,
-    //                 "lat": calculationpoint.latitude,
-    //                 "ef": efficiency,
-    //                 "area": area_value,
-    //             }),
-    //             headers: {'Content-type': 'application/json'}
-    //         }).then(function (response) {
-    //             return response.text();
-    //         }).then(function (text) {
-    //             wind_e = parseFloat(text.split("Wh")[0].slice(6));
-    //             solar_e = parseFloat(text.split("Solar: ")[1].split("kWh")[0])
-    //             view.popup.open({
-    //                 title: "Latitude: " + Math.round(calculationpoint.latitude * 100000) / 100000 + ", Longitude" + Math.round(calculationpoint.longitude * 100000) / 100000,
-    //                 content: "Solar: " + solar_e + " Kwh for " + area_value + " M^2 Wind:" + wind_e + " W/M^2 for " + number_of_wind_turbine + " wind turbine size of " + (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine) + " M^2",
-    //                 location: calculationpoint
-    //             });
-    //
-    //             if (show_mode == 1) {
-    //                 document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " KWh";
-    //                 document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000).toFixed(4) + " AUD";
-    //                 document.getElementById("total_cost").innerHTML = "Total Cost: " + (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine)).toFixed(4) + " AUD";
-    //                 document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)).toFixed(4) + " AUD";
-    //                 document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)) * 100 / (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine))).toFixed(4) + "%";
-    //             } else if (show_mode == 2) {
-    //                 document.getElementById("specific_Photovoltaic_power_output").innerHTML = "Specific Photovoltaic Power Output: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " kWh/kWp";
-    //                 document.getElementById("direct_normal_irradiation").innerHTML = "Direct Normal Irradiation: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " \n" + " kWh/m2";
-    //                 document.getElementById("global_horizontal_irradiation").innerHTML = "Global Horizontal Irradiation: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " \n" + " kWh/m2";
-    //                 document.getElementById("diffuse_horizontal_irradiation").innerHTML = "Diffuse Horizontal Irradiation: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " kWh/m2";
-    //                 document.getElementById("global_titled_irradiation_at_optimum_angle").innerHTML = "Global Titled Irradiation at Optimum Angle: " + (solar_e * 365 * panel_capacity / 1000).toFixed(4) + " kWh/m2";
-    //                 document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e * 365 * panel_capacity * poe / 1000).toFixed(4) + " AUD";
-    //                 document.getElementById("total_cost").innerHTML = "Total Cost: " + (cost_value * area_value).toFixed(4) + " AUD";
-    //                 document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e * 365 * panel_capacity * poe / 1000 - 8 * area_value) * year - cost_value * area_value).toFixed(4) + " AUD";
-    //                 document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e * 365 * panel_capacity * poe / 1000 - 8 * area_value) * year - cost_value * area_value) * 100 / (cost_value * area_value)).toFixed(4) + "%";
-    //             } else {
-    //                 document.getElementById("storage_head").innerHTML = "Head: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " m";
-    //                 document.getElementById("separation").innerHTML = "Separation: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " km";
-    //                 document.getElementById("average_slope").innerHTML = "Average Slope: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " %";
-    //                 document.getElementById("volume").innerHTML = "Volume: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " GL";
-    //                 document.getElementById("water_to_rock").innerHTML = "Water to Rock: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " Pair";
-    //                 document.getElementById("storage_energy").innerHTML = "Energy: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " GWh";
-    //                 document.getElementById("storage_time").innerHTML = "Storage Time: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 / 1000).toFixed(4) + " h";
-    //                 document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000).toFixed(4) + " AUD";
-    //                 document.getElementById("total_cost").innerHTML = "Total Cost: " + (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine));
-    //                 document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)).toFixed(4) + " AUD";
-    //                 document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * 365 * poe / 1000 - 71.11 * area_value)) * year - Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value - (equipment_cost * number_of_wind_turbine)) * 100 / (Math.PI * radius_of_wind_turbine * radius_of_wind_turbine * number_of_wind_turbine * cost_value + (equipment_cost * number_of_wind_turbine))).toFixed(4) + "%";
-    //             }
-    //         });
-    //     }
-    // }
 
     function change_to_solar() {
         // Get the checkbox
@@ -3743,25 +3007,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
 <script>
 
-    // var btn = document.getElementById("calculateBtn");
-    // btn.onclick = function () {
-    //     // document.getElementById("loader-container").style.display = "none";
-    //     // loadingProcess();
-    //
-    //
-    //     replaceSideBar_info();
-    //     fadeOutLoader();
-    //     setTimeout("backToOrigin()", 5000);
-    //     setTimeout("toSolarMode()", 5000);
-    //
-    //     // $(function () {
-    //     //     $("#SideBar_info").fadeIn();
-    //     // })
-    //     // backToOrigin();
-    //
-    //
-    // }
-
     function replaceSideBar_info() {
         document.getElementById("SideBar_info").innerHTML = "        " +
             "        <div id=\"loader-container\">\n" +
@@ -3793,12 +3038,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             "           \n </p>\n" + "        <div id=\"energy_info1\"></div>"
 
     }
-
-    // function fadeInLoader() {
-    //     $(function () {
-    //         $("#loader-container").show().fadeIn();
-    //     })
-    // }
 
 
     function fadeOutLoader() {
@@ -3852,14 +3091,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
     }
 
-    // $(document).ready(function () {
-    //     $("#calculateBtn").click(function () {
-    //         $("#loader-container").hide();
-    //     });
-    //     $("#applyBtn").click(function () {
-    //         $("#loader-container").show();
-    //     });
-    // });
+
 
 
 </script>

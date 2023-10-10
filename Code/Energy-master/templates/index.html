@@ -1300,8 +1300,8 @@
 
 </div>
 
-<div class="selectDraw">
-    <h1 style="margin-left:-3px;background-color:#ffffff;width:108px;text-align: center"><b>Select Area</b></h1>
+<div class="selectDraw" style=" top: 130px; left: 17px">
+    <h1 style="margin-left:-4px;background-color:#ffffff;width:108px;text-align: center; "><b>Select Area</b></h1>
     <button class="btn success" onclick="changetopoint()">•<span class="tooltiptext">Single Point<br>Data Select</span></button>
     <button class="btn info" onclick="changetopolygon()">♢<span class="tooltiptext">Polygon Regional Data Select (double click to finish)</span>
     </button>
@@ -1767,141 +1767,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
     <!-- parameters the users need to set on the start up screen: fixed bugs-->
     <br><br>
     <!-- remove return code in onsubmit -->
-    <form id="form1" action="/main/form" ,method="get" ,="" target="the_Frame" onsubmit="check_submit()">
-        <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px" id="calculate_energy">
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
-                project term:
-                <input type="number" name="project term" id="effi" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Range from 1 - 20" value="20" oninput="if(value>20) value=20;if(value<1) value=1;">
-                year
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                itc on storage system:
-                <select name="itc_on_storage_ststem" id="rad_r" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="If any federal tax incentive">
-                    <option value="true" selected="">True</option>
-                    <option value="false">False</option>
-                </select>
-                <!--<option type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;" id="rad_r"-->
-                <!--wrap="soft"-->
-                <!--value="1"></option>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                sgip eligible:
-                <select name="sgip_eligible" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="num_wind_turbine" wrap="soft" title="If any state rebate ">
-                    <option value="true" selected="">True</option>
-                    <option value="false">False</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
-                <!--id="num_wind_turbine"-->
-                <!--wrap="soft" value="1"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                In-state supplier:
-                <select name="in_state_supplier" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="cost_c" wrap="soft" title="If any in-state supplier ">
-                    <option value="true">True</option>
-                    <option value="false" selected="">False</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px; border-radius: 5px;width:35px; height:25px;"-->
-                <!--id="cost_c"-->
-                <!--wrap="soft"-->
-                <!--value="45.74"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                sgip step:
-                <select name="sgip_step" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="poe_e" wrap="soft" title="Range from 1-5">
-                    <option value="1" selected="">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
-                <!--id="poe_e" wrap="soft"-->
-                <!--value="0.3441"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                saving assumptions:
-                <select name="saving_assumptions" style="margin-top:20px; border-radius: 5px;width:105px; height:25px;" id="year_y" wrap="soft" title="The pattern of saving">
-                    <option value="Estimated" selected="">Estimated</option>
-                    <option value="Conservative">Conservative</option>
-                    <option value="Optimal">Optimal</option>
-                </select>
-                <!--<input type="text" style="margin-top:20px;border-radius: 5px; width:35px; height:25px;"-->
-                <!--id="year_y"-->
-                <!--wrap="soft"-->
-                <!--value="5"></input>-->
-            </p>
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                calculation pattern:
-                <select name="calculation_pattern" id="calculation_pattern" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title=" 1: Solar &amp; no storage
-2: Solar &amp; pump hydro
-3: Solar &amp; battery
-4: Wind &amp; no storage
-5: Wind &amp; pump hydro
-6: Wind &amp; battery
-">
-                    <option value="1" selected="">1: Solar &amp; no storage</option>
-                    <option value="2">2: Solar &amp; pump hydro</option>
-                    <option value="3">3: Solar &amp; battery</option>
-                    <option value="4">4: Wind &amp; no storage</option>
-                    <option value="5">5: Wind &amp; pump hydro</option>
-                    <option value="6">6: Wind &amp; battery</option>
 
-                </select>
-            </p>
-
-            <!--this is new edit point-->
-
-            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                Battery storage capacity:
-                <select name="Battery_storage_capacity" id="battery_storage_capacity" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="0%
-20%
-40%
-60%
-80%
-100%
-">
-                    <option value="1">0%</option>
-                    <option value="2" selected="">20%</option>
-                    <option value="3">40%</option>
-                    <option value="4">60%</option>
-                    <option value="5">80%</option>
-                    <option value="6">100%</option>
-
-                </select>
-            </p>
-
-            <p id="isOnshore" style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
-                onshore:
-                <select name="isOnshore" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="onshore" wrap="soft" title=" The position is onshore or offshore">
-                    <option value="true" selected="">True</option>
-                    <option value="false">False</option>
-                </select>
-            </p>
-        </div>
-        <div id="two_btn">
-            <div style="width:65px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
-                <button type="submit" id="submitBtn" value="myValue">
-                    <p title="Submit the value to be calculated." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Submit</p>
-                </button>
-            </div>
-
-            <!-- Calculate button -->
-            <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
-                <button id="calculateBtn" value="myValue" onclick="getNum()">
-                    <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Calculate</p>
-                </button>
-            </div>
-            <!-- Apply loan button and the pop window-->
-            <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
-                <button id="applyBtn" value="myValue" onclick="getNum()">
-                    <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Apply Loan</p>
-                </button>
-            </div>
-        </div>
-    </form>
     <iframe id="is_Frame" name="the_Frame" src="about:blank" style="display:none;"></iframe>
 
 

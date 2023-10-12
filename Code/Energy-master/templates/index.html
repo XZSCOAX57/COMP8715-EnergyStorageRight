@@ -1948,7 +1948,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         var btn = document.getElementById('applyBtn');
         var div = document.getElementById('background');
         var close = document.getElementById('close-button');
-        //var cal_btn = document.getElementById('calculateBtn');
+        var cal_btn = document.getElementById('calculateBtn');
 
 
         // edit point -> change to last version
@@ -1977,6 +1977,9 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
 
         cal_btn.onclick = function calculate_ROI_IRR() {
+
+            var myPHESnav = document.getElementById('myPHESnav');
+            myPHESnav.style.display = 'none';
 
             document.getElementById("form1").submit()
 

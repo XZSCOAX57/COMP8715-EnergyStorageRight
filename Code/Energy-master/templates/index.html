@@ -1672,11 +1672,21 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
 
             <!-- Calculate button -->
             <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
-                <button id="calculateBtn" value="myValue" onclick="getNum()">
+                <button id="calculateBtn" onclick="closeMyPHESnav()">
                     <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Calculate</p>
+                        <script>
+                            function closeMyPHESnav() {
+                                var myPHESnav = document.getElementById('myPHESnav');
+                                myPHESnav.style.display = 'none';
+                            }
+                        </script>
                 </button>
+
+                
             </div>
+            
+
             <!-- Apply loan button and the pop window-->
             <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
                 <button id="applyBtn" value="myValue" onclick="getNum()">
@@ -1936,11 +1946,11 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         var btn = document.getElementById('applyBtn');
         var div = document.getElementById('background');
         var close = document.getElementById('close-button');
-        var cal_btn = document.getElementById('calculateBtn');
+        // var cal_btn = document.getElementById('calculateBtn');
 
 
         // edit point -> change to last version
-        const block_button = document.querySelector('calculateBtn');
+        // const block_button = document.querySelector('calculateBtn');
         //document.getElementById("applyBtn").disabled = true;
         //document.getElementById("applyBtn").disabled = true;
 
@@ -3022,7 +3032,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         setTimeout(function () {
         // After the changeToPolygon logic is complete, open myPHESnav
             openMyPHESnav();
-        }, 2000); // Adjust the delay time as needed (replace with actual delay)
+        }, 20000); // Adjust the delay time as needed (replace with actual delay)
     }
 
 //     function changetopolygon() {

@@ -14,11 +14,11 @@ Table of Contents
   * [Other Readme resources](#Other-Readme-resources)
   ## Project Management
   * [Decision Log](https://github.com/users/XZSCOAX57/projects/1)
-  * [Milestones](#Milestones)
+  * [Milestones](https://github.com/users/XZSCOAX57/projects/4)
   * [Reflection Log](https://github.com/users/XZSCOAX57/projects/2)
-  * [Risk Log](https://docs.google.com/document/d/19IOad0_Ua6MBCcvc2Y1iHC4XGMy_Vs_O/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
-  * [Stakeholder](https://docs.google.com/document/d/1YDbaIrAVe7zR38DHSNd55uN4sTgGQPE0/edit?usp=drive_link&ouid=112330158341239860556&rtpof=true&sd=true)
-  * [Meeting Agendas](https://drive.google.com/drive/folders/1u-J-U2CourcMfQXPsqqY9ymTFHw-hAev)
+  * [Risk Log](https://drive.google.com/drive/folders/1tSDZvzWGLMqH99RsNxV9itQPNsYYlvM2?usp=drive_link)
+  * [Stakeholder](https://drive.google.com/drive/folders/1ZtMsAejGNsbLj8_JLwOPAK1YXPbdcp1T?usp=drive_link)
+  * [Meeting Agendas](https://drive.google.com/drive/folders/1I3LaH8eNgUA0kkkIxVkLKdnRlQfhQX_c?usp=drive_link)
 
 
 
@@ -46,48 +46,39 @@ Through our development on this project, we use Google drive for documentation p
 # ![image](https://github.com/tudorelu/energy_storage_rights/blob/master/Documents/System%20Architecture.png)
 
 ## Deliverables
-### Stage 1:Critical Fixes and Basic Enhancements (Semester 1 Week 6 & Second Audit)
+### Stage 1:Web Server Deployment (Semester 1 Week 6 & Second Audit)
 #### Introduction
-This stage focuses on addressing the most critical issues, ensuring the application's stability, security, and basic user experience.
+By dividing the tasks into these two stages, the team can first ensure that the application is stable, secure, and offers a basic user experience on the web server. The second stage then focuses on refining the PHES model, adding advanced features, and optimizing performance. This stage focuses on deploying the application onto the web server, ensuring the application's stability, security, and basic user experience to remain the same as the offline version.
 #### Deliverables
 #### Back-end Group
-* **Uniform API Response Formats (Implement a basic authentication system to secure the API endpoints.)**
-* **Remove Unused API Endpoints (Identify and remove any redundant routes or functions.)**
-* **API Authentication I (Implement a basic authentication system to secure the API endpoints.)
-* **PHES Module I (Understanding the Principles of PHES Modules)**
+* **Integrate functional methods into main method. Integrate the code of different branches, and potential risks and potential   issues encountered**
+* **Find a server and deploy our MVP on it. Make our MVP a usable website to ensure the application's stability, security, and basic user experience to remain the same as the offline version.**
+* **Data managerment. Because our data volume is relatively large, we need to find a reasonable way to store our data.**
+* **PHES Module I . Because the existing cost model is a basic one, we will try to explore a new way to make the cost model more flexible under the new needs of users. For example, we consider pipeline costs for the shortest straight-line distances, but the reality can 
 #### Front-end Group
-* **HTML5 Keywords (Update any deprecated or old-version-specific keywords.)**
-* **Basic Error Handling (Implement basic error handling for common issues, such as failed data fetches.)**
-* **HI-FI Prototype (Develop a detailed and interactive prototype using Mockplus for user experience research.)**
-* **LO-FI Prototype (Sketch out the basic design and flow of the application on paper.)**
-
+* **Web Server I. Web server testing, comparison, and selection. Research & find an appropriate web server for backend usage.**
+* **Integration of PHES modules I. Assist back-end members with integration and testing of PHES modules.**
+* **User interface design research and improvement. A more user-friendly UI plan is refined. Self-review previous UI structure, and develop and improve the information panel.**  
 ### Stage 2: Advanced Enhancements and Detailed Development (Semester 1 Week 10 & Final Audit)
 #### Introduction
-This stage focuses on refining the user experience, adding advanced features, and further optimizations.
+This stage focuses on refining the user experience, adding advanced features, including PHES model and cost model and potential 3D map and further optimizations.
 #### Deliverables
 #### Back-end Group
-* **Advanced API Authentication (Enhance the authentication system with features like token refresh, blacklisting, and more fine-grained access controls.)**
-* **Optimisation of data storage methods (At this stage the amount of data used is large and the data is stored locally, try using an online database.)**
-* **PHES Module II (Examine the methodology and explore if there are options for improvement.)**
+* **Research on Cost Model. Adding quotes for different units to the revised Cost Model. Because the information about the user's demand contains various combinations, such as 1500GWh 504h or 500GWh 168h, these additional demands should also be considered after the revised model has been worked out.**
+* **Integration and Test Algorithms II. Test Cost Model to see if it can accommodate different units of inputs.**
+* **PHES Module II. Examine the methodology and explore if there are options for improvement**
 #### Front-end Group
-* **Advanced Error Handling (Implement more advanced error handling mechanisms, such as retry mechanisms for failed requests or user feedback systems for reporting issues.)**
-* **Security Protection for CSV (Implement basic security measures for sending CSV data.)**
-* **Function Development (Develop the Home page showcase, Map loading, and Help/contact document showcase features.)**
+* **Web Server II. Web server testing, comparison, and selection. Research & find an appropriate web server for backend usage**
+* **Integration of PHES modules II. Assist back-end members with integration and testing of PHES modules.**
+* **Research on 3D maps. Our current website can only be displayed on a 2D map, exploring the possibility of replacing the map with a 3D one.**
 
-### Long-term plans
-#### Introduction
-There are no exact delivery times for the long term plans as these will always be in place throughout the timeline of our projects.
-#### Deliverables
-* **Advanced Performance and Caching (Profile the application to identify areas for further optimization；Implement advanced caching mechanisms on both the client and server sides；Optimize heavy computations and consider offloading them to background tasks if necessary)**
-* **Separate Front-end and Back-end Code (Begin the process of separating the codebases into distinct directories.
-)**
 
 ## Desired Features
 Our final product is desired to have some other functions. The application should be able to identify the top N locations that are suitable for development in a relatively large area. To rank different locations, we will continue to use the return of investment as the parameter.<br />
 On the other hand, the application should be able to select a combination of different technologies where it yields most energy output.
 
 ## Milestones
-Refer to [Gantt Chart](https://github.com/tudorelu/energy_storage_rights/blob/master/Documents/Gantt%20Chart.xlsx)
+Refer to [Link](https://github.com/users/XZSCOAX57/projects/4)
 
 ## The potential of the project
 Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allows for generating more interaction between the property owner and the renewable energy developer. The landowner can benefit from this application by making a more effective and smart decision on the use of renewable energy product, it also helps them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to develop their products. This application is expected to create a win-win situation between each party.
@@ -98,24 +89,22 @@ This project is carried out under computing project courses including COMP3500, 
 ## Work allocation
 |Role|Principle|Vice|Assistant|
 |--------|------|--------|--------|
-|Project Manager| Peilin Liu| Boyang Zhang|
+|Project Manager| Peilin Liu| Zhengshi Xie|
 |Product Manager | Zhengyu Chen|
 |Spokesman| Zhengshi Xie | Peilin Liu|
 |Recorder| Peilin Liu | Zhengshi Xie | Derek Huang|
-|Back-end| Ziyang Wu| Zhengshi Xie | Yuli Lin|
-|Front-end| Peilin Liu | Boyang Zhang | Ziyang Wu|
+|Back-end| Ziyang Wu| Zhengshi Xie |
+|Front-end| Peilin Liu | Derek Huang | Jingbin Liu|
 
 ## Link to Documentation
-[Website](https://propane-net-292307.ts.r.appspot.com/) <br/>
-[Google doc](https://drive.google.com/drive/folders/1k5dIK1WhgznQoBR5lxQIU7OrqCI_OeCf) <br/>
-[Meeting Agendas](https://drive.google.com/drive/folders/1lbQkP5mrmUKXxlAF_FvXwwWyoZpDpv8R)<br/>
-[Algorithm Document]( https://drive.google.com/drive/folders/1ZyEXnGx5kGcSUAVw1QPgWDjQdaQ5DUON?usp=share_link)<br/>
-[Data Research](https://drive.google.com/drive/folders/12mnskEiLVKCq8pss-6izwgLr6nEDkFq0?usp=share_link  )<br/>
-[Decision Log]( https://github.com/users/XZSCOAX57/projects/1  )<br/>
-[Reflection](https://github.com/users/XZSCOAX57/projects/2 )<br/>
-[Risk Register]( https://drive.google.com/drive/folders/1XYEa8MV4klCDVyCWnQFCGeZhQz6f1vuU?usp=share_link)<br/>
+[Website](http://54.89.36.221:8000/) <br/>
+[Google doc](https://drive.google.com/drive/folders/1Bkb0iNbjvN38zyL3I1o1o8QEcVQbB9Ik?usp=sharing) <br/>
+[Meeting Agendas](https://drive.google.com/drive/folders/1I3LaH8eNgUA0kkkIxVkLKdnRlQfhQX_c?usp=drive_link)<br/>
+[Decision Log](https://drive.google.com/drive/folders/11Do3tRJSuvCfOn7xhhx_bhmt9q6lyAY5?usp=drive_link)<br/>
+[Reflection](https://drive.google.com/drive/folders/1rMfFTu1qsl83mC_qMsC0Lwq-KMRrusmt?usp=drive_link)<br/>
+[Risk Register](https://drive.google.com/drive/folders/1tSDZvzWGLMqH99RsNxV9itQPNsYYlvM2?usp=drive_link)<br/>
 [Milestone]( https://github.com/users/XZSCOAX57/projects/4  )<br/>
-[Trello page]( https://trello.com/b/kCYjanpm/links-with-project  )<br/>
+[Trello page](https://trello.com/invite/userworkspace81642725/ATTI6037f730b55bdb7fec67918199b672c05D08580F)https://trello.com/invite/userworkspace81642725/ATTI6037f730b55bdb7fec67918199b672c05D08580F<br/>
 
 ## Link to Webserver
 [Website]( https://propane-net-292307.ts.r.appspot.com/)<br/>

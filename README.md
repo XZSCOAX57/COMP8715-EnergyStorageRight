@@ -84,7 +84,7 @@ Refer to [Link](https://github.com/users/XZSCOAX57/projects/4)
 Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allows for generating more interaction between the property owner and the renewable energy developer. The landowner can benefit from this application by making a more effective and smart decision on the use of renewable energy product, it also helps them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to develop their products. This application is expected to create a win-win situation between each party.
 
 ## Acknowledgement
-This project is carried out under computing project courses including COMP3500, COMP4500, and COMP8715 from The Australian National University. This project team is led by project manager Peilin Liu(u7518297@anu.edu.au) and consist six other team members, Yuli Lin(u5927759@anu.edu.au), Ziyang Wu(u6262265@anu.edu.au), Zhengshi Xie(u7503941@anu.edu.au), Boyang Zhang(u7528692@anu.edu.au), Derek Huang(u7300484@anu.edu.au), Zhengyu Chen(u7531371@anu.edu.au).
+This project is carried out under computing project courses including COMP3500, COMP4500, and COMP8715 from The Australian National University. This project team is led by project manager Peilin Liu(u7518297@anu.edu.au) and consist five other team members, Ziyang Wu(u6262265@anu.edu.au), Zhengshi Xie(u7503941@anu.edu.au),  Derek Huang(u7300484@anu.edu.au), Zhengyu Chen(u7531371@anu.edu.au), and Jingbin Lin(u7664372@anu.edu.au).
 
 ## Work allocation
 |Role|Principle|Vice|Assistant|

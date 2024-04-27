@@ -21,24 +21,27 @@
 
         .selectDraw {
             background-color: #ffffff;
-            top: 70px;
+            top: 0px;
             left: 80px;
-            height: 64px;
-            width: 117px;
+            height: auto;
+            width: 20%; /* 修改宽度为100% */
             position: fixed;
+            display: flex; /* 使用 Flexbox 布局 */
+            align-items: center; /* 垂直居中对齐 */
         }
-
         .btn {
             background-color: white;
             height: 40px;
-            margin-left: -4px;
             border-radius: 0px;
             border: none;
             padding: 5px 15px;
             font-size: 14.5px;
             cursor: pointer;
-            display: inline-block;
+            flex: 1; /* 使用 Flexbox 布局，使按钮均分父容器宽度 */
+            margin: 0 2px; /* 调整按钮之间的间距 */
+            max-width: 100px; /* 设置最大宽度，防止按钮在小屏幕上过宽 */
         }
+
 
         .btn:hover {
             background: lightgray;
@@ -50,7 +53,7 @@
 
         .success .tooltiptext {
             top: 45px;
-            left: -50px;
+            left: 50px;
             visibility: hidden;
             width: 120px;
             background-color: black;
@@ -73,7 +76,7 @@
 
         .info .tooltiptext {
             top: 45px;
-            left: -10px;
+            left: 120px;
             visibility: hidden;
             width: 120px;
             background-color: black;
@@ -96,7 +99,7 @@
 
         .warning .tooltiptext {
             top: 45px;
-            left: 30px;
+            left: 180px;
             visibility: hidden;
             width: 120px;
             background-color: black;
@@ -164,7 +167,59 @@
             padding: 30px;
         }
 
-        /* Reset default list styles */
+        {#/* Reset default list styles */#}
+        {#.topnav {#}
+        {#    z-index: 1; /* 设置一个较高的 z-index 值 */#}
+        {#}#}
+        {##}
+        {##}
+        {#.topnav ul {#}
+        {#    list-style-type: none;#}
+        {#    margin: 0;#}
+        {#    padding: 0;#}
+        {#    overflow: hidden;#}
+        {#    background-color: #333; /* 背景颜色 */#}
+        {#}#}
+        {##}
+        {#/* Float list items side by side */#}
+        {#.topnav li {#}
+        {#    float: left;#}
+        {#}#}
+        {##}
+        {#/* Style links inside the navigation bar */#}
+        {#.topnav a {#}
+        {#    display: block;#}
+        {#    color: white; /* 链接文字颜色 */#}
+        {#    text-align: center;#}
+        {#    padding: 14px 16px;#}
+        {#    text-decoration: none;#}
+        {#}#}
+        {##}
+        {#/* Change the link color to indicate active/current page */#}
+        {#.topnav a.active {#}
+        {#    background-color: #4CAF50; /* 活动链接的背景颜色 */#}
+        {#}#}
+        {##}
+        {#/* On hover, change background color */#}
+        {#.topnav a:hover {#}
+        {#    background-color: #555; /* 鼠标悬停时的背景颜色 */#}
+        {#}#}
+
+        .topnav {
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+            width: auto; /* 修改宽度 */
+            height: auto; /* 修改高度 */
+            border-radius: 14px; /* 修改边框圆角 */
+            background-color: #333;
+            color: white;
+            z-index: 1; /* 设置一个较高的 z-index 以确保位于视图上方 */
+            position: fixed;
+            top: 0px;
+            left: 20%;
+
+        }
+
         .topnav ul {
             list-style-type: none;
             margin: 0;
@@ -195,6 +250,20 @@
         /* On hover, change background color */
         .topnav a:hover {
             background-color: #555; /* 鼠标悬停时的背景颜色 */
+        }
+
+        .sidenav {
+            font-family: "Lato", sans-serif;
+            height: 100%;
+            width: 325px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #c9e1ee;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
         }
 
 
@@ -692,6 +761,8 @@
                     // document.getElementById("area_a").value = area_value;
                     // }
                     showPopup_polygon(get_polygon_centroid(polygonlist));//null
+                    //只能打开一次
+                    openMyPHESnav()
                 }
             });
 
@@ -1193,20 +1264,20 @@
 <div class="outer">
     <!-- Top navigator -->
 
-    <div class="topnav" style="padding: 2px 0px;">
+    <div class="topnav"">
         <ul>
             <li><a class="active" href="/">Home</a></li>
             <li><a href="/tutorial">Tutorial</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/faq">FAQ</a></li>
-            <li><a href="/opensolar">OpenSolar.com</a></li>
+            <li><a href="/opensolar">OpenSolar</a></li>
             <!--            <li><a href="/tutorial">Tutorial</a></li>-->
         </ul>
     </div>
 
     <!-- Select area zone -->
-    <div id="viewDiv" onclick="drawPanel()" class="esri-view esri-view-height-small esri-view-height-greater-than-xsmall esri-view-height-less-than-medium esri-view-height-less-than-large esri-view-height-less-than-xlarge esri-view-orientation-landscape esri-view-width-medium esri-view-width-greater-than-xsmall esri-view-width-greater-than-small esri-view-width-less-than-large esri-view-width-less-than-xlarge">
+    <div id="viewDiv" onclick="drawPanel()" class="esri-view esri-view-height-small esri-view-height-greater-than-xsmall esri-view-height-less-than-medium esri-view-height-less-than-large esri-view-height-less-than-xlarge esri-view-orientation-landscape esri-view-width-medium esri-view-width-greater-than-xsmall esri-view-width-greater-than-small esri-view-width-less-than-large esri-view-width-less-than-xlarge" >
         <div class="esri-view-root">
             <div class="esri-view-surface esri-view-surface--inset-outline esri-view-surface--touch-none" role="application" tabindex="0" data-interacting="false">
                 <canvas style="width: 907px; height: 745px; display: block;" width="1814" height="1490"></canvas>
@@ -1276,8 +1347,8 @@
 
 </div>
 
-<div class="selectDraw" style=" top: 130px; left: 17px">
-    <h1 style="margin-left:-4px;background-color:#ffffff;width:108px;text-align: center; "><b>Select Area</b></h1>
+<div class="selectDraw" style=" top: 500px; left: 15px">
+    <h1 style="margin-left:0px;background-color:#ffffff;width:108px;text-align: center; "><b>Select Area</b></h1>
     <button class="btn success" onclick="changetopoint()">•<span class="tooltiptext">Single Point<br>Data Select</span></button>
     <button class="btn info" onclick="changetopolygon()">♢<span class="tooltiptext">Polygon Regional Data Select (double click to finish)</span>
     </button>
@@ -1286,36 +1357,49 @@
 </div>
 
 <!-- Reopen button of the sidebar -->
-<span style="font-size:20px;cursor:pointer;margin-top: 120px;
-      right:10px;
-      height: 50px;
+<span style="font-size:20px;cursor:pointer;
+      left: 80px; /* 将按钮放在屏幕左侧 */
+      height: auto;
       width: 120px;
       position: fixed;
       z-index: 1;
-      top: -40px;
-      border-radius:10px;
-      background-color:rgba(0, 0, 0, 0.9);
-      padding: 10px;" onclick="openNav()">☰ reopen
+      top: 15px;
+      border-radius: 10px;
+      background-color: greenyellow; /* 将背景颜色改为白色 */
+      color: black; /* 将字体颜色改为黑色 */
+      padding: 10px;" onclick="toggleNav()">☰Data
 </span>
 
-<span style="font-size:20px;cursor:pointer;margin-top: 120px;
-      left:10px;
-      height: 100px;
-      width: 120px;
-      position: fixed;
-      z-index: 1;
-      top: 400px;
-      border-radius:10px;
-      background-color: rgba(0, 255, 0, 0.9);
-      padding: 10px;" onclick="showMessage()">☰ Display PHES Details
+
+{#<span style="font-size:20px;cursor:pointer;#}
+{#      left:15px;#}
+{#      height: 50px;#}
+{#      width: 120px;#}
+{#      position: fixed;#}
+{#      z-index: 1;#}
+{#      top: 600px;#}
+{#      border-radius:10px;#}
+{#      background-color: rgba(0, 255, 0, 0.9);#}
+{#      padding: 10px;" onclick="showMessage()">☰PHES#}
+{#</span>#}
+
+<span id="messageSpan"
+      style="display: none;
+    font-size: 20px;
+     cursor: pointer;
+     left: 150px;
+    height: 50px;
+     width: auto;
+     position: fixed;
+     z-index: 1;
+     top: 600px;
+     border-radius: 10px;
+     background-color:rgba(255, 0, 166, 0.9);
+     padding: 10px;
+    " onclick="showMessage()">☰ Display PHES Details
 </span>
 
-<span id="messageSpan" style="display: none; font-size: 20px; cursor: pointer; margin-top: 120px; left: 10px; 
-height: 100px; width: 120px; position: fixed; z-index: 1; top: 400px; border-radius: 10px; background-color: 
-rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES Details</span>
-<button onclick="changeToPolygon()">Change to Polygon</button>
-
-<div id="popUpForPlacingPanel" class="popUp" style="display:none;background:white;height:400px;width:250px;border-radius: 7px;
+<div id="popUpForPlacingPanel" class="popUp" style="display:none;background:white;height:200px;width:200px;border-radius: 7px;
      border-style:solid; border-color:#0084CC;
      margin-left:20px; position:fixed;top: 200px;z-index: 1;">
 
@@ -1338,10 +1422,10 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
                     Panel Control Board</p>
             </button>
 
-            <p style="margin-top:30px;font-size:16px;font-weight:bold; color:rgb(125, 186, 214);text-align: justify;padding-left: 30px;padding-right: 40px ">
-                Click this button to redirect you to a page, where you can view the automatically placed panels
-                and adjust it yourself.
-                <br><br>Note: Please avoid setting the area too large or too small.</p>
+            <p style="margin-top:10px; font-size:10px; font-weight:bold; color:rgb(125, 186, 214); text-align: justify; padding-left: 30px; padding-right: 40px;">
+                Note: Please avoid setting the area too large or too small.
+            </p>
+
         </a>
     </div>
 
@@ -1525,10 +1609,10 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
 </div>
 
 <div id="myPHESnav" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;">
-
-    <!-- remove return code in onsubmit -->
-    <form id="form1" action="/main/form" ,method="get" ,="" target="the_Frame" onsubmit="check_submit()">
-        <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px" id="calculate_energy">
+    <button id="closeBtn" style="position: absolute; top: 10px; right: 10px; z-index: 1000;" onclick="closeMyPHESnav()">Close</button>
+    <form id="form1" action="/main/form" method="get" target="the_Frame" onsubmit="check_submit()" style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <!-- 表单内容 -->
+        <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px ;margin-top:20px" id="calculate_energy">
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
                 project term:
                 <input type="number" name="project term" id="effi" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Range from 1 - 20" value="20" oninput="if(value>20) value=20;if(value<1) value=1;">
@@ -1608,9 +1692,6 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
 
                 </select>
             </p>
-
-            <!--this is new edit point-->
-
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 Battery storage capacity:
                 <select name="Battery_storage_capacity" id="battery_storage_capacity" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" wrap="soft" title="0%
@@ -1629,7 +1710,6 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
 
                 </select>
             </p>
-
             <p id="isOnshore" style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
                 onshore:
                 <select name="isOnshore" style="margin-top:20px; border-radius: 5px;width:60px; height:25px;" id="onshore" wrap="soft" title=" The position is onshore or offshore">
@@ -1645,7 +1725,6 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
                         Submit</p>
                 </button>
             </div>
-
             <!-- Calculate button -->
             <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
                 <button id="calculateBtn" value="myValue" onclick="closeMyPHESnav() ">
@@ -1662,8 +1741,6 @@ rgba(255, 0, 166, 0.9); padding: 10px;" onclick="showMessage()">☰ Display PHES
 
                 
             </div>
-            
-
             <!-- Apply loan button and the pop window-->
             <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
                 <button id="applyBtn" value="myValue" onclick="getNum()">
@@ -3000,19 +3077,6 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             reset_fields();
         }
 
-        setTimeout(function () {
-        // Hide the message only if it was shown
-        if (showMessageFlag) {
-            var messageSpan = document.getElementById("messageSpan");
-            messageSpan.style.display = "none";
-            showMessageFlag = false;
-            }
-        }, 2000); // Adjust the delay time as needed
-
-        setTimeout(function () {
-        // After the changeToPolygon logic is complete, open myPHESnav
-            openMyPHESnav();
-        }, 20000); // Adjust the delay time as needed (replace with actual delay)
     }
 
 //     function changetopolygon() {
@@ -3190,6 +3254,17 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
     }
 
+    function toggleNav() {
+        var sidenav = document.getElementById("mySidenav");
+        if (sidenav.style.width === "325px") {
+            // 如果右侧板已经打开，则关闭它
+            closeNav()
+        } else {
+            // 如果右侧板关闭，则打开它
+           openNav()
+        }
+    }
+
     function openNav() {
         document.getElementById("mySidenav").style.width = "325px";
     }
@@ -3199,8 +3274,9 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
     }
 
     function openMyPHESnav() {
-        document.getElementById("myPHESnav").style.width = "325px";
-        document.getElementById("myPHESnav").style.height = "250px";
+        document.getElementById("myPHESnav").style.display = '';
+        document.getElementById("myPHESnav").style.width = "350px";
+        document.getElementById("myPHESnav").style.height = "400px";
     }
 
 
@@ -3219,6 +3295,11 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             messageSpan.style.display = "block";
             showMessageFlag = true;
         }
+         // Hide the message after 3 seconds
+        setTimeout(function() {
+            messageSpan.style.display = "none";
+            showMessageFlag = false; // Reset the flag
+        }, 1500); // 3000 milliseconds = 3 seconds
     }
 
 

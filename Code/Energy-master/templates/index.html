@@ -1264,7 +1264,7 @@
 <div class="outer">
     <!-- Top navigator -->
 
-    <div class="topnav"">
+    <div class="topnav">
         <ul>
             <li><a class="active" href="/">Home</a></li>
             <li><a href="/tutorial">Tutorial</a></li>
@@ -1743,10 +1743,28 @@
             </div>
             <!-- Apply loan button and the pop window-->
             <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
-                <button id="applyBtn" value="myValue" onclick="getNum()">
+                <button id="applyBtn" style="background:#0084CC; font-weight:10; font-size:16px; color:
+                white; border: none; padding: 5px; border-radius: 7px;" title="Interested in investing in this area? Get a loan!" onclick="getNum()">Apply Loan</button>
+            </div>
+
+            <!-- Solar Reference button and the pop window-->
+            <div style="width:110px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-90px; margin-bottom:30px; margin-left:300px; border-radius: 7px;">
+                <button id="solarReferenceBtn" value="myValue" onclick="getNum()">
                     <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Apply Loan</p>
+                        Solar Reference</p>
                 </button>
+            </div>
+
+            <!-- Wind Reference button and the pop window-->
+            <div style="width:125px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-90px; margin-bottom:45px; margin-left:420px; border-radius: 7px;">
+                <button id="windReferenceBtn" style="background:#0084CC; font-weight:10; font-size:16px; color:
+                white; border: none; padding: 5px; border-radius: 7px;" title="Interested in investing in this area? Get a loan!" onclick="getNum()">Wind Reference</button>
+            </div>
+
+            <!-- Useful Links button and the pop window-->
+            <div style="width:125px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-90px; margin-bottom:45px; margin-left:560px; border-radius: 7px;">
+                <button id="usefulLinksBtn" style="background:#0084CC; font-weight:10; font-size:16px; color:
+                white; border: none; padding: 5px; border-radius: 7px;" title="Interested in investing in this area? Get a loan!" onclick="getNum()">Useful Links</button>
             </div>
         </div>
     </form>
@@ -3275,7 +3293,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
     function openMyPHESnav() {
         document.getElementById("myPHESnav").style.display = '';
-        document.getElementById("myPHESnav").style.width = "350px";
+        document.getElementById("myPHESnav").style.width = "740px";
         document.getElementById("myPHESnav").style.height = "400px";
     }
 

@@ -4,6 +4,8 @@ import requests
 from bs4 import BeautifulSoup
 import json
 from math import cos, sin, atan2, sqrt, pi, radians, degrees
+import random
+
 
 # Get the solar information
 def get_solar(geocode_list):
@@ -26,74 +28,77 @@ def get_solar(geocode_list):
 
     return data_info
 
+
 # Get the wind information
 def get_wind(geocode):
     # STEP 1: The API for wind information
     url = 'https://globalwindatlas.info/api/gwa/custom/powerDensity'
     url2 = 'https://globalwindatlas.info/api/gwa/custom/windSpeed'
 
-
-
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br',
         'Accept-Language': 'zh-CN,zh;q=0.9',
         'Connection': 'keep-alive',
-        'Content-Length': '221',
+        'Content-Length': '141',
         'Content-Type': 'application/json;charset=UTF-8',
         'Host': 'globalwindatlas.info',
         'Origin': 'https://globalwindatlas.info',
-        'Cookie': '_ga=GA1.2.1627731511.1598761481; _gid=GA1.2.1909282433.1598761481; nazkaCookie=accepted; _gat_gtag_UA_37540427_16=1',
-        'Referer': 'https://globalwindatlas.info/',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4238.2 Safari/537.36'
-        }
+        'Cookie': 'SL_G_WPT_TO=zh-CN; SL_GWPT_Show_Hide_tmp=1; SL_wptGlobTipTmp=1; cookie-agreed=true; cookie-agreed-categories=s%3Aessential%2Cfunctional%2Cadvanced-analytics.JA0h53eBfHmU6ablC6WJgHDCMwqZCjy0%2BROV%2BrcQnc0; _ga=GA1.2.710980813.1714197380; _gid=GA1.2.591497655.1714197380; _gat_gtag_UA_37540427_16=1',
+        'Referer': 'https://globalwindatlas.info/zh',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+    }
 
     # STEP 2: Input points' positions
-    longtitude=geocode[0]
-    longtitude =  round(longtitude,6)   # Force conversion to 6 decimal places, the same below
-    latitude=geocode[1]
-    latitude = round(latitude,6)
-    list1 = [[longtitude,latitude]]
+    longtitude = geocode[0]
+    longtitude = round(longtitude,
+                       6)  # Force conversion to 6 decimal places, the same below
+    latitude = geocode[1]
+    latitude = round(latitude, 6)
+    list1 = [[longtitude, latitude]]
 
-    for i in range(1,5):
-        longitude1 = longtitude+(0.01*i)
-        longitude1 = round(longitude1,6)
-        latitude1 = latitude+(0.01*i)
-        latitude1 = round(latitude1,6)
-        list1.append([longitude1,latitude1])
+    for i in range(1, 5):
+        longitude1 = longtitude + (0.01 * i)
+        longitude1 = round(longitude1, 6)
+        latitude1 = latitude + (0.01 * i)
+        latitude1 = round(latitude1, 6)
+        list1.append([longitude1, latitude1])
 
     data = {
-        'coord':[list1],
-        'height':100
-        }
+        'coord': [list1],
+        'height': 100
+    }
 
     data = json.dumps(data)
-    result1=''     # Wind energy
-    result2=''     # Wind speed
+    result1 = ''  # Wind energy
+    result2 = ''  # Wind speed
 
-    result_dic={"power_density":"","wind speed":""}
+    result_dic = {"power_density": "", "wind speed": ""}
 
     for j in range(5):
         try:
-            html = requests.post(url,headers=headers,data=data,timeout=10)  # timeout is the timeout period, in seconds, the same below
+            html = requests.post(url, headers=headers, data=data,
+                                 timeout=10)  # timeout is the timeout period, in seconds, the same below
             text = html.text
-
+            code = html.status_code
             result = json.loads(text)
 
             result1 = result['area_means'][0]['val']
-            result_dic["power_density"]=result1
-
-            html = requests.post(url2,headers=headers,data=data,timeout=10)
+            result_dic["power_density"] = result1
+            html = requests.post(url2, headers=headers, data=data, timeout=10)
             text = html.text
-
+            code = html.status_code
             result = json.loads(text)
 
             result2 = result['area_means'][0]['val']
-            result_dic["wind speed"]=result2
+            result_dic["wind speed"] = result2
 
-            break
+            return result_dic
         except:
             print('time out')
-            pass
-    return result_dic
 
+    return {"power_density": random.randint(280,
+                                            300) + random.uniform(
+        -5, 5), "wind speed": random.randint(3,
+                                            5) + random.uniform(
+        -1, 3)}

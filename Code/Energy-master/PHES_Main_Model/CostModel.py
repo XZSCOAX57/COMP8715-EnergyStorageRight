@@ -1,6 +1,6 @@
 # Author: Ziyang Wu
 # The cost model of PHES module based on
-# https://docs.google.com/spreadsheets/d/11bFXnNKr1owT3xGqLR3pNUcy8UGSeM15/edit#gid=1789734258
+# https://drive.google.com/drive/folders/1GxbNR15bPyz7vAaGBkItUydfP0umHPJi
 
 import logging
 import numpy as np
@@ -96,6 +96,7 @@ class PHESCostModel:
             "annual_fixed_om_pmw": (0.0, 0.0),
             "annual_variable_om_pmw": (0.0, 0.0)
         }
+        #初始化完毕，后面有些需要改变为客户自己输入
 
     def get_result(self):
         return self.__result

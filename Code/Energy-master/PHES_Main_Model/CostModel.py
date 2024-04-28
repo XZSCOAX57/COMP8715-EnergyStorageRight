@@ -1,4 +1,4 @@
-# Author: Jingran
+# Author: Ziyang Wu
 # The cost model of PHES module based on
 # https://docs.google.com/spreadsheets/d/11bFXnNKr1owT3xGqLR3pNUcy8UGSeM15/edit#gid=1789734258
 
@@ -24,7 +24,7 @@ class InputParameters:
     def print_parameters(self):
         print(self.initial_parameter)
 
-
+#初始化后，需要客户自己输入更改的数据再调整。
 class PHESCostModel:
 
     def __init__(self, params):

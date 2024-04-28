@@ -1698,9 +1698,9 @@
 </form>
 </div>
 
-<div id="myPHESnav" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;">
+<div id="myPHESnav" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0; height: 0px;">
     <button id="closeBtn" style="position: absolute; top: 10px; right: 10px; z-index: 1000;" onclick="closeMyPHESnav()">Close</button>
-    <form id="form1" action="/main/form" method="get" target="the_Frame" onsubmit="check_submit()" style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <form id="form1" action="/main/form" method="get" target="the_Frame" onsubmit="check_submit()" style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
     <!-- 表单内容 -->
         <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px ;margin-top:20px" id="calculate_energy">
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
@@ -1809,15 +1809,15 @@
                 </select>
             </p>
         </div>
-        <div id="two_btn">
-            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
+        <div id="two_btn" style="display: flex; justify-content: space-between;">
+            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:75px; border-radius: 7px;">
                 <button type="submit" id="submitBtn" value="myValue">
                     <p title="Submit the value to be calculated." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Submit</p>
                 </button>
             </div>
             <!-- Calculate button -->
-            <div style="width:80px; height:70px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-105px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
+            <div style="width:80px; height:70px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-105px; margin-bottom:25px; margin-left:175px; border-radius: 7px;">
                 <button id="calculateBtn" value="myValue">
                     <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Continue</p>
@@ -1836,23 +1836,20 @@
                             }
                         </script>
                 </button>
-
-                
             </div>
             <!-- Apply loan button and the pop window-->
-            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-95px; margin-bottom:30px; margin-left:180px; border-radius: 7px;">
+            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-95px; margin-bottom:30px; margin-left:275px; border-radius: 7px;">
                 <button id="applyBtn" style="background:#0084CC; font-weight:10; font-size:16px; color:
                 white; border: none; padding: 5px; border-radius: 7px;" title="Interested in investing in this area? Get a loan!" onclick="getNum()">Apply Loan</button>
             </div>
 
             <!-- Solar Reference button and the pop window-->
-            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-100px; margin-bottom:30px; margin-left:260px; border-radius: 7px;">
+            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-100px; margin-bottom:30px; margin-left:375px; border-radius: 7px;">
                 <button id="solarReferenceBtn" value="myValue" onclick="getNum()">
                     <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Solar Reference</p>
                 </button>
             </div>
-
 
 
         </div>
@@ -3389,7 +3386,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
     function openMyPHESnav() {
         document.getElementById("myPHESnav").style.display = '';
-        document.getElementById("myPHESnav").style.width = "740px";
+        document.getElementById("myPHESnav").style.width = "500px";
         document.getElementById("myPHESnav").style.height = "400px";
     }
 

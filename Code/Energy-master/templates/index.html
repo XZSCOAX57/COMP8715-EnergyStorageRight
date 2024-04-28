@@ -766,6 +766,15 @@
                 }
             });
 
+            view.on("more-option", function (evt) {
+                var selectElement = document.getElementById("calculation_pattern");
+                var optionIndex = selectElement.selectedIndex;
+                var optionValue = selectElement.options[optionIndex].value
+                if (optionValue == "1") {
+                    subPhes()
+                }
+            });
+
             view.on("pointer-move", function (evt) {
                 if (drawselection == 2) {
                     drawline(view.toMap({x: evt.x, y: evt.y}));
@@ -1608,6 +1617,87 @@
     </div>
 </div>
 
+<!--new panel(detail option)-->
+<div id = "PHESsub" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;"
+<button id="closeBtn" style="position: absolute; top: 10px; right: 10px; z-index: 1000;" onclick="closePHESsub()">Close</button>
+<form id="form1" action="/main/form" method="get" target="the_Frame" onsubmit="check_submit()" style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px ;margin-top:20px" id="calculate_energy">
+        <script>
+            function closePHESsub() {
+                var PHESsub = document.getElementById('PHESsub');
+                PHESsub.style.display = 'none';
+                getNum();
+            }
+        </script>
+    </div>
+    <form id="form1" action="/main/form" method="get" target="the_Frame" onsubmit="check_submit()" style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px ;margin-top:20px" id="calculate_energy_moreop">
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                insurance cost:
+                <input type="number" name="insurance cost" id="ins_cost_solar_farm_per_sys" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Expressed as the cost of insurance per system unit" value="0.0025">
+                per year
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                kilowatt hours:
+                <input type="number" name="kilowatt hours" id="KwH_per_sqm" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="This parameter indicates the amount of electricity" value="0.3">
+                per square metre
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                maintenance cost:
+                <input type="number" name="maintenance cost" id="maintenance_cost" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="This is the cost of regular maintenance required to operate the solar system" value="0.03">
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                leasing fee:
+                <input type="number" name="leasing fee" id="leasing_fee" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="this fee is the cost of the lease" value="0.05">
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                interest rate:
+                <input type="number" name=" interest rate" id=" interest_rate" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="the interest rate is the annualised percentage rate" value="0.065">
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                Ratio of covered area to solar area:
+                <input type="number" name="Ratio of covered area to solar area" id="ratio_of_covered_area_to_solar_area" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title=" This ratio represents the proportion of actual solar panels" value="1.5">
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                cost:
+                <input type="number" name="cost" id="cost_per_sqm" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title=" This is the total cost per square metre to set up a solar plant" value="247.5">
+                per square metre
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                Large Scale Generation Certificate Value:
+                <input type="number" name="Large Scale Generation Certificate Value" id="LGC_value" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="LGCs are an incentive used to encourage renewable energy projects" value="25">
+            </p>
+            <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px; ">
+                financing amount:
+                <input type="number" name="financing amount" id="financing_amount" style="margin-top:20px;border:1px solid; border-radius: 5px ;width:45px; height:25px; margin-right:10px;" wrap="soft" title="Indicates the proportion of the total project cost that will be raised through financing" value="1">
+            </p>
+        </div>
+
+        <!-- Calculate button -->
+        <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
+            <button id="CalculateBtn" value="myValue">
+                <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
+                    Calculate</p>
+                <script>
+                    function subPhes(){
+                        console.log("optionIndex="+optionIndex+" "+"optionValue="+optionValue)
+                        openPHESsub()
+
+                    }
+
+                    function closeMyPHESnav() {
+                        var myPHESnav = document.getElementById('myPHESnav');
+                        myPHESnav.style.display = 'none';
+                        getNum();
+
+                    }
+                </script>
+            </button>
+        </div>
+    </form>
+</form>
+</div>
+
 <div id="myPHESnav" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;">
     <button id="closeBtn" style="position: absolute; top: 10px; right: 10px; z-index: 1000;" onclick="closeMyPHESnav()">Close</button>
     <form id="form1" action="/main/form" method="get" target="the_Frame" onsubmit="check_submit()" style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);">
@@ -1683,13 +1773,14 @@
 5: Wind &amp; pump hydro
 6: Wind &amp; battery
 ">
-                    <option value="1" selected="">1: Solar &amp; no storage</option>
+                    <option value="1" selected="">1: Solar &amp; no storage
+
                     <option value="2">2: Solar &amp; pump hydro</option>
                     <option value="3">3: Solar &amp; battery</option>
                     <option value="4">4: Wind &amp; no storage</option>
                     <option value="5">5: Wind &amp; pump hydro</option>
                     <option value="6">6: Wind &amp; battery</option>
-
+                    </option>
                 </select>
             </p>
             <p style="background:#c9e1ee ;font-weight:10;font-size:16px; color:#818181;padding:20px;padding-left:35px;margin-left:-20px;margin-top: -48px ">
@@ -1719,22 +1810,29 @@
             </p>
         </div>
         <div id="two_btn">
-            <div style="width:65px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
+            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-50px; margin-bottom:35px; margin-left:20px; border-radius: 7px;">
                 <button type="submit" id="submitBtn" value="myValue">
                     <p title="Submit the value to be calculated." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Submit</p>
                 </button>
             </div>
             <!-- Calculate button -->
-            <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
-                <button id="calculateBtn" value="myValue" onclick="closeMyPHESnav() ">
+            <div style="width:80px; height:70px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-105px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
+                <button id="calculateBtn" value="myValue">
                     <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
-                        Calculate</p>
+                        Continue</p>
                         <script>
+                                function subPhes(){
+                                console.log("optionIndex="+optionIndex+" "+"optionValue="+optionValue)
+                                    openPHESsub()
+
+                            }
+
                             function closeMyPHESnav() {
                                 var myPHESnav = document.getElementById('myPHESnav');
                                 myPHESnav.style.display = 'none';
                                 getNum();
+
                             }
                         </script>
                 </button>
@@ -1742,30 +1840,21 @@
                 
             </div>
             <!-- Apply loan button and the pop window-->
-            <div style="width:95px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-60px; margin-bottom:30px; margin-left:195px; border-radius: 7px;">
+            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-95px; margin-bottom:30px; margin-left:180px; border-radius: 7px;">
                 <button id="applyBtn" style="background:#0084CC; font-weight:10; font-size:16px; color:
                 white; border: none; padding: 5px; border-radius: 7px;" title="Interested in investing in this area? Get a loan!" onclick="getNum()">Apply Loan</button>
             </div>
 
             <!-- Solar Reference button and the pop window-->
-            <div style="width:110px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-90px; margin-bottom:30px; margin-left:300px; border-radius: 7px;">
+            <div style="width:80px; height:70px;overflow:hidden; background:#0084CC; padding:5px; margin-top:-100px; margin-bottom:30px; margin-left:260px; border-radius: 7px;">
                 <button id="solarReferenceBtn" value="myValue" onclick="getNum()">
                     <p title="Interested in investing in this area? Get a loan!" style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                         Solar Reference</p>
                 </button>
             </div>
 
-            <!-- Wind Reference button and the pop window-->
-            <div style="width:125px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-90px; margin-bottom:45px; margin-left:420px; border-radius: 7px;">
-                <button id="windReferenceBtn" style="background:#0084CC; font-weight:10; font-size:16px; color:
-                white; border: none; padding: 5px; border-radius: 7px;" title="Interested in investing in this area? Get a loan!" onclick="getNum()">Wind Reference</button>
-            </div>
 
-            <!-- Useful Links button and the pop window-->
-            <div style="width:125px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-90px; margin-bottom:45px; margin-left:560px; border-radius: 7px;">
-                <button id="usefulLinksBtn" style="background:#0084CC; font-weight:10; font-size:16px; color:
-                white; border: none; padding: 5px; border-radius: 7px;" title="Interested in investing in this area? Get a loan!" onclick="getNum()">Useful Links</button>
-            </div>
+
         </div>
     </form>
  </div>
@@ -2016,7 +2105,9 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
     <script>
         var btn = document.getElementById('applyBtn');
+        var btn2 = document.getElementById('solarReferenceBtn');
         var div = document.getElementById('background');
+        var div2 = document.getElementById('background2');
         var close = document.getElementById('close-button');
         var cal_btn = document.getElementById('calculateBtn');
 
@@ -2035,6 +2126,10 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
             div.style.display = "block";
         }
 
+        btn2.onclick = function show() {
+            div2.style.display = "block";
+        }
+
         close.onclick = function close() {
             div.style.display = "none";
         }
@@ -2048,9 +2143,10 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
         cal_btn.onclick = function calculate_ROI_IRR() {
 
-            var myPHESnav = document.getElementById('myPHESnav');
-            myPHESnav.style.display = 'none';
 
+            closeMyPHESnav()
+            openPHESsub()
+            subPhes()
             document.getElementById("form1").submit()
 
             //TODO: this is only solar
@@ -3295,6 +3391,12 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
         document.getElementById("myPHESnav").style.display = '';
         document.getElementById("myPHESnav").style.width = "740px";
         document.getElementById("myPHESnav").style.height = "400px";
+    }
+
+    function openPHESsub() {
+        document.getElementById("PHESsub").style.display = '';
+        document.getElementById("PHESsub").style.width = "740px";
+        document.getElementById("PHESsub").style.height = "400px";
     }
 
 

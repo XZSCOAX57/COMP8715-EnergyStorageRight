@@ -127,6 +127,7 @@ def energy_info():
 
 
 # From user's choice get the parameters
+# Note: the new options for the solar pattern has been updated with interface tested
 @app.route("/main/form", methods=["GET", "POST"])
 def get_method_args():
     if request.method == "GET":

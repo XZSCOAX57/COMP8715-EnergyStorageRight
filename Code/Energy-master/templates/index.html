@@ -1850,8 +1850,6 @@
                         Solar Reference</p>
                 </button>
             </div>
-
-
         </div>
     </form>
  </div>
@@ -2030,6 +2028,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
         #background {
             display: none;
+            z-index: 10000;
             position: fixed;
             left: 0;
             top: 0;
@@ -3387,7 +3386,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
     function openMyPHESnav() {
         document.getElementById("myPHESnav").style.display = '';
         document.getElementById("myPHESnav").style.width = "500px";
-        document.getElementById("myPHESnav").style.height = "400px";
+        document.getElementById("myPHESnav").style.height = "500px";
     }
 
     function openPHESsub() {

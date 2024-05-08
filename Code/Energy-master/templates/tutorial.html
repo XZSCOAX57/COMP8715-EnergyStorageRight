@@ -50,7 +50,22 @@
             padding: 30px;
         }
 
-        /* Reset default list styles */
+
+        .topnav {
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+            width: auto; /* 修改宽度 */
+            height: auto; /* 修改高度 */
+            border-radius: 14px; /* 修改边框圆角 */
+            background-color: #333;
+            color: white;
+            z-index: 1; /* 设置一个较高的 z-index 以确保位于视图上方 */
+            position: fixed;
+            top: 0px;
+            left: 20%;
+
+        }
+
         .topnav ul {
             list-style-type: none;
             margin: 0;
@@ -328,29 +343,12 @@
 <div id='map'>
     <div class="topnav">
         <ul>
-            {#
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            #}
-            {#
-            <li><a class="active" href="{{ url_for('news') }}">Tutorial</a></li>
-            #}
-            {#
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            #}
-            {#
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            #}
-            {#
-            <li><a href="{{ url_for('map_new') }}">Map</a></li>
-            #}
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a class="active" href="{{ url_for('tutorial') }}">Tutorial</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
             <li><a href="{{ url_for('faq') }}">FAQ</a></li>
             <li><a href="{{ url_for('openSolar') }}">OpenSolar.com</a></li>
-
-            <!--            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>-->
         </ul>
     </div>
 </div>

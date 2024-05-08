@@ -1358,37 +1358,37 @@
     " onclick="showMessage()">☰ Display PHES Details
 </span>
 
-{#<div id="popUpForPlacingPanel" class="popUp" style="display:none;background:white;height:200px;width:200px;border-radius: 7px;#}
-{#     border-style:solid; border-color:#0084CC;#}
-{#     margin-left:20px; position:fixed;top: 200px;z-index: 1;">#}
-{##}
-{##}
-{#   <div style=" overflow:hidden; padding:5px; text-align:center">#}
-{#        <script>#}
-{#            function jump_panel() {#}
-{#                // location.href="/panelboard";#}
-{#                // window.localStorage.setItem('list',polygonlist.toString());#}
-{#                document.cookie = polygonlist.toString();#}
-{#            }#}
-{##}
-{#        </script>#}
-{##}
-{#        <a href="/panelboard" target="_blank">#}
-{##}
-{#            <button type="button" id="" style="margin-top:30px; padding:20px;font-size:16px;font-weight:bold; border-radius:5px; border-style:none;#}
-{#                background:rgb(125, 186, 214);outline:none; " value="" onclick="jump_panel()">#}
-{#                <p title="Jump to Panel Control Board" style="font-weight:10;font-size:16px">#}
-{#                    Panel Control Board</p>#}
-{#            </button>#}
-{##}
-{#            <p style="margin-top:10px; font-size:10px; font-weight:bold; color:rgb(125, 186, 214); text-align: justify; padding-left: 30px; padding-right: 40px;">#}
-{#                Note: Please avoid setting the area too large or too small.#}
-{#            </p>#}
-{##}
-{#        </a>#}
-{#    </div> #}
-{##}
-{#</div>#}
+<div id="popUpForPlacingPanel" class="popUp" style="display:none;background:white;height:0px;width:0px;border-radius: 0px;display: none;
+     border-style:solid; border-color:#0084CC;
+     margin-left:20px; position:fixed;top: 200px;z-index: 0;">
+
+
+   <div style=" overflow:hidden; padding:0px; text-align:center">
+        <script>
+            function jump_panel() {
+                // location.href="/panelboard";
+                // window.localStorage.setItem('list',polygonlist.toString());
+                document.cookie = polygonlist.toString();
+            }
+
+        </script>
+
+        <a href="/panelboard" target="_blank">
+
+            <button type="button" id="" style="margin-top:30px; padding:0px;font-size:16px;font-weight:bold; border-radius:5px; border-style:none;
+                background:rgb(125, 186, 214);outline:none; " value="" onclick="jump_panel()">
+                <p title="Jump to Panel Control Board" style="font-weight:10;font-size:16px">
+                    Panel Control Board</p>
+            </button>
+
+            <p style="margin-top:10px; font-size:10px; font-weight:bold; color:rgb(125, 186, 214); text-align: justify; padding-left: 30px; padding-right: 40px;">
+                Note: Please avoid setting the area too large or too small.
+            </p>
+
+        </a>
+    </div>
+
+</div>
 
 <script>
 

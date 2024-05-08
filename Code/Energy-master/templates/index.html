@@ -1606,7 +1606,7 @@
 </div>
 
 <!--new panel(detail option)-->
-<div id = "PHESsub" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;"
+<div id = "PHESsub" class="botnav" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #c9e1ee; width: 0px; height: 0px;">
 <button id="closeBtn" style="position: absolute; top: 10px; right: 10px; z-index: 1000;" onclick="closePHESsub()">Close</button>
 <form id="form1" action="/main/form" method="get" target="the_Frame" onsubmit="check_submit()" style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <div style="background:#c9e1ee;padding-bottom:65px;padding-left:0px ;margin-top:20px" id="calculate_energy">
@@ -1663,7 +1663,7 @@
 
         <!-- Calculate button -->
         <div style="width:80px; overflow:hidden; background:#0084CC; padding:5px; margin-top:-70px; margin-bottom:25px; margin-left:100px; border-radius: 7px;">
-            <button id="CalculateBtn" value="myValue">
+            <button id="CalculateBtn1" value="myValue" onclick="closePHESsub()">
                 <p title="Calculate the ROI and IRR for the selected energy in selected area." style="background:#0084CC ;font-weight:10;font-size:16px; color:white">
                     Calculate</p>
                 <script>
@@ -2225,7 +2225,7 @@ This tab will return the ROI and IRR for combination of Wind + Storage." class="
 
             closeMyPHESnav()
             openPHESsub()
-            subPhes()
+
             document.getElementById("form1").submit()
 
             //TODO: this is only solar

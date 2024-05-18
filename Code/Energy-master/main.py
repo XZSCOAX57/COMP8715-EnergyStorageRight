@@ -106,16 +106,24 @@ def energy_info():
         result_dic3 = get_iter([lat, lon])
         print(result_dic3)
         class_ = result_dic3.get("Class")
+        global head
         head = result_dic3.get("Head (m)")
         separation = result_dic3.get("Separation (km)")
+        global separation_between_reservoirs
+        separation_between_reservoirs = separation
+
         slope_avg = result_dic3.get("Slope (%)")
         volume = result_dic3.get("Volume (GL)")
         water_to_rock = result_dic3.get("Combined water to rock ratio")
+        global water_rock_volume_ratio
+        water_rock_volume_ratio = water_to_rock
+        
         energy = result_dic3.get("Energy (GWh)")
+        global stored_energy
+        stored_energy = energy
         storage_time = result_dic3.get("Storage time (h)")
         country, country_code = get_country(lat_str, lon_str)
-        elec_price = get_elec_price(country_code)
-
+        elec_price=get_elec_price(country_code)
         global grid_distance
         grid_distance = findcloestpoint(lon, lat)
 
@@ -256,9 +264,9 @@ def calculate_roi_irr():
                                                               in_state_supplier_bool,
                                                               int(sgip_step),
                                                               saving_assumptions)
-            roi = calculate_roi_solar_with_pumped_hydro(
-                project_term=int(project_term), water_area=area_range,
-                cost_per_sqm=247.5)
+            roi = calculate_roi_solar_with_pumped_hydro(project_term=int(project_term), water_area=area_range,
+                                                        cost_per_sqm=247.5,head = head, water_rock_volume_ratio = water_rock_volume_ratio,stored_energy = stored_energy, separation_between_reservoirs = separation_between_reservoirs)
+
 
         if (calculation_pattern == '3'):
             irr = calculate_IRR_solar_with_battery_payback_model(
